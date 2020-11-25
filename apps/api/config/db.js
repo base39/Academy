@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+require('dotenv-safe').config()
 
-const url = `mongodb+srv://rafael:paketa123@cluster0.fddym.mongodb.net/pamovies?retryWrites=true&w=majority`
+const mongoose = require('mongoose')
 
 
 const connectionParams={
@@ -8,7 +8,7 @@ const connectionParams={
     useCreateIndex: true,
     useUnifiedTopology: true 
 }
-mongoose.connect(url,connectionParams)
+mongoose.connect(process.env.MONGO_CONNECTION, connectionParams)
     .then( () => {
         console.log('Connected to database')
     })
