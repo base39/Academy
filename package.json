@@ -25,5 +25,8 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
   }
 }
