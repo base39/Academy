@@ -1,19 +1,22 @@
-const mongoose = require('mongoose')
-const {User} = require('../src/data/user')
+/* eslint-disable max-len */
+/* eslint-disable sort-vars */
+/* eslint-disable sort-keys */
+const mongoose = require('mongoose');
+// eslint-disable-next-line no-mixed-requires
+const { User } = require('../src/data/user'),
 
-const connectionParams={
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-}
+ connectionParams = {
+    'useNewUrlParser': true,
+    'useCreateIndex': true,
+    'useUnifiedTopology': true
+},
 
-const connectDb = () => {
-    return mongoose.connect(process.env.DB_CONNECTION, connectionParams)
-}
+ // eslint-disable-next-line no-process-env
+ connectDb = () => mongoose.connect(process.env.DB_CONNECTION, connectionParams),
 
-const models = {User}
+ models = { User };
 
 module.exports = {
-    connectDb, 
+    connectDb,
     models
-}
+};
