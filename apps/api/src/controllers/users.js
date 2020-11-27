@@ -24,19 +24,19 @@ module.exports = app => {
             }
 
             if (password !== user.password) {
- return res.status(400).send({ 'error': 'Senha inválida' });
-}
+                return res.status(400).send({ 'error': 'Senha inválida' });
+            }
 
             if (user) {
                 const token = jwt.sign({ email }, process.env.SECRET, {
                     'expiresIn': 300
                 });
 
-return res.json({ 'auth': true,
-token });
+                return res.json({ 'auth': true,
+                token });
             }
         });
     };
 
-return controller;
+    return controller;
 };

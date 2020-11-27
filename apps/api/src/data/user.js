@@ -3,7 +3,7 @@
 /* eslint-disable no-mixed-requires */
 const mongoose = require('mongoose'),
 
- userSchema = new mongoose.Schema({
+userSchema = new mongoose.Schema({
     'name': {
         'type': String,
         'require': true
@@ -21,7 +21,7 @@ const mongoose = require('mongoose'),
     }
 }),
 
- User = mongoose.model('User', userSchema);
+User = mongoose.model('User', userSchema);
 
 module.exports = {
     User

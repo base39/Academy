@@ -5,16 +5,16 @@ const mongoose = require('mongoose');
 // eslint-disable-next-line no-mixed-requires
 const { User } = require('../src/data/user'),
 
- connectionParams = {
+connectionParams = {
     'useNewUrlParser': true,
     'useCreateIndex': true,
     'useUnifiedTopology': true
 },
 
- // eslint-disable-next-line no-process-env
- connectDb = () => mongoose.connect(process.env.DB_CONNECTION, connectionParams),
+// eslint-disable-next-line no-process-env
+connectDb = () => mongoose.connect(process.env.DB_CONNECTION, connectionParams),
 
- models = { User };
+models = { User };
 
 module.exports = {
     connectDb,
