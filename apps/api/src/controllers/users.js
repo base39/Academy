@@ -1,3 +1,5 @@
+/* eslint-disable no-else-return */
+/* eslint-disable no-negated-condition */
 /* eslint-disable object-property-newline */
 /* eslint-disable no-process-env */
 /* eslint-disable eqeqeq */
@@ -22,9 +24,7 @@ module.exports = app => {
 
             if (!user) {
                 return res.status(400).send({ 'error': 'E-mail e/ou senha inválidos' });
-            }
-
-            if (user) {
+            } else {
                 const token = jwt.sign({ email }, process.env.SECRET, {
                     'expiresIn': 300
                 });
