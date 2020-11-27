@@ -1,13 +1,21 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const config = require('config')
+/* eslint-disable no-process-env */
+const express = require('express');
+const bodyParser = require('body-parser');
+const config = require('config');
+const consign = require('consign');
 
 module.exports = () => {
-    const app = express()
+    const app = express();
 
-    app.set('port', process.env.PORT || config.get('server.port'))
+    app.set('port', process.env.PORT || config.get('server.port'));
 
-    app.use(bodyParser.json())
+    app.use(bodyParser.json());
 
-    return app
-}
+    consign({ 'cwd': 'src' }).
+        then('data').
+        then('controllers').
+        then('routes').
+        into(app);
+
+    return app;
+};

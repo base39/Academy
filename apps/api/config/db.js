@@ -1,17 +1,22 @@
-require('dotenv-safe').config()
+/* eslint-disable max-len */
+/* eslint-disable sort-vars */
+/* eslint-disable sort-keys */
+const mongoose = require('mongoose');
+// eslint-disable-next-line no-mixed-requires
+const { User } = require('../src/data/user'),
 
-const mongoose = require('mongoose')
+connectionParams = {
+    'useNewUrlParser': true,
+    'useCreateIndex': true,
+    'useUnifiedTopology': true
+},
 
+// eslint-disable-next-line no-process-env
+connectDb = () => mongoose.connect(process.env.DB_CONNECTION, connectionParams),
 
-const connectionParams={
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true 
-}
-mongoose.connect(process.env.MONGO_CONNECTION, connectionParams)
-    .then( () => {
-        console.log('Connected to database')
-    })
-    .catch( (err) => {
-        console.error(`Error connecting to the database. \n${err}`);
-    })
+models = { User };
+
+module.exports = {
+    connectDb,
+    models
+};
