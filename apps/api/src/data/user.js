@@ -21,7 +21,7 @@ userSchema = new mongoose.Schema({
     }
 }),
 
-User = mongoose.model('User', userSchema);
+User = mongoose.model('Userd', userSchema);
 
 module.exports = {
     User
