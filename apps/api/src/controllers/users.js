@@ -1,3 +1,4 @@
+/* eslint-disable object-property-newline */
 /* eslint-disable no-process-env */
 /* eslint-disable eqeqeq */
 /* eslint-disable consistent-return */
@@ -17,14 +18,10 @@ module.exports = app => {
     controller.login = async (req, res) => {
         connectDb().then(async() => {
             const { email, password } = req.body,
-             user = await models.User.findOne({ email }).select('+password');
+            user = await models.User.findOne({ email, password });
 
             if (!user) {
-                return res.status(400).send({ 'error': 'Usuário não encontrado' });
-            }
-
-            if (password !== user.password) {
-                return res.status(400).send({ 'error': 'Senha inválida' });
+                return res.status(400).send({ 'error': 'E-mail e/ou senha inválidos' });
             }
 
             if (user) {
