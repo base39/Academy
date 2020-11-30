@@ -26,7 +26,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pretty && npm run lint"
+      "pre-commit": "npm run pretty",
+      "pre-push": "npm run lint"
     }
   },
   "dependencies": {
