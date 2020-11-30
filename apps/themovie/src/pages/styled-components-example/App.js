@@ -1,12 +1,16 @@
-import React from 'react'
-import {Title} from './styles'
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import MainRoutes from '../../routes';
 
 const App = () => {
-    return (
-        <div>
-            <Title>Olá, Styled-components!</Title>
-        </div>
-    )
-}
+	return (
+		<Router>
+			<div>
+				<MainRoutes />
+			</div>
+		</Router>
+	);
+};
 
 export default App;

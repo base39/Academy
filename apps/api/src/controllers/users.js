@@ -27,15 +27,12 @@ module.exports = () => {
 				'auth': true,
 				token
 			});
-
 		});
 	};
 
 	/* Cadastro Usuário */
 	controller.register = (req, res) => {
-
 		connectDb().then(async () => {
-
 			const { name, email, password } = req.body,
 				foundUser = await models.User.findOne({ email });
 
@@ -58,9 +55,7 @@ module.exports = () => {
 			return res.json({
 				'success': true
 			});
-
 		});
-
 	};
 
 	return controller;

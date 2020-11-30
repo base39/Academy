@@ -1,36 +1,36 @@
 {
-  "name": "themovie",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext .js,.jsx .",
-    "pretty": "prettier --write ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paketacredito/Academy.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/paketacredito/Academy/issues"
-  },
-  "homepage": "https://github.com/paketacredito/Academy#readme",
-  "devDependencies": {
-    "eslint": "^7.14.0",
-    "eslint-plugin-react": "^7.21.5",
-    "husky": "^4.3.0",
-    "prettier": "^2.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pretty",
-      "pre-push": "npm run lint"
-    }
-  },
-  "dependencies": {
-    "jsonwebtoken": "^8.5.1"
-  }
+	"name": "themovie",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix --ext .js,.jsx .",
+		"pretty": "prettier --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/paketacredito/Academy.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/paketacredito/Academy/issues"
+	},
+	"homepage": "https://github.com/paketacredito/Academy#readme",
+	"devDependencies": {
+		"eslint": "^7.14.0",
+		"eslint-plugin-react": "^7.21.5",
+		"husky": "^4.3.0",
+		"prettier": "^2.2.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run pretty",
+			"pre-push": "npm run lint"
+		}
+	},
+	"dependencies": {
+		"jsonwebtoken": "^8.5.1"
+	}
 }
