@@ -1,3 +1,4 @@
+/* eslint-disable object-property-newline */
 /* eslint-disable max-statements */
 /* eslint-disable max-len */
 /* eslint-disable consistent-return */

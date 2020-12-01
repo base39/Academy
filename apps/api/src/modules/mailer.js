@@ -1,3 +1,4 @@
+/* eslint-disable object-property-newline */
 /* eslint-disable no-undefined */
 const path = require('path');
 const nodemailer = require('nodemailer');
