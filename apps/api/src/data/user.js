@@ -15,8 +15,13 @@ const mongoose = require('mongoose'),
 		},
 		'password': {
 			'type': String,
-			'required': true,
-			'select': false
+			'required': true
+		},
+		'passwordResetToken': {
+			'type': String
+		},
+		'passwordResetExpires': {
+			'type': Date
 		}
 	}),
 	User = mongoose.model('User', userSchema);
