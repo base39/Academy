@@ -4,7 +4,6 @@
 	"description": "",
 	"main": "index.js",
 	"dependencies": {
-		"axios": "^0.21.0",
 		"body-parser": "^1.19.0",
 		"config": "^3.3.2",
 		"consign": "^0.1.6",
