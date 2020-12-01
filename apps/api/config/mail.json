@@ -1,8 +1,8 @@
 {
 	"host": "smtp.mailtrap.io",
 	"port": 2525,
-	"user": "92c010819f7849",
-	"pass": "6a3a0a63986e8c"
+	"user": "abc@servermail.com", // ADicionar email da plataforma mailtrap
+	"pass": "123456" // Adicionar senha da plataforma mailtrap
 }
 
 // Dados referentes ao servidor de e-mail remetente
