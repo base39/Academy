@@ -93,8 +93,7 @@ export default class Register extends Component {
 					</div>
 					<div>
 						<AcessStyled>
-							Nome de Usuário{' '}
-							<SpanAlert>{this.state.errors['name']}</SpanAlert>
+							Nome de Usuário <SpanAlert>{this.state.errors['name']}</SpanAlert>
 						</AcessStyled>
 						<div>
 							<FieldStyled
@@ -108,9 +107,7 @@ export default class Register extends Component {
 					<div>
 						<AcessStyled>
 							Senha (mínimo de 4 caracteres){' '}
-							<SpanAlert>
-								{this.state.errors['password']}
-							</SpanAlert>
+							<SpanAlert>{this.state.errors['password']}</SpanAlert>
 						</AcessStyled>
 						<div>
 							<FieldStyled
@@ -125,9 +122,7 @@ export default class Register extends Component {
 					<div>
 						<AcessStyled>
 							Confirme sua senha{' '}
-							<SpanAlert>
-								{this.state.errors['confirmPassword']}
-							</SpanAlert>
+							<SpanAlert>{this.state.errors['confirmPassword']}</SpanAlert>
 						</AcessStyled>
 						<div>
 							<FieldStyled
@@ -141,8 +136,7 @@ export default class Register extends Component {
 					</div>
 					<div>
 						<AcessStyled>
-							E-mail{' '}
-							<SpanAlert>{this.state.errors['email']}</SpanAlert>
+							E-mail <SpanAlert>{this.state.errors['email']}</SpanAlert>
 						</AcessStyled>
 						<div>
 							<FieldStyled
