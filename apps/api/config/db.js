@@ -5,10 +5,9 @@ const { User } = require('../src/data/user'),
 		'useCreateIndex': true,
 		'useUnifiedTopology': true
 	},
-
 	connectDb = () =>
-	mongoose.connect(process.env.DB_CONNECTION, connectionParams);
-	models = { User };
+		mongoose.connect(process.env.DB_CONNECTION, connectionParams);
+models = { User };
 
 module.exports = {
 	connectDb,
