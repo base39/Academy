@@ -6,19 +6,21 @@ const hbs = require('nodemailer-express-handlebars');
 const { host, port, user, pass } = require('../../config/mail.json');
 
 const transport = nodemailer.createTransport({
-    host,
-    port,
-    'auth': { user,
-pass }
+	host,
+	port,
+	'auth': { user, pass }
 });
 
-transport.use('compile', hbs({
-    'viewEngine': {
-        'defaultLayout': undefined,
-        'partialsDir': path.resolve('./src/templates')
-    },
-    'viewPath': path.resolve('./src/templates'),
-    'extName': '.html'
-}));
+transport.use(
+	'compile',
+	hbs({
+		'viewEngine': {
+			'defaultLayout': undefined,
+			'partialsDir': path.resolve('./src/templates')
+		},
+		'viewPath': path.resolve('./src/templates'),
+		'extName': '.html'
+	})
+);
 
-  module.exports = transport;
+module.exports = transport;

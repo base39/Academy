@@ -63,7 +63,6 @@ module.exports = () => {
 	};
 
 	controller.forgotPassword = (req, res) => {
-
 		connectDb().then(async () => {
 			const { email } = req.body;
 
@@ -78,13 +77,16 @@ module.exports = () => {
 			const now = new Date();
 			now.setHours(now.getHours() + 1);
 
-			await models.User.findByIdAndUpdate(user.id, {
-				'$set': {
-					'passwordResetToken': token,
-					'passwordResetExpires': now
-				}
-			}, { 'new': true,
-'useFindAndModify': false });
+			await models.User.findByIdAndUpdate(
+				user.id,
+				{
+					'$set': {
+						'passwordResetToken': token,
+						'passwordResetExpires': now
+					}
+				},
+				{ 'new': true, 'useFindAndModify': false }
+			);
 
 			mailer.sendMail({
 				'to': email,
@@ -94,13 +96,10 @@ module.exports = () => {
 			});
 
 			return res.send();
-
 		});
-
 	};
 
 	controller.resetPassword = (req, res) => {
-
 		connectDb().then(async () => {
 			const { email, token, password } = req.body;
 
@@ -117,7 +116,9 @@ module.exports = () => {
 			const now = new Date();
 
 			if (now > user.passwordResetExpires) {
-				return res.status(400).send({ 'error': 'Token expirado, gere um novo' });
+				return res
+					.status(400)
+					.send({ 'error': 'Token expirado, gere um novo' });
 			}
 
 			user.password = password;
@@ -125,11 +126,8 @@ module.exports = () => {
 			await user.save();
 
 			res.send();
-
 		});
-
 	};
 
 	return controller;
 };
-
