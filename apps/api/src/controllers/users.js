@@ -50,7 +50,7 @@ module.exports = () => {
 				if (err) {
 					return res.status(422).send(err.message);
 				}
-				
+
 				return res.json({
 					'success': true
 				});

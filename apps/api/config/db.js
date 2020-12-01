@@ -7,7 +7,7 @@ const { User } = require('../src/data/user'),
 	},
 	connectDb = () =>
 		mongoose.connect(process.env.DB_CONNECTION, connectionParams);
-		const models = { User };
+const models = { User };
 
 module.exports = {
 	connectDb,
