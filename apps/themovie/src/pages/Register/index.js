@@ -6,7 +6,8 @@ import {
 	FieldStyled,
 	ButtonStyled,
 	ContainerStyled,
-	LinkRouterStyled
+	LinkRouterStyled,
+	SpanAlert
 } from '../styled-components-example/styles';
 
 export default class Register extends Component {
@@ -93,7 +94,7 @@ export default class Register extends Component {
 					<div>
 						<AcessStyled>
 							Nome de Usuário{' '}
-							<span style={{ color: 'red' }}>{this.state.errors['name']}</span>
+							<SpanAlert>{this.state.errors['name']}</SpanAlert>
 						</AcessStyled>
 						<div>
 							<FieldStyled
@@ -107,9 +108,9 @@ export default class Register extends Component {
 					<div>
 						<AcessStyled>
 							Senha (mínimo de 4 caracteres){' '}
-							<span style={{ color: 'red' }}>
+							<SpanAlert>
 								{this.state.errors['password']}
-							</span>
+							</SpanAlert>
 						</AcessStyled>
 						<div>
 							<FieldStyled
@@ -124,9 +125,9 @@ export default class Register extends Component {
 					<div>
 						<AcessStyled>
 							Confirme sua senha{' '}
-							<span style={{ color: 'red' }}>
+							<SpanAlert>
 								{this.state.errors['confirmPassword']}
-							</span>
+							</SpanAlert>
 						</AcessStyled>
 						<div>
 							<FieldStyled
@@ -141,7 +142,7 @@ export default class Register extends Component {
 					<div>
 						<AcessStyled>
 							E-mail{' '}
-							<span style={{ color: 'red' }}>{this.state.errors['email']}</span>
+							<SpanAlert>{this.state.errors['email']}</SpanAlert>
 						</AcessStyled>
 						<div>
 							<FieldStyled
