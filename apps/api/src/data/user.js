@@ -1,6 +1,3 @@
-/* eslint-disable sort-vars */
-/* eslint-disable sort-keys */
-/* eslint-disable no-mixed-requires */
 const mongoose = require('mongoose'),
 	userSchema = new mongoose.Schema({
 		'name': {

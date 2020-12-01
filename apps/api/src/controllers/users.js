@@ -33,8 +33,8 @@ module.exports = () => {
 	/* Cadastro Usuário */
 	controller.register = (req, res) => {
 		connectDb().then(async () => {
-			const { name, email, password } = req.body,
-				foundUser = await models.User.findOne({ email });
+			const { name, email, password } = req.body;
+			foundUser = await models.User.findOne({ email });
 
 			if (foundUser) {
 				return res.send({ 'error': 'Esse usuário já esta cadastrado' });
@@ -46,15 +46,16 @@ module.exports = () => {
 				password
 			});
 
-			user.save(err => {
+			await user.save(err => {
 				if (err) {
 					return res.status(422).send(err.message);
+				} else {
+					return res.json({
+						'success': true
+					});
 				}
 			});
 
-			return res.json({
-				'success': true
-			});
 		});
 	};
 
