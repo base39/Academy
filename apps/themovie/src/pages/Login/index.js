@@ -19,12 +19,9 @@ export default class Section extends Component {
 		};
 	}
 
-	emailChange = event => {
-		this.setState({ email: event.target.value });
-	};
-
-	passChange = event => {
-		this.setState({ password: event.target.value });
+	handleChange = event => {
+		this.setState({ [event.target.name]: event.target.value })
+		this.setState({ [event.target.name]: event.target.value })
 	};
 
 	handleSubmit = event => {
@@ -64,8 +61,9 @@ export default class Section extends Component {
 						<div>
 							<FieldStyled
 								id="userInput"
-								onChange={this.emailChange}
+								onChange={this.handleChange}
 								variant="outlined"
+								name="email"
 							/>
 						</div>
 					</div>
@@ -74,8 +72,9 @@ export default class Section extends Component {
 						<div>
 							<FieldStyled
 								id="passInput"
-								onChange={this.passChange}
+								onChange={this.handleChange}
 								variant="outlined"
+								name="password"
 							/>
 						</div>
 					</div>
