@@ -16,9 +16,7 @@ module.exports = () => {
 				});
 
 			if (!user) {
-				return res
-					.status(400)
-					.send({ 'error': 'E-mail e/ou senha inválidos' });
+				return res.status(400).send({ 'error': 'E-mail e/ou senha inválidos' });
 			}
 			const token = jwt.sign({ email }, process.env.SECRET, {
 				'expiresIn': 300
@@ -38,8 +36,7 @@ module.exports = () => {
 			const foundUser = await models.User.findOne({ email });
 
 			if (foundUser) {
-				return res
-					.send({ 'error': 'Esse usuário já esta cadastrado' });
+				return res.send({ 'error': 'Esse usuário já esta cadastrado' });
 			}
 
 			const user = new models.User({
@@ -50,9 +47,7 @@ module.exports = () => {
 
 			await user.save(error => {
 				if (error) {
-					return res
-						.status(422)
-						.send({ 'error': error.message });
+					return res.status(422).send({ 'error': error.message });
 				}
 
 				return res.json({
@@ -69,9 +64,7 @@ module.exports = () => {
 			const user = await models.User.findOne({ email });
 
 			if (!user) {
-				return res
-					.status(400)
-					.send({ 'error': 'Usuário não encontrado.' });
+				return res.status(400).send({ 'error': 'Usuário não encontrado.' });
 			}
 
 			const token = crypto.randomBytes(32).toString('hex');
@@ -108,15 +101,11 @@ module.exports = () => {
 			const user = await models.User.findOne({ email });
 
 			if (!user) {
-				return res
-					.status(400)
-					.send({ 'error': 'Usuário não encontrado' });
+				return res.status(400).send({ 'error': 'Usuário não encontrado' });
 			}
 
 			if (token !== user.passwordResetToken) {
-				return res
-					.status(400)
-					.send({ 'error': 'Token inválido' });
+				return res.status(400).send({ 'error': 'Token inválido' });
 			}
 
 			const now = new Date();

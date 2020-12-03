@@ -9,16 +9,12 @@ module.exports = () => {
 
 		try {
 			await axios
-				.get(
-					`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`,
-					{
-						params
-					}
-				)
+				.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`, {
+					params
+				})
 				.then(response => res.send(response.data));
 		} catch (error) {
-			return res
-				.send({ 'error': error.message });
+			return res.send({ 'error': error.message });
 		}
 	};
 
@@ -28,16 +24,12 @@ module.exports = () => {
 
 		try {
 			await axios
-				.get(
-					`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
-					{
-						params
-					}
-				)
+				.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`, {
+					params
+				})
 				.then(response => res.send(response.data));
 		} catch (error) {
-			return res
-				.send({ 'error': error.message });
+			return res.send({ 'error': error.message });
 		}
 	};
 
