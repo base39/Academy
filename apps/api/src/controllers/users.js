@@ -1,7 +1,3 @@
-/* eslint-disable object-property-newline */
-/* eslint-disable max-statements */
-/* eslint-disable max-len */
-/* eslint-disable consistent-return */
 module.exports = () => {
 	require('dotenv-safe').config();
 	const jwt = require('jsonwebtoken');
