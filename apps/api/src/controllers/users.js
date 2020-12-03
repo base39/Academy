@@ -1,7 +1,3 @@
-/* eslint-disable object-property-newline */
-/* eslint-disable max-statements */
-/* eslint-disable max-len */
-/* eslint-disable consistent-return */
 module.exports = () => {
 	require('dotenv-safe').config();
 	const jwt = require('jsonwebtoken');
@@ -70,7 +66,8 @@ module.exports = () => {
 			const user = await models.User.findOne({ email });
 
 			if (!user) {
-				return res.status(400).send({ 'error': 'Usuário não encontrado.' });
+				return res.status(400)
+								.send({ 'error': 'Usuário não encontrado.' });
 			}
 
 			const token = crypto.randomBytes(32).toString('hex');
