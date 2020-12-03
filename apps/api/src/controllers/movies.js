@@ -2,22 +2,19 @@ module.exports = () => {
 	require('dotenv-safe').config();
 	const axios = require('axios').default;
 	const controller = {};
-	const API_KEY = process.env.API_KEY;
+	const { API_KEY } = process.env;
 
 	controller.listMovies = async (req, res) => {
 		const params = req.query;
-		
+
 		try {
 			await axios
-				.get(
-					`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`,
-					{
-						params
-					}
-				)
+				.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`, {
+					params
+				})
 				.then(response => res.send(response.data));
 		} catch (error) {
-			return res.send(error.message);
+			return res.send({ 'error': error.message });
 		}
 	};
 
@@ -27,15 +24,12 @@ module.exports = () => {
 
 		try {
 			await axios
-				.get(
-					`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
-					{
-						params
-					}
-				)
-				.then(response =>  res.send(response.data) );
+				.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`, {
+					params
+				})
+				.then(response => res.send(response.data));
 		} catch (error) {
-			return res.send(error.message);
+			return res.send({ 'error': error.message });
 		}
 	};
 

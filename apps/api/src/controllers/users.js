@@ -16,9 +16,7 @@ module.exports = () => {
 				});
 
 			if (!user) {
-				return res.status(400).send({
-					'error': 'E-mail e/ou senha inválidos'
-				});
+				return res.status(400).send({ 'error': 'E-mail e/ou senha inválidos' });
 			}
 			const token = jwt.sign({ email }, process.env.SECRET, {
 				'expiresIn': 300
@@ -47,9 +45,9 @@ module.exports = () => {
 				password
 			});
 
-			await user.save(err => {
-				if (err) {
-					return res.status(422).send(err.message);
+			await user.save(error => {
+				if (error) {
+					return res.status(422).send({ 'error': error.message });
 				}
 
 				return res.json({
@@ -66,8 +64,7 @@ module.exports = () => {
 			const user = await models.User.findOne({ email });
 
 			if (!user) {
-				return res.status(400)
-								.send({ 'error': 'Usuário não encontrado.' });
+				return res.status(400).send({ 'error': 'Usuário não encontrado.' });
 			}
 
 			const token = crypto.randomBytes(32).toString('hex');
