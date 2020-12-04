@@ -2,6 +2,7 @@ module.exports = () => {
 	require('dotenv-safe').config();
 	const axios = require('axios').default;
 	const controller = {};
+	const { i18n } = require('../i18n');
 	const { API_KEY } = process.env;
 
 	controller.listMovies = async (req, res) => {
@@ -14,7 +15,8 @@ module.exports = () => {
 				})
 				.then(response => res.send(response.data));
 		} catch (error) {
-			return res.send({ 'error': error.message });
+			// console.log(error.message);
+			return res.send({ 'error': i18n.__('listMoviesNotFound') });
 		}
 	};
 
@@ -29,7 +31,8 @@ module.exports = () => {
 				})
 				.then(response => res.send(response.data));
 		} catch (error) {
-			return res.send({ 'error': error.message });
+			// console.log(error.message);
+			return res.send({ 'error': i18n.__('movieNotFound') });
 		}
 	};
 

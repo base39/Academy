@@ -1,0 +1,10 @@
+{
+	"emailPassword": "E-mail e/ou senha inválidos",
+	"registeredUser": "Esse usuário já esta cadastrado",
+	"registerUser": "Ocorreu um erro ao cadastrar o usuário",
+	"userNotFound": "Usuário não encontrado",
+	"invalidToken": "Token inválido",
+	"expiredToken": "Token expirado, gere um novo",
+	"movieNotFound": "Filme não encontrado",
+	"listMoviesNotFound": "Não foi possivel encontrar nenhum filme"
+}
