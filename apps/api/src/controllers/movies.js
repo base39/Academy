@@ -15,7 +15,7 @@ module.exports = () => {
 				})
 				.then(response => res.send(response.data));
 		} catch (error) {
-			console.log(error.message);
+			// console.log(error.message);
 			return res.send({ 'error': i18n.__('listMoviesNotFound') });
 		}
 	};
@@ -31,7 +31,7 @@ module.exports = () => {
 				})
 				.then(response => res.send(response.data));
 		} catch (error) {
-			console.log(error.message);
+			// console.log(error.message);
 			return res.send({ 'error': i18n.__('movieNotFound') });
 		}
 	};
