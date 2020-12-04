@@ -3,8 +3,9 @@ module.exports = () => {
 	const jwt = require('jsonwebtoken');
 	const crypto = require('crypto');
 	const mailer = require('../modules/mailer');
-	const { connectDb, models } = require('../../config/db'),
-		controller = {};
+	const { i18n } = require('../i18n');
+	const { connectDb, models } = require('../../config/db');
+	const controller = {};
 
 	/* Autenticação login */
 	controller.login = (req, res) => {
@@ -16,7 +17,7 @@ module.exports = () => {
 				});
 
 			if (!user) {
-				return res.status(400).send({ 'error': 'E-mail e/ou senha inválidos' });
+				return res.status(400).send({ 'error': i18n.__('emailPassword') });
 			}
 			const token = jwt.sign({ email }, process.env.SECRET, {
 				'expiresIn': 300
@@ -36,7 +37,7 @@ module.exports = () => {
 			const foundUser = await models.User.findOne({ email });
 
 			if (foundUser) {
-				return res.send({ 'error': 'Esse usuário já esta cadastrado' });
+				return res.send({ 'error': i18n.__('registeredUser') });
 			}
 
 			const user = new models.User({
@@ -47,7 +48,7 @@ module.exports = () => {
 
 			await user.save(error => {
 				if (error) {
-					return res.status(422).send({ 'error': error.message });
+					return res.status(422).send({ 'error': i18n.__('registerUser') });
 				}
 
 				return res.json({
@@ -64,7 +65,7 @@ module.exports = () => {
 			const user = await models.User.findOne({ email });
 
 			if (!user) {
-				return res.status(400).send({ 'error': 'Usuário não encontrado.' });
+				return res.status(400).send({ 'error': i18n.__('userNotFound') });
 			}
 
 			const token = crypto.randomBytes(32).toString('hex');
@@ -101,11 +102,11 @@ module.exports = () => {
 			const user = await models.User.findOne({ email });
 
 			if (!user) {
-				return res.status(400).send({ 'error': 'Usuário não encontrado' });
+				return res.status(400).send({ 'error': i18n.__('userNotFound') });
 			}
 
 			if (token !== user.passwordResetToken) {
-				return res.status(400).send({ 'error': 'Token inválido' });
+				return res.status(400).send({ 'error': i18n.__('invalidToken') });
 			}
 
 			const now = new Date();
@@ -113,7 +114,7 @@ module.exports = () => {
 			if (now > user.passwordResetExpires) {
 				return res
 					.status(400)
-					.send({ 'error': 'Token expirado, gere um novo' });
+					.send({ 'error': i18n.__('expiredToken') });
 			}
 
 			user.password = password;
