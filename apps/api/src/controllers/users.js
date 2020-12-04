@@ -112,9 +112,7 @@ module.exports = () => {
 			const now = new Date();
 
 			if (now > user.passwordResetExpires) {
-				return res
-					.status(400)
-					.send({ 'error': i18n.__('expiredToken') });
+				return res.status(400).send({ 'error': i18n.__('expiredToken') });
 			}
 
 			user.password = password;
