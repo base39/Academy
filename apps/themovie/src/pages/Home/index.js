@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Title } from '../styled-components-example/styles';
+import Sort from '../../components/Sort/Sort';
 
 const Home = () => {
 	return (
 		<div>
-			<Title>Olá, Styled-components!</Title>
+			<Sort/>
 		</div>
 	);
 };

@@ -7,11 +7,6 @@ export const SpanAlert = styled.span`
 	color: red;
 `;
 
-export const Title = styled.h1`
-	color: #fff;
-	background-color: black;
-`;
-
 export const TitleStyled = styled.h1`
 	color: #000;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
