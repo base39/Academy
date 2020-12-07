@@ -5,7 +5,7 @@ import CustomButtom from '../../components/Button/Button';
 const Home = () => {
 	return (
 		<div>
-			<CustomButtom/>
+			<CustomButtom />
 		</div>
 	);
 };
