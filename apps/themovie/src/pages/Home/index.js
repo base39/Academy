@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Sort from '../../components/Sort/Sort';
+import CustomButtom from '../../components/Button/Button';
 
 const Home = () => {
 	return (
 		<div>
-			<Sort />
+			<CustomButtom/>
 		</div>
 	);
 };
