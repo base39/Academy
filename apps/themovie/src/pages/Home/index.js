@@ -5,7 +5,7 @@ import Sort from '../../components/Sort/Sort';
 const Home = () => {
 	return (
 		<div>
-			<Sort/>
+			<Sort />
 		</div>
 	);
 };
