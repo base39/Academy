@@ -11,7 +11,6 @@ import {
 } from './style'
 import SimplePopover from './PopoverCard'
 
-
 const MovieCard = ({ img, name, date }) => {
     return(
         <CardStyle>

@@ -6,17 +6,20 @@ import Movie from './pages/Movie';
 import ResetPassword from './pages/Password/index';
 import Register from './pages/Register/index';
 import Section from './pages/Login/index';
+import AppBar from './components/AppBar'
 
 const MainRoutes = () => {
 	return (
-		<Routes>
-			<Route path="/" element={<Home />} />
-			<Route path="/login" element={<Section />} />
-			<Route path="/reset-password" element={<ResetPassword />} />
-			<Route path="/register" element={<Register />} />
-			<Route path="/movie" element={<Movie />} />
-			<Route path="*" element={<h1>Not Found!</h1>} />
-		</Routes>
+		<AppBar>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/login" element={<Section />} />
+				<Route path="/reset-password" element={<ResetPassword />} />
+				<Route path="/register" element={<Register />} />
+				<Route path="/movie" element={<Movie />} />
+				<Route path="*" element={<h1>Not Found!</h1>} />
+			</Routes>
+		</AppBar>
 	);
 };
 
