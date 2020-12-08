@@ -26,15 +26,9 @@ function HideOnScroll(props) {
 
 export default function AppBar(props) {
 	const [anchorFilmes, setAnchorFilmes] = React.useState(null);
-	const [anchorSeries, setAnchorSeries] = React.useState(null);
-	const [anchorPessoas, setAnchorPessoas] = React.useState(null);
-	const [anchorMais, setAnchorMais] = React.useState(null);
 
 	const handleClose = () => {
 		setAnchorFilmes(null);
-		setAnchorSeries(null);
-		setAnchorPessoas(null);
-		setAnchorMais(null);
 	};
 
 	return (
@@ -76,75 +70,6 @@ export default function AppBar(props) {
 								<MenuItem>
 									<NoStyleLink to="/movie">Mais bem avaliados</NoStyleLink>
 								</MenuItem>
-							</Menu>
-							<Button
-								color="inherit"
-								aria-controls="series"
-								aria-haspopup="true"
-								onMouseOver={e => setAnchorSeries(e.currentTarget)}
-							>
-								Séries
-							</Button>
-							<Menu
-								id="series"
-								anchorEl={anchorSeries}
-								keepMounted
-								open={Boolean(anchorSeries)}
-								onClose={handleClose}
-								MenuListProps={{ onMouseLeave: handleClose }}
-								anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-								transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-								getContentAnchorEl={null}
-							>
-								<MenuItem>Populares</MenuItem>
-								<MenuItem>Em exibição hoje</MenuItem>
-								<MenuItem>Na TV</MenuItem>
-								<MenuItem>Mais bem avaliadas</MenuItem>
-							</Menu>
-							<Button
-								color="inherit"
-								aria-controls="pessoas"
-								aria-haspopup="true"
-								onMouseOver={e => setAnchorPessoas(e.currentTarget)}
-							>
-								Pessoas
-							</Button>
-							<Menu
-								id="pessoas"
-								anchorEl={anchorPessoas}
-								keepMounted
-								open={Boolean(anchorPessoas)}
-								onClose={handleClose}
-								MenuListProps={{ onMouseLeave: handleClose }}
-								anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-								transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-								getContentAnchorEl={null}
-							>
-								<MenuItem>Pessoas Populares</MenuItem>
-							</Menu>
-							<Button
-								color="inherit"
-								aria-controls="mais"
-								aria-haspopup="true"
-								onMouseOver={e => setAnchorMais(e.currentTarget)}
-							>
-								Mais
-							</Button>
-							<Menu
-								id="mais"
-								anchorEl={anchorMais}
-								keepMounted
-								open={Boolean(anchorMais)}
-								onClose={handleClose}
-								MenuListProps={{ onMouseLeave: handleClose }}
-								anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-								transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-								getContentAnchorEl={null}
-							>
-								<MenuItem>Discussões</MenuItem>
-								<MenuItem>Placar de colaboradores</MenuItem>
-								<MenuItem>Suporte</MenuItem>
-								<MenuItem>API</MenuItem>
 							</Menu>
 						</Box>
 						<NoStyleLink to="/login">
