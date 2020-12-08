@@ -6,7 +6,7 @@ import Movie from './pages/Movie';
 import ResetPassword from './pages/Password/index';
 import Register from './pages/Register/index';
 import Section from './pages/Login/index';
-import AppBar from './components/AppBar'
+import AppBar from './components/AppBar';
 
 const MainRoutes = () => {
 	return (

@@ -1,3 +1,5 @@
-import MovieCard from './MovieCard'
+import MovieCard from './MovieCard';
 
-export const renderMoviesCard = ( movie, index ) => ( <MovieCard key={`movie-${index}`} {...movie} /> )
+export const renderMoviesCard = (movie, index) => (
+	<MovieCard key={`movie-${index}`} {...movie} />
+);
