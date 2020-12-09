@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 export const InnerContent = styled.section`
 	display: flex;
@@ -39,35 +41,6 @@ export const Content = styled.div`
 	align-content: flex-start;
 `;
 
-export const SearchPanel = styled.div`
-	min-width: 260px;
-	width: 260px;
-	border: 1px solid #e3e3e3;
-	border-radius: 8px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	overflow: hidden;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	background-color: #fff;
-	margin-top: 30px;
-`;
-
-export const SubTitleName = styled.div`
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: nowrap;
-	align-items: center;
-	padding: 14px 16px;
-`;
-
-export const Name = styled.div`
-	font-size: 1em;
-	font-family: 'Source Sans Pro', Arial, sans-serif;
-	font-weight: 600;
-`;
-
 export const ColumnDiv = styled.div`
 	max-width: 960px;
 	width: calc(100vw - 80px - 260px);
@@ -102,7 +75,7 @@ export const PageContainer = styled.div`
 	box-sizing: border-box;
 `;
 
-export const LoadMoreStyled = styled.button`
+export const LoadMoreStyled = styled(Button)`
 	margin-top: 30px;
 	margin-left: 30px;
 	background-color: #01b4e4;
@@ -118,5 +91,6 @@ export const LoadMoreStyled = styled.button`
 	cursor: pointer;
 	&:hover {
 		color: #0a1526;
+		background-color: #01b4e4;
 	}
 `;

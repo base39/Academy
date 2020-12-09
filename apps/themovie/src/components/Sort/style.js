@@ -5,8 +5,10 @@ export const SortWrapper = styled(Box)`
 	font-family: 'Source Sans Pro', Arial, sans-serif;
 	min-width: 260px;
 	width: 260px;
-	box-shadow: 3px 3px 4px 0px rgba(181, 179, 181, 0.4);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	padding: 14px 16px;
+	margin-top: 15px;
+	border-radius: 8px;
 `;
 
 export const NameWrapper = styled.div`

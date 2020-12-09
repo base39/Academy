@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import React, { Component } from 'react';
 
 import {
@@ -7,35 +6,57 @@ import {
 	Titleh2,
 	ContentContainer,
 	Content,
-	SearchPanel,
-	SubTitleName,
-	Name,
 	ColumnDiv,
 	Panel,
 	Results,
 	PageContainer,
-	LoadMoreStyled
+	LoadMoreStyled,
 } from './style';
+
 import { renderMoviesCard } from '../../components/MovieCard/renderMovieCard';
-import { movies } from '../../components/app/data';
+import Filter from '../../components/Filter/Filter'
+import Sort from '../../components/Sort/Sort'
 
 export default class Movie extends Component {
-	constructor(props) {
-		super(props);
+	constructor(props){
+		super(props)
 		this.state = {
-			visiable: 20
-		};
+			movies: [],
+			totalPages: 0,
+			page: 1
+		}
+		this.loadMore = this.loadMore.bind(this)
+	}
 
-		this.loadMore = this.loadMore.bind(this);
+	componentDidMount() {
+		this.getContent()
+	}
+
+	async getContent() {
+		try {
+			const { page, movies } = this.state
+			const response = await fetch(`http://localhost:8080/movies?page=${page}`)
+			const data = await response.json()
+			const dataResults = data.results
+			const totalPage = data.total_pages
+
+			this.setState({ 
+				movies: [...movies, ...dataResults],
+				totalPages: this.state.totalPages + totalPage 
+			})
+		} catch (error) {
+			console.error(error)
+		}
 	}
 
 	loadMore() {
-		this.setState(old => {
-			return { visiable: old.visiable + 20 };
-		});
+		this.setState({ page: this.state.page + 1 }, this.getContent)
 	}
 
 	render() {
+		const { page, totalPages } = this.state
+		const hasMore = page < totalPages
+		const { movies } = this.state
 		return (
 			<>
 				<InnerContent>
@@ -45,27 +66,21 @@ export default class Movie extends Component {
 						</TitleMovieDiv>
 						<Content>
 							<div>
-								<SearchPanel>
-									<SubTitleName>
-										<Name>Ordenar</Name>
-									</SubTitleName>
-									<div></div>
-								</SearchPanel>
+								<Filter />
+								<Sort />
 							</div>
 							<div>
 								<ColumnDiv>
 									<Panel>
 										<Results>
 											<PageContainer>
-												{movies
-													.slice(0, this.state.visiable)
-													.map(renderMoviesCard)}
+												{movies.map(renderMoviesCard)}
 											</PageContainer>
-											{this.state.visiable < movies.length && (
-												<LoadMoreStyled onClick={this.loadMore}>
-													Carregar Mais
-												</LoadMoreStyled>
-											)}
+											{hasMore &&
+											<LoadMoreStyled onClick={this.loadMore}>
+												Carregar Mais
+											</LoadMoreStyled>
+											}										
 										</Results>
 									</Panel>
 								</ColumnDiv>

@@ -52,9 +52,6 @@ export const ContentCard = styled.div`
 	padding: 26px 10px 12px 10px;
 	position: relative;
 	white-space: normal;
-	display: flex;
-	align-content: flex-start;
-	flex-wrap: wrap;
 `;
 
 export const LaunchMovie = styled.p`
@@ -90,7 +87,6 @@ export const PopoverButton = styled.div`
 
 export const PopoverContainer = styled.div`
 	width: 388px;
-	height: 198px;
 	top: 38px;
 	left: -15px;
 	margin-top: 0px;
@@ -139,7 +135,7 @@ export const Arrow = styled(ChevronRightIcon)`
 
 export const PopoverMenu = styled.p`
 	color: rgba(0, 0, 0, 1);
-	font-size: 0.8em;
+	font-size: 0.9em;
 	padding: 2px 20px;
 	font-weight: 600;
 `;
@@ -160,7 +156,7 @@ export const PopoverLink = styled(Link)`
 	font-weight: 600;
 	color: rgba(0, 0, 0, 0.6);
 	padding: 0px 20px;
-	font-size: 0.8em;
+	font-size: 0.9em;
 	text-decoration: none;
 	cursor: pointer;
 	&:hover {
