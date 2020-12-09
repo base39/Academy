@@ -10,53 +10,53 @@ import {
 	Panel,
 	Results,
 	PageContainer,
-	LoadMoreStyled,
+	LoadMoreStyled
 } from './style';
 
 import { renderMoviesCard } from '../../components/MovieCard/renderMovieCard';
-import Filter from '../../components/Filter/Filter'
-import Sort from '../../components/Sort/Sort'
+import Filter from '../../components/Filter/Filter';
+import Sort from '../../components/Sort/Sort';
 
 export default class Movie extends Component {
-	constructor(props){
-		super(props)
+	constructor(props) {
+		super(props);
 		this.state = {
 			movies: [],
 			totalPages: 0,
 			page: 1
-		}
-		this.loadMore = this.loadMore.bind(this)
+		};
+		this.loadMore = this.loadMore.bind(this);
 	}
 
 	componentDidMount() {
-		this.getContent()
+		this.getContent();
 	}
 
 	async getContent() {
 		try {
-			const { page, movies } = this.state
-			const response = await fetch(`http://localhost:8080/movies?page=${page}`)
-			const data = await response.json()
-			const dataResults = data.results
-			const totalPage = data.total_pages
+			const { page, movies, totalPages } = this.state;
+			const response = await fetch(`http://localhost:8080/movies?page=${page}`);
+			const data = await response.json();
+			const dataResults = data.results;
+			const totalPage = data.total_pages;
 
-			this.setState({ 
+			this.setState({
 				movies: [...movies, ...dataResults],
-				totalPages: this.state.totalPages + totalPage 
-			})
+				totalPages: totalPages + totalPage
+			});
 		} catch (error) {
-			console.error(error)
+			console.error(error);
 		}
 	}
 
 	loadMore() {
-		this.setState({ page: this.state.page + 1 }, this.getContent)
+		this.setState({ page: this.state.page + 1 }, this.getContent);
 	}
 
 	render() {
-		const { page, totalPages } = this.state
-		const hasMore = page < totalPages
-		const { movies } = this.state
+		const { page, totalPages } = this.state;
+		const hasMore = page < totalPages;
+		const { movies } = this.state;
 		return (
 			<>
 				<InnerContent>
@@ -76,11 +76,11 @@ export default class Movie extends Component {
 											<PageContainer>
 												{movies.map(renderMoviesCard)}
 											</PageContainer>
-											{hasMore &&
-											<LoadMoreStyled onClick={this.loadMore}>
-												Carregar Mais
-											</LoadMoreStyled>
-											}										
+											{hasMore && (
+												<LoadMoreStyled onClick={this.loadMore}>
+													Carregar Mais
+												</LoadMoreStyled>
+											)}
 										</Results>
 									</Panel>
 								</ColumnDiv>
