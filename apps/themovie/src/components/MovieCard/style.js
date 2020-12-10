@@ -3,22 +3,10 @@ import { Link } from 'react-router-dom'
 import { Popover } from '@material-ui/core'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-export const Name = styled.div`
-	font-size: 1em;
-	font-family: 'Source Sans Pro', Arial, sans-serif;
-	font-weight: 600;
-`
-
 export const CardStyle = styled.div`
-	width: calc(((100vw - 80px - 260px - 128px) / 4));
-    max-width: 208px;
-	margin-left: 30px;
-    margin-top: 30px;
+    max-width: 200px;
+	margin: 1rem;
 	position: relative;
-	left: 0;
-	display: flex;
-	flex-wrap: wrap;
-	align-content: flex-start;
 	border: 1px solid #e3e3e3;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
@@ -29,10 +17,7 @@ export const CardStyle = styled.div`
 `
 
 export const Image = styled.div`
-	width: calc(((100vw - 80px - 260px - 128px) / 4));
-    height: calc((((100vw - 80px - 260px - 128px) / 4)) * 1.5);
-    max-width: 208px;
-    max-height: calc(208px * 1.5);
+	max-width: 100%;
 `
 
 export const Case = styled.div`
@@ -49,21 +34,21 @@ export const Poster = styled.img`
 `
 
 export const ContentCard = styled.div`
-	width: 100%;
-    padding: 26px 10px 12px 10px;
-    position: relative;
-    white-space: normal;
     display: flex;
-    align-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
 ` 
 
-export const LaunchMovie = styled.p`
+export const Name = styled.h3`
+    margin: 0;
 	font-size: 1em;
-	margin: 0;
-	padding: 0;
-	color: rgba(0,0,0,0.6);
-	display: block;
+	font-family: 'Source Sans Pro', Arial, sans-serif;
+	font-weight: 600;
+`
+
+export const VoteAverage = styled.span`
+    color: #2b56dc;
+    font-weight: bold;
 `
 export const PopoverButton = styled.div`
     background-image: url('https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-947-circle-more-white-4c440dfc1b0e626c70f4853dbbce9c4d1f2c5d8f3e05a7d3df47881cbd816adf.svg');
