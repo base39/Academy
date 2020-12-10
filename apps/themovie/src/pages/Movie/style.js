@@ -24,7 +24,7 @@ export const TitleMovieDiv = styled.div`
 	width: 100%;
 `;
 
-export const Titleh2 = styled.h2`
+export const TitleH2 = styled.h2`
 	font-family: 'Source Sans Pro', Arial, sans-serif;
 	width: 100%;
 	margin: 0;
