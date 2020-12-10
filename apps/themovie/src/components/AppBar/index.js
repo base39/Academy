@@ -1,7 +1,6 @@
 import React from 'react';
 import { CustomAppBar, ButtonBar } from './style';
 import {
-	Button,
 	Slide,
 	Container,
 	Box,
