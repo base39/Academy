@@ -4,9 +4,9 @@ import FormFilter from '../../components/FormFilter/FormFilter';
 import {
 	InnerContent,
 	TitleMovieDiv,
-	TitleH2,
 	ContentContainer,
-	Content
+	Content,
+	TitleH2
 } from './style';
 
 function Movie() {
@@ -17,11 +17,11 @@ function Movie() {
 					<TitleH2>Filmes Populares</TitleH2>
 				</TitleMovieDiv>
 				<Content>
-					<FormFilter />
+					<FormFilter/>
 				</Content>
 			</ContentContainer>
 		</InnerContent>
-	);
+	)
 }
 
-export default Movie;
+export default Movie

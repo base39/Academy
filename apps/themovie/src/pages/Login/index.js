@@ -46,7 +46,9 @@ export default class Section extends Component {
 						Para usar os recursos de edição e classificação do TMDb, além de
 						obter recomendações pessoais, você precisará entrar com a sua conta.
 						Caso você ainda não possua uma conta, registrar-se é grátis e
-						simples. <LinkStyled>Clique aqui</LinkStyled> para começar.
+						simples.{' '}
+						<LinkRouterStyled to="/register">Clique aqui</LinkRouterStyled> para
+						começar.
 					</ParagraphStyled>
 					<ParagraphStyled>
 						Se você já fez o seu cadastro, mas ainda não recebeu seu e-mail de
