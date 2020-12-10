@@ -36,5 +36,40 @@ module.exports = () => {
 		}
 	};
 
+	controller.getGenresList = async (req, res) => {
+		const params = req.query;
+
+		try {
+			await axios
+				.get(
+					`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=pt-BR`,
+					{
+						params
+					}
+				)
+				.then(response => res.send(response.data));
+		} catch (error) {
+			return res.send({ 'error': i18n.__('genreNotFound') });
+		}
+	};
+
+	controller.getSort = async (req, res) => {
+		const { sort, genreId } = req.params;
+		const params = req.query;
+
+		try {
+			await axios
+				.get(
+					`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&genre=${genreId}`,
+					{
+						params
+					}
+				)
+				.then(response => res.send(response.data));
+		} catch (error) {
+			return res.send({ 'error': i18n.__('invalidSort') });
+		}
+	};
+
 	return controller;
 };

@@ -6,27 +6,25 @@ import {
 	Poster,
 	ContentCard,
 	Name,
-	LaunchMovie,
-	PopoverButton
+	PopoverButton,
+	VoteAverage
 } from './style';
 import SimplePopover from './PopoverCard';
+const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
-const MovieCard = ({ poster_path, title, release_date }) => {
-	
+const MovieCard = ({ title, poster_path, vote_average }) => {
 	return (
 		<CardStyle>
 			<Image>
 				<PopoverButton></PopoverButton>
 				<SimplePopover />
 				<Case>
-					<Poster src={`https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`} alt={`Poster ${title}`} />
+					<Poster src={IMG_API + poster_path} alt={`Poster ${title}`} />
 				</Case>
 			</Image>
 			<ContentCard>
-				<div></div>
 				<Name>{title}</Name>
-				<LaunchMovie>{release_date}</LaunchMovie>
-				<div></div>
+				<VoteAverage>{vote_average}</VoteAverage>
 			</ContentCard>
 		</CardStyle>
 	);
