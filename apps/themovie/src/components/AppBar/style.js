@@ -8,4 +8,4 @@ export const CustomAppBar = styled(AppBar)`
 export const ButtonBar = styled(Button)`
 	text-transform: none;
 	font-size: 0.925rem;
-`
+`;
