@@ -1,5 +1,5 @@
 import React from 'react';
-import { CustomAppBar } from './style';
+import { CustomAppBar, ButtonBar } from './style';
 import {
 	Button,
 	Slide,
@@ -39,14 +39,14 @@ export default function AppBar(props) {
 					<Container disableGutters={true}>
 						<Toolbar>
 							<Box display="flex" flexGrow={1}>
-								<Button
+								<ButtonBar
 									color="inherit"
 									aria-controls="filmes"
 									aria-haspopup="true"
 									onMouseOver={e => setAnchorFilmes(e.currentTarget)}
 								>
 									Filmes
-								</Button>
+								</ButtonBar>
 								<Menu
 									id="filmes"
 									anchorEl={anchorFilmes}
@@ -74,7 +74,7 @@ export default function AppBar(props) {
 								</Menu>
 							</Box>
 							<NoStyleLink to="/login">
-								<Button color="inherit">Entrar</Button>
+								<ButtonBar color="inherit">Entrar</ButtonBar>
 							</NoStyleLink>
 						</Toolbar>
 					</Container>
