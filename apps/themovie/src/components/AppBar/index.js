@@ -36,6 +36,7 @@ export default function AppBar(props) {
 			<CssBaseline />
 			<HideOnScroll {...props}>
 				<CustomAppBar>
+					<Container disableGutters={true} >
 					<Toolbar>
 						<Box display="flex" flexGrow={1}>
 							<Button
@@ -76,11 +77,12 @@ export default function AppBar(props) {
 							<Button color="inherit">Entrar</Button>
 						</NoStyleLink>
 					</Toolbar>
+					</Container>
 				</CustomAppBar>
 			</HideOnScroll>
 			<Toolbar />
-			<Container>
-				<Box my={2}>{props.children}</Box>
+			<Container disableGutters={true} >
+				{props.children}
 			</Container>
 		</>
 	);
