@@ -1,7 +1,6 @@
 import React from 'react';
-import { CustomAppBar } from './style';
+import { CustomAppBar, ButtonBar } from './style';
 import {
-	Button,
 	Slide,
 	Container,
 	Box,
@@ -36,52 +35,52 @@ export default function AppBar(props) {
 			<CssBaseline />
 			<HideOnScroll {...props}>
 				<CustomAppBar>
-					<Toolbar>
-						<Box display="flex" flexGrow={1}>
-							<Button
-								color="inherit"
-								aria-controls="filmes"
-								aria-haspopup="true"
-								onMouseOver={e => setAnchorFilmes(e.currentTarget)}
-							>
-								Filmes
-							</Button>
-							<Menu
-								id="filmes"
-								anchorEl={anchorFilmes}
-								keepMounted
-								open={Boolean(anchorFilmes)}
-								onClose={handleClose}
-								onMouseLeave={handleClose}
-								MenuListProps={{ onMouseLeave: handleClose }}
-								anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-								transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-								getContentAnchorEl={null}
-							>
-								<MenuItem>
-									<NoStyleLink to="/movie">Populares</NoStyleLink>
-								</MenuItem>
-								<MenuItem>
-									<NoStyleLink to="/movie">Em cartaz</NoStyleLink>
-								</MenuItem>
-								<MenuItem>
-									<NoStyleLink to="/movie">Próximas Estreias</NoStyleLink>
-								</MenuItem>
-								<MenuItem>
-									<NoStyleLink to="/movie">Mais bem avaliados</NoStyleLink>
-								</MenuItem>
-							</Menu>
-						</Box>
-						<NoStyleLink to="/login">
-							<Button color="inherit">Entrar</Button>
-						</NoStyleLink>
-					</Toolbar>
+					<Container disableGutters={true}>
+						<Toolbar>
+							<Box display="flex" flexGrow={1}>
+								<ButtonBar
+									color="inherit"
+									aria-controls="filmes"
+									aria-haspopup="true"
+									onMouseOver={e => setAnchorFilmes(e.currentTarget)}
+								>
+									Filmes
+								</ButtonBar>
+								<Menu
+									id="filmes"
+									anchorEl={anchorFilmes}
+									keepMounted
+									open={Boolean(anchorFilmes)}
+									onClose={handleClose}
+									onMouseLeave={handleClose}
+									MenuListProps={{ onMouseLeave: handleClose }}
+									anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+									transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+									getContentAnchorEl={null}
+								>
+									<MenuItem>
+										<NoStyleLink to="/movie">Populares</NoStyleLink>
+									</MenuItem>
+									<MenuItem>
+										<NoStyleLink to="/movie">Em cartaz</NoStyleLink>
+									</MenuItem>
+									<MenuItem>
+										<NoStyleLink to="/movie">Próximas Estreias</NoStyleLink>
+									</MenuItem>
+									<MenuItem>
+										<NoStyleLink to="/movie">Mais bem avaliados</NoStyleLink>
+									</MenuItem>
+								</Menu>
+							</Box>
+							<NoStyleLink to="/login">
+								<ButtonBar color="inherit">Entrar</ButtonBar>
+							</NoStyleLink>
+						</Toolbar>
+					</Container>
 				</CustomAppBar>
 			</HideOnScroll>
 			<Toolbar />
-			<Container>
-				<Box my={2}>{props.children}</Box>
-			</Container>
+			<Container disableGutters={true}>{props.children}</Container>
 		</>
 	);
 }
