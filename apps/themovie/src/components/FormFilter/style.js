@@ -5,8 +5,8 @@ export const SearchPanel = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-    margin-top: 30px;
-`
+	margin-top: 30px;
+`;
 
 export const ColumnDiv = styled.div`
 	max-width: 960px;
@@ -19,44 +19,44 @@ export const ColumnDiv = styled.div`
 	padding-top: 0px;
 	padding-bottom: 0px;
 	background: transparent;
-`
+`;
 
 export const Panel = styled.section`
 	width: 100%;
 	display: block;
 	padding: 30px 0;
-`
+`;
 export const Results = styled.div`
-    margin-top: -30px;
-    margin-left: -30px;
+	margin-top: -30px;
+	margin-left: -30px;
 	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
-`
+`;
 
 export const PageContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-`
+`;
 
 export const LoadMoreStyled = styled.button`
-    margin-top: 30px;
-    margin-left: 30px;
-    background-color: #01b4e4;
-    border: none;
-    width: 97%;
-    height: 50px;
-    color: #fff;
-    box-shadow: none;
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: 700;
-    font-family: 'Source Sans Pro', Arial, sans-serif;
-    cursor: pointer;
-    &:hover {
-        color: #0a1526;
-    }
-`
+	margin-top: 30px;
+	margin-left: 30px;
+	background-color: #01b4e4;
+	border: none;
+	width: 97%;
+	height: 50px;
+	color: #fff;
+	box-shadow: none;
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: 700;
+	font-family: 'Source Sans Pro', Arial, sans-serif;
+	cursor: pointer;
+	&:hover {
+		color: #0a1526;
+	}
+`;
 
 export const SortWrapper = styled(Box)`
 	font-family: 'Source Sans Pro', Arial, sans-serif;
@@ -151,9 +151,11 @@ export const SelectItemLink = styled.a`
 		color: #ffffff;
 	}
 
-	${props => props.active &&(`
+	${props =>
+		props.active &&
+		`
 		border: 1px solid #01b4e4;
 		background-color: #01b4e4;
 		color: #ffffff;
-	`)}
+	`}
 `;
