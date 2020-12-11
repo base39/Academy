@@ -21,7 +21,6 @@ import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import MovieCard from '../MovieCard/MovieCard';
 import Button from '@material-ui/core/Button';
-const FEATURED_API = 'http://localhost:8080/sort/popularity.desc';
 
 function FormFilter() {
 	const [genres, setGenres] = useState([]);
@@ -29,11 +28,6 @@ function FormFilter() {
 	const [filterTerm, setFilterTerm] = useState('');
 	const [movies, setMovies] = useState([]);
 	const [page, setPage] = useState(1);
-
-	console.log(sortTerm);
-	console.log(filterTerm);
-	console.log(page);
-	console.log(`http://localhost:8080/sort/${sortTerm}/${filterTerm}/${page}`);
 
 	// Buscar os ID dos generos de filmes
 	useEffect(() => {
@@ -47,7 +41,7 @@ function FormFilter() {
 	// Carregamento inicial do filtro
 	// com os filmes mais populares em ordem decrescente
 	useEffect(() => {
-		fetch(`${FEATURED_API}/${page}`)
+		fetch(`http://localhost:8080/movies?&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`)
 			.then(res => res.json())
 			.then(data => {
 				setMovies(data.results);
@@ -60,7 +54,7 @@ function FormFilter() {
 		event.preventDefault();
 		setPage(1);
 
-		fetch(`http://localhost:8080/sort/${sortTerm}/${filterTerm}/${page}`)
+		fetch(`http://localhost:8080/movies?&language=pt-BR&sort_by=${sortTerm}&include_adult=false&include_video=false&page=${page}&with_genres=${filterTerm}`)
 			.then(res => res.json())
 			.then(data => {
 				setMovies(data.results);
