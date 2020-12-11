@@ -41,7 +41,9 @@ function FormFilter() {
 	// Carregamento inicial do filtro
 	// com os filmes mais populares em ordem decrescente
 	useEffect(() => {
-		fetch(`http://localhost:8080/movies?&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`)
+		fetch(
+			`http://localhost:8080/movies?&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`
+		)
 			.then(res => res.json())
 			.then(data => {
 				setMovies(data.results);
@@ -54,7 +56,9 @@ function FormFilter() {
 		event.preventDefault();
 		setPage(1);
 
-		fetch(`http://localhost:8080/movies?&language=pt-BR&sort_by=${sortTerm}&include_adult=false&include_video=false&page=${page}&with_genres=${filterTerm}`)
+		fetch(
+			`http://localhost:8080/movies?&language=pt-BR&sort_by=${sortTerm}&include_adult=false&include_video=false&page=${page}&with_genres=${filterTerm}`
+		)
 			.then(res => res.json())
 			.then(data => {
 				setMovies(data.results);
