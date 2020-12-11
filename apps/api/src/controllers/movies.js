@@ -53,14 +53,32 @@ module.exports = () => {
 		}
 	};
 
-	controller.getSort = async (req, res) => {
-		const { sort, genreId } = req.params;
+	controller.getAllMovies = async (req, res) => {
+		const { sort, page } = req.params;
 		const params = req.query;
 
 		try {
 			await axios
 				.get(
-					`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&genre=${genreId}`,
+					`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&page=1&page=${page}`,
+					{
+						params
+					}
+				)
+				.then(response => res.send(response.data));
+		} catch (error) {
+			return res.send({ 'error': i18n.__('invalidSort') });
+		}
+	}
+
+	controller.getSort = async (req, res) => {
+		const { sort, genreId, page } = req.params;
+		const params = req.query;
+
+		try {
+			await axios
+				.get(
+					`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&page=1&with_genres=${genreId}&page=${page}`,
 					{
 						params
 					}

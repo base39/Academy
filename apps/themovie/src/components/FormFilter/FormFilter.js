@@ -21,19 +21,21 @@ import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import MovieCard from '../MovieCard/MovieCard';
 import Button from '@material-ui/core/Button';
-const FEATURED_API = 'http://localhost:8080/sort/popularity.desc/all';
+const FEATURED_API = 'http://localhost:8080/sort/popularity.desc';
 
 function FormFilter() {
 	const [genres, setGenres] = useState([]);
-	const [movies, setMovies] = useState([]);
 	const [sortTerm, setSortTerm] = useState('');
 	const [filterTerm, setFilterTerm] = useState('');
-	const [visible, setVisible] = useState(20);
+	const [movies, setMovies] = useState([]);
+	const [page, setPage] = useState(1);
 
-	const showMoreMovies = () => {
-		setVisible(oldValue => oldValue + 20);
-	};
+	console.log(sortTerm);
+	console.log(filterTerm);
+	console.log(page);
+	console.log(`http://localhost:8080/sort/${sortTerm}/${filterTerm}/${page}`)
 
+	// Buscar os ID dos generos de filmes
 	useEffect(() => {
 		fetch('http://localhost:8080/genres')
 			.then(res => res.json())
@@ -42,31 +44,35 @@ function FormFilter() {
 			});
 	}, []);
 
+	// Carregamento inicial do filtro
+	// com os filmes mais populares em ordem decrescente
 	useEffect(() => {
-		fetch(FEATURED_API)
+			fetch(`${FEATURED_API}/${page}`)
 			.then(res => res.json())
 			.then(data => {
-				setMovies(data.results);
+				setMovies(data.results)
 			});
-	}, []);
+		
+	}, [page]);
 
+	// Função responsável por receber os valores do
+	// formulário de filtro e retornar os filmes na tela
 	const handleOnSubmit = event => {
 		event.preventDefault();
+		setPage(1);
 
-		fetch(`http://localhost:8080/sort/${sortTerm}/${filterTerm}`)
+		fetch(`http://localhost:8080/sort/${sortTerm}/${filterTerm}/${page}`)
 			.then(res => res.json())
 			.then(data => {
 				setMovies(data.results);
 			});
 	};
 
-	const handleOnChangeSort = event => {
-		setSortTerm(event.target.value);
-	};
-
-	const handleOnChangeFilter = event => {
-		setFilterTerm(event.target.value);
-	};
+	// Responsável por carregar a próxima listagem de 20 filmes
+	// Após clicar no botão "Mostrar mais"
+	const showMoreMovies = () => {
+		setPage(page + 1);
+	}
 
 	return (
 		<>
@@ -86,7 +92,7 @@ function FormFilter() {
 							</FilterNameWrapper>
 							<OrderWrapper>
 								<OrderTitle>Ordenar Resultados Por</OrderTitle>
-								<Select value={sortTerm} onChange={handleOnChangeSort}>
+								<Select value={sortTerm} onChange={e => setSortTerm(e.target.value)}>
 									<MenuItem value="popularity.desc">
 										Popularidade (maior)
 									</MenuItem>
@@ -121,7 +127,7 @@ function FormFilter() {
 							</NameWrapper>
 							<SelectWrapper>
 								<SelectTitle>Gêneros</SelectTitle>
-								<Select value={filterTerm} onChange={handleOnChangeFilter}>
+								<Select value={filterTerm} onChange={e => setFilterTerm(e.target.value)}>
 									{genres?.genres?.map(genre => (
 										<MenuItem key={genre.id} value={genre.id}>
 											{genre.name}
@@ -149,7 +155,6 @@ function FormFilter() {
 							<PageContainer>
 								{movies.length > 0 &&
 									movies
-										.slice(0, visible)
 										.map(movie => <MovieCard key={movie.id} {...movie} />)}
 								<LoadMoreStyled onClick={showMoreMovies}>
 									Mostrar mais

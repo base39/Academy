@@ -7,5 +7,7 @@ module.exports = app => {
 
 	app.route('/genres').get(controller.getGenresList);
 
-	app.route('/sort/:sort/:genreId').get(controller.getSort);
+	app.route('/sort/:sort/:page').get(controller.getAllMovies);
+
+	app.route('/sort/:sort/:genreId/:page').get(controller.getSort);
 };
