@@ -13,9 +13,17 @@ import SimplePopover from './PopoverCard';
 import { NoStyleLink } from '../../components/Link';
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
-
-const MovieCard = ({ poster_path, title, vote_average, release_date, width, height, iWidth, iHeight, id }) => {
-
+const MovieCard = ({
+	poster_path,
+	title,
+	vote_average,
+	release_date,
+	width,
+	height,
+	iWidth,
+	iHeight,
+	id
+}) => {
 	return (
 		<CardStyle width={width} height={height}>
 			<NoStyleLink to={`${id}`}>

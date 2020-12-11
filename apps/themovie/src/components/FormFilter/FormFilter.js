@@ -156,7 +156,6 @@ function FormFilter() {
 					<Panel>
 						<Results>
 							<PageContainer>
-								
 								{movies.length > 0 &&
 									movies.map(movie => <MovieCard key={movie.id} {...movie} />)}
 								<LoadMoreStyled onClick={showMoreMovies}>
