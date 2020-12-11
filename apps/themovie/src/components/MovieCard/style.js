@@ -10,8 +10,10 @@ export const Name = styled.div`
 `;
 
 export const CardStyle = styled.div`
-	width: calc(((100vw - 80px - 260px - 128px) / 4));
+	width: ${(props) => props.width || '203px'};
+	height: ${(props) => props.height};
 	max-width: 208px;
+	min-width: 150px;
 	margin-left: 30px;
 	margin-top: 30px;
 	position: relative;
@@ -28,11 +30,13 @@ export const CardStyle = styled.div`
 	overflow: hidden;
 `;
 
-export const Image = styled.div`
-	width: calc(((100vw - 80px - 260px - 128px) / 4));
-	height: calc((((100vw - 80px - 260px - 128px) / 4)) * 1.5);
+export const ImageContent = styled.div`
+	width: ${(props) => props.width || '208px'};
+	height: ${(props) => props.height || '304px'};
 	max-width: 208px;
-	max-height: calc(208px * 1.5);
+	min-width: 150px;
+	max-height: 312px;
+	min-height: 225px;
 `;
 
 export const Case = styled.div`
