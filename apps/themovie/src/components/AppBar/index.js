@@ -58,18 +58,24 @@ export default function AppBar(props) {
 									transformOrigin={{ vertical: 'top', horizontal: 'center' }}
 									getContentAnchorEl={null}
 								>
-									<MenuItem>
-										<NoStyleLink to="/movie">Populares</NoStyleLink>
-									</MenuItem>
-									<MenuItem>
-										<NoStyleLink to="/movie">Em cartaz</NoStyleLink>
-									</MenuItem>
-									<MenuItem>
-										<NoStyleLink to="/movie">Próximas Estreias</NoStyleLink>
-									</MenuItem>
-									<MenuItem>
-										<NoStyleLink to="/movie">Mais bem avaliados</NoStyleLink>
-									</MenuItem>
+									<NoStyleLink to="/movie">
+										<MenuItem>Populares</MenuItem>
+									</NoStyleLink>
+									<NoStyleLink to="/movie">
+										<MenuItem>
+											Em cartaz
+										</MenuItem>
+									</NoStyleLink>
+									<NoStyleLink to="/movie">
+										<MenuItem>
+											Próximas Estreias
+										</MenuItem>
+									</NoStyleLink>
+									<NoStyleLink to="/movie">
+										<MenuItem>
+											Mais bem avaliados
+										</MenuItem>
+									</NoStyleLink>
 								</Menu>
 							</Box>
 							<NoStyleLink to="/login">
@@ -80,7 +86,7 @@ export default function AppBar(props) {
 				</CustomAppBar>
 			</HideOnScroll>
 			<Toolbar />
-			<Container disableGutters={true}>{props.children}</Container>
+			{props.children}
 		</>
 	);
 }
