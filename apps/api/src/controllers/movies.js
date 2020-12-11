@@ -69,7 +69,7 @@ module.exports = () => {
 		} catch (error) {
 			return res.send({ 'error': i18n.__('invalidSort') });
 		}
-	}
+	};
 
 	controller.getSort = async (req, res) => {
 		const { sort, genreId, page } = req.params;

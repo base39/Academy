@@ -33,7 +33,7 @@ function FormFilter() {
 	console.log(sortTerm);
 	console.log(filterTerm);
 	console.log(page);
-	console.log(`http://localhost:8080/sort/${sortTerm}/${filterTerm}/${page}`)
+	console.log(`http://localhost:8080/sort/${sortTerm}/${filterTerm}/${page}`);
 
 	// Buscar os ID dos generos de filmes
 	useEffect(() => {
@@ -47,12 +47,11 @@ function FormFilter() {
 	// Carregamento inicial do filtro
 	// com os filmes mais populares em ordem decrescente
 	useEffect(() => {
-			fetch(`${FEATURED_API}/${page}`)
+		fetch(`${FEATURED_API}/${page}`)
 			.then(res => res.json())
 			.then(data => {
-				setMovies(data.results)
+				setMovies(data.results);
 			});
-		
 	}, [page]);
 
 	// Função responsável por receber os valores do
@@ -72,7 +71,7 @@ function FormFilter() {
 	// Após clicar no botão "Mostrar mais"
 	const showMoreMovies = () => {
 		setPage(page + 1);
-	}
+	};
 
 	return (
 		<>
@@ -92,7 +91,10 @@ function FormFilter() {
 							</FilterNameWrapper>
 							<OrderWrapper>
 								<OrderTitle>Ordenar Resultados Por</OrderTitle>
-								<Select value={sortTerm} onChange={e => setSortTerm(e.target.value)}>
+								<Select
+									value={sortTerm}
+									onChange={e => setSortTerm(e.target.value)}
+								>
 									<MenuItem value="popularity.desc">
 										Popularidade (maior)
 									</MenuItem>
@@ -127,7 +129,10 @@ function FormFilter() {
 							</NameWrapper>
 							<SelectWrapper>
 								<SelectTitle>Gêneros</SelectTitle>
-								<Select value={filterTerm} onChange={e => setFilterTerm(e.target.value)}>
+								<Select
+									value={filterTerm}
+									onChange={e => setFilterTerm(e.target.value)}
+								>
 									{genres?.genres?.map(genre => (
 										<MenuItem key={genre.id} value={genre.id}>
 											{genre.name}
@@ -154,8 +159,7 @@ function FormFilter() {
 						<Results>
 							<PageContainer>
 								{movies.length > 0 &&
-									movies
-										.map(movie => <MovieCard key={movie.id} {...movie} />)}
+									movies.map(movie => <MovieCard key={movie.id} {...movie} />)}
 								<LoadMoreStyled onClick={showMoreMovies}>
 									Mostrar mais
 								</LoadMoreStyled>
