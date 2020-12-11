@@ -4,8 +4,13 @@ import { Popover } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 export const CardStyle = styled.div`
-	max-width: 200px;
-	margin: 1rem;
+	width: ${(props) => props.width || '203px'};
+	height: ${(props) => props.height};
+	max-width: 208px;
+	min-width: 150px;
+	margin-left: 30px;
+	margin-top: 30px;
+  margin: 1rem;
 	position: relative;
 	border: 1px solid #e3e3e3;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -16,8 +21,13 @@ export const CardStyle = styled.div`
 	overflow: hidden;
 `;
 
-export const Image = styled.div`
-	max-width: 100%;
+export const ImageContent = styled.div`
+	width: ${(props) => props.width || '208px'};
+	height: ${(props) => props.height || '304px'};
+	max-width: 208px;
+	min-width: 150px;
+	max-height: 312px;
+	min-height: 225px;
 `;
 
 export const Case = styled.div`
@@ -49,6 +59,7 @@ export const VoteAverage = styled.span`
 	color: #2b56dc;
 	font-weight: bold;
 `;
+
 export const PopoverButton = styled.div`
 	background-image: url('https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-947-circle-more-white-4c440dfc1b0e626c70f4853dbbce9c4d1f2c5d8f3e05a7d3df47881cbd816adf.svg');
 	background-position: center center;
