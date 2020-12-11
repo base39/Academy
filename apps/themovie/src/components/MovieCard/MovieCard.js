@@ -13,7 +13,7 @@ import SimplePopover from './PopoverCard';
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
 
-const MovieCard = ({ poster_path, title, vote_average release_date, width, height, iWidth, iHeight }) => {
+const MovieCard = ({ poster_path, title, vote_average, release_date, width, height, iWidth, iHeight }) => {
 
 	return (
 		<CardStyle width={width} height={height}>
