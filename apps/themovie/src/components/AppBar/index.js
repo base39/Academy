@@ -62,19 +62,13 @@ export default function AppBar(props) {
 										<MenuItem>Populares</MenuItem>
 									</NoStyleLink>
 									<NoStyleLink to="/movie">
-										<MenuItem>
-											Em cartaz
-										</MenuItem>
+										<MenuItem>Em cartaz</MenuItem>
 									</NoStyleLink>
 									<NoStyleLink to="/movie">
-										<MenuItem>
-											Próximas Estreias
-										</MenuItem>
+										<MenuItem>Próximas Estreias</MenuItem>
 									</NoStyleLink>
 									<NoStyleLink to="/movie">
-										<MenuItem>
-											Mais bem avaliados
-										</MenuItem>
+										<MenuItem>Mais bem avaliados</MenuItem>
 									</NoStyleLink>
 								</Menu>
 							</Box>

@@ -8,7 +8,7 @@ import {
 	BoxSearch,
 	BannerContent
 } from './style';
-import { Container } from '@material-ui/core'
+import { Container } from '@material-ui/core';
 
 const Home = () => {
 	return (
@@ -20,7 +20,8 @@ const Home = () => {
 							<CustomTitle>
 								<span className="title">Bem-Vindo(a).</span> <br />
 								<span className="subtitle">
-									Milhões de Filmes, Séries e Pessoas para Descobrir. Explore já.
+									Milhões de Filmes, Séries e Pessoas para Descobrir. Explore
+									já.
 								</span>
 							</CustomTitle>
 						</BoxTitle>
