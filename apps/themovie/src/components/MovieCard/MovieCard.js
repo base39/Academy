@@ -1,7 +1,7 @@
 import React from 'react';
 import {
 	CardStyle,
-	Image,
+	ImageContent,
 	Case,
 	Poster,
 	ContentCard,
@@ -12,16 +12,18 @@ import {
 import SimplePopover from './PopoverCard';
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
-const MovieCard = ({ title, poster_path, vote_average }) => {
+
+const MovieCard = ({ poster_path, title, vote_average release_date, width, height, iWidth, iHeight }) => {
+
 	return (
-		<CardStyle>
-			<Image>
+		<CardStyle width={width} height={height}>
+			<ImageContent width={iWidth} height={iHeight}>
 				<PopoverButton></PopoverButton>
 				<SimplePopover />
 				<Case>
 					<Poster src={IMG_API + poster_path} alt={`Poster ${title}`} />
 				</Case>
-			</Image>
+			</ImageContent>
 			<ContentCard>
 				<Name>{title}</Name>
 				<VoteAverage>{vote_average}</VoteAverage>
