@@ -6,5 +6,7 @@
 	"invalidToken": "Token inválido",
 	"expiredToken": "Token expirado, gere um novo",
 	"movieNotFound": "Filme não encontrado",
-	"listMoviesNotFound": "Não foi possivel encontrar nenhum filme"
+	"listMoviesNotFound": "Não foi possível encontrar nenhum filme",
+	"genreNotFound": "Gênero não encontrado",
+	"invalidSort": "Parâmetro de ordenação inválido"
 }

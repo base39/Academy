@@ -36,5 +36,22 @@ module.exports = () => {
 		}
 	};
 
+	controller.getGenresList = async (req, res) => {
+		const params = req.query;
+
+		try {
+			await axios
+				.get(
+					`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=pt-BR`,
+					{
+						params
+					}
+				)
+				.then(response => res.send(response.data));
+		} catch (error) {
+			return res.send({ 'error': i18n.__('genreNotFound') });
+		}
+	};
+
 	return controller;
 };

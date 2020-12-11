@@ -3,12 +3,6 @@ import { Link } from 'react-router-dom';
 import { Popover } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-export const Name = styled.div`
-	font-size: 1em;
-	font-family: 'Source Sans Pro', Arial, sans-serif;
-	font-weight: 600;
-`;
-
 export const CardStyle = styled.div`
 	width: ${(props) => props.width || '203px'};
 	height: ${(props) => props.height};
@@ -16,11 +10,8 @@ export const CardStyle = styled.div`
 	min-width: 150px;
 	margin-left: 30px;
 	margin-top: 30px;
+  margin: 1rem;
 	position: relative;
-	left: 0;
-	display: flex;
-	flex-wrap: wrap;
-	align-content: flex-start;
 	border: 1px solid #e3e3e3;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
@@ -52,18 +43,21 @@ export const Poster = styled.img`
 `;
 
 export const ContentCard = styled.div`
-	width: 100%;
-	padding: 26px 10px 12px 10px;
-	position: relative;
-	white-space: normal;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem;
 `;
 
-export const LaunchMovie = styled.p`
-	font-size: 1em;
+export const Name = styled.h3`
 	margin: 0;
-	padding: 0;
-	color: rgba(0, 0, 0, 0.6);
-	display: block;
+	font-size: 1em;
+	font-family: 'Source Sans Pro', Arial, sans-serif;
+	font-weight: 600;
+`;
+
+export const VoteAverage = styled.span`
+	color: #2b56dc;
+	font-weight: bold;
 `;
 export const PopoverButton = styled.div`
 	background-image: url('https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-947-circle-more-white-4c440dfc1b0e626c70f4853dbbce9c4d1f2c5d8f3e05a7d3df47881cbd816adf.svg');
@@ -91,6 +85,7 @@ export const PopoverButton = styled.div`
 
 export const PopoverContainer = styled.div`
 	width: 388px;
+	height: 198px;
 	top: 38px;
 	left: -15px;
 	margin-top: 0px;
@@ -139,7 +134,7 @@ export const Arrow = styled(ChevronRightIcon)`
 
 export const PopoverMenu = styled.p`
 	color: rgba(0, 0, 0, 1);
-	font-size: 0.9em;
+	font-size: 0.8em;
 	padding: 2px 20px;
 	font-weight: 600;
 `;
@@ -160,7 +155,7 @@ export const PopoverLink = styled(Link)`
 	font-weight: 600;
 	color: rgba(0, 0, 0, 0.6);
 	padding: 0px 20px;
-	font-size: 0.9em;
+	font-size: 0.8em;
 	text-decoration: none;
 	cursor: pointer;
 	&:hover {
