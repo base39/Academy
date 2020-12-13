@@ -37,6 +37,7 @@ const Home = () => {
 					</BannerContent>
 				</SectionBanner>
 			</Container>
+			<Section />
 		</>
 	);                           
 };

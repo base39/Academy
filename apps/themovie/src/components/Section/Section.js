@@ -52,11 +52,8 @@ const Section = () => {
                                 <H2Styled>Os Mais Populares</H2Styled>
                                 <div>
                                 <Switch
-                                    checked={state.checkedA}
                                     onChange={handleChange}
                                     color={"primary"}
-                                    name="checkedA"
-                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
                                 /> 
                                 </div>
                                 <H2Styled>Lançamentos</H2Styled>
