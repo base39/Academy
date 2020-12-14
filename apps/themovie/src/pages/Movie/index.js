@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SidebarFilter from '../../components/SidebarFilter/index';
 
 import {
 	InnerContent,
@@ -15,7 +14,6 @@ import {
 } from './style';
 
 import renderMoviesCard from '../../components/MovieCard/renderMoviesCard';
-import Form from '../../components/Form/index'
 
 export default class Movie extends Component {
 	constructor(props) {
@@ -65,9 +63,6 @@ export default class Movie extends Component {
 							<TitleH2>Filmes Populares</TitleH2>
 						</TitleMovieDiv>
 						<Content>
-							<div>
-								<Form />
-							</div>
 							<div>
 								<ColumnDiv>
 									<Panel>
