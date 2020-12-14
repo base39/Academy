@@ -26,15 +26,15 @@ const MovieCard = ({
 }) => {
 	return (
 		<CardStyle width={width} height={height}>
-			<NoStyleLink to={`${id}`}>
 				<ImageContent width={iWidth} height={iHeight}>
 					<PopoverButton></PopoverButton>
 					<SimplePopover />
 					<Case>
-						<Poster src={IMG_API + poster_path} alt={`Poster ${title}`} />
+						<NoStyleLink to={`${id}`}>
+							<Poster src={IMG_API + poster_path} alt={`Poster ${title}`} />
+						</NoStyleLink>
 					</Case>
 				</ImageContent>
-			</NoStyleLink>
 			<ContentCard>
 				<NoStyleLink to={`${id}`}>
 					<Name>{title}</Name>
