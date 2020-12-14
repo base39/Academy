@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../../components/Form/index';
+import SidebarFilter from '../../components/SidebarFilter/index';
 
 import {
 	InnerContent,
@@ -17,7 +17,7 @@ function Movie() {
 					<TitleH2>Filmes Populares</TitleH2>
 				</TitleMovieDiv>
 				<Content>
-					<Form />
+					<SidebarFilter />
 				</Content>
 			</ContentContainer>
 		</InnerContent>
