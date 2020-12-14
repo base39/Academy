@@ -15,7 +15,7 @@ import {
 } from './style';
 
 import renderMoviesCard from '../../components/MovieCard/renderMoviesCard';
-import Form from '../../components/Form/index'
+import Form from '../../components/Form/index';
 
 export default class Movie extends Component {
 	constructor(props) {

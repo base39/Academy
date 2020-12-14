@@ -10,8 +10,8 @@ export const Name = styled.div`
 `;
 
 export const CardStyle = styled.div`
-	width: ${(props) => props.width || '203px'};
-	height: ${(props) => props.height};
+	width: ${props => props.width || '203px'};
+	height: ${props => props.height};
 	max-width: 208px;
 	min-width: 150px;
 	margin-left: 30px;
@@ -31,8 +31,8 @@ export const CardStyle = styled.div`
 `;
 
 export const ImageContent = styled.div`
-	width: ${(props) => props.width || '208px'};
-	height: ${(props) => props.height || '304px'};
+	width: ${props => props.width || '208px'};
+	height: ${props => props.height || '304px'};
 	max-width: 208px;
 	min-width: 150px;
 	max-height: 312px;
