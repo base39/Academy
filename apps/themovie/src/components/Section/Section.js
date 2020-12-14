@@ -18,61 +18,55 @@ const Section = () => {
 	const [upcoming, setUpcoming] = useState([]);
 	const [state, setState] = useState(false);
 
-	useEffect(() => {
-		getContentMovie();
-		getContentUpcoming();
-	}, []);
+  useEffect(() => {
+    getContentMovie();
+    getContentUpcoming();
+  }, []);
 
-	const getContentMovie = async () => {
-		const response = await fetch(`http://localhost:8080/movies/top_rated`);
-		const data = await response.json();
+  const getContentMovie = async () => {
+    const response = await fetch(`http://localhost:8080/movies/top_rated`);
+    const data = await response.json();
 
-		setTopRated(data.results);
-	};
+    setTopRated(data.results);
+  };
 
-	const getContentUpcoming = async () => {
-		const response = await fetch(`http://localhost:8080/movies/upcoming`);
-		const data = await response.json();
+  const getContentUpcoming = async () => {
+    const response = await fetch(`http://localhost:8080/movies/upcoming`);
+    const data = await response.json();
 
-		setUpcoming(data.results);
-	};
+        setUpcoming(data.results);
+  };
 
-	const handleChange = () => {
-		state ? setState(false) : setState(true);
-	};
+  const handleChange = () => {
+    state ? setState(false) : setState(true);
+  };
 
-	return (
-		<>
-			<SectionStyled>
-				<SectionWrapper>
-					<ContentWrapper>
-						<Column>
-							<ColumnHeader>
-								<H2Styled>Os Mais Populares</H2Styled>
-								<div>
-									<Switch
-										checked={state.checkedA}
-										onChange={handleChange}
-										color={'primary'}
-										name="checkedA"
-										inputProps={{ 'aria-label': 'secondary checkbox' }}
-									/>
-								</div>
-								<H2Styled>Lançamentos</H2Styled>
-							</ColumnHeader>
-							<ScrollerWrap>
-								<ScrollContent>
-									{state
-										? upcoming.map(renderMoviesCardHome)
-										: topRated.map(renderMoviesCardHome)}
-								</ScrollContent>
-							</ScrollerWrap>
-						</Column>
-					</ContentWrapper>
-				</SectionWrapper>
-			</SectionStyled>
-		</>
-	);
-};
+  return (
+      <>
+          <SectionStyled>
+              <SectionWrapper>
+                  <ContentWrapper>
+                      <Column>
+                          <ColumnHeader>
+                              <H2Styled>Os Mais Populares</H2Styled>
+                              <div>
+                              <Switch
+                                  onChange={handleChange}
+                                  color={"primary"}
+                              /> 
+                              </div>
+                              <H2Styled>Lançamentos</H2Styled>
+                          </ColumnHeader>
+                          <ScrollerWrap>
+                              <ScrollContent>
+                                  {state ? upcoming.map(renderMoviesCardHome) : topRated.map(renderMoviesCardHome)}
+                              </ScrollContent>
+                          </ScrollerWrap>
+                      </Column>
+                  </ContentWrapper>
+              </SectionWrapper>
+          </SectionStyled>
+      </>
+  )
 
 export default Section;
