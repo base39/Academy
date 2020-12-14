@@ -1,5 +1,5 @@
 import React from 'react';
-import FormFilter from '../../components/FormFilter/FormFilter';
+import Form from '../../components/Form/index';
 
 import {
 	InnerContent,
@@ -17,7 +17,7 @@ function Movie() {
 					<TitleH2>Filmes Populares</TitleH2>
 				</TitleMovieDiv>
 				<Content>
-					<FormFilter />
+					<Form />
 				</Content>
 			</ContentContainer>
 		</InnerContent>
