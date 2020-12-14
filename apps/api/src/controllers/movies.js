@@ -53,5 +53,24 @@ module.exports = () => {
 		}
 	};
 
+	controller.getCredits = async (req, res) => {
+		const { id } = req.params;
+		const params = req.query;
+
+		try {
+			await axios
+				.get(
+					`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`,
+					{
+						params
+					}
+				)
+				.then(response => res.send(response.data));
+		} catch (error) {
+			// console.log(error.message);
+			return res.send({ 'error': i18n.__('movieNotFound') });
+		}
+	};
+
 	return controller;
 };

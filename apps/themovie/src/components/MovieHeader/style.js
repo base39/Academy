@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Box, Typography } from '@material-ui/core';
 
 export const ContentIndex = styled(Box)`
-	height: 550px;
+	height: 520px;
 	border-bottom: 1px solid rgba(5.1%, 17.45%, 45.49%, 1);
 	background-position: right 0px top;
 	background-size: cover;

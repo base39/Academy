@@ -36,8 +36,8 @@ const Home = () => {
 						</BoxSearch>
 					</BannerContent>
 				</SectionBanner>
+				<Section />
 			</Container>
-			<Section />
 		</>
 	);
 };

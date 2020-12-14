@@ -5,5 +5,7 @@ module.exports = app => {
 
 	app.route('/movies/:id').get(controller.getMovie);
 
+	app.route('/movies/credits/:id').get(controller.getCredits);
+
 	app.route('/genres').get(controller.getGenresList);
 };
