@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Section from '../../components/Section/Section'
 import {
 	SearchInput,
 	SearchButton,
@@ -39,7 +38,7 @@ const Home = () => {
 			</Container>
 			<Section />
 		</>
-	);                           
+	);
 };
 
 export default Home;
