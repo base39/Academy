@@ -1,7 +1,7 @@
-import MovieCard from './MovieCard'
+import MovieCard from './MovieCard';
 
+const renderMoviesCard = (movie, index) => (
+	<MovieCard key={`movie-${index}`} {...movie} />
+);
 
-
-const renderMoviesCard = ( movie, index ) => ( <MovieCard key={`movie-${index}`} {...movie} /> )
-
-export default renderMoviesCard
+export default renderMoviesCard;

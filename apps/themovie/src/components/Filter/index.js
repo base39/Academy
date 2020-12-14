@@ -25,30 +25,30 @@ function Filter() {
 	return (
 		<>
 			<FilterWrapper
-                border={1}
-                borderRadius="borderRadius"
-                borderColor="grey.300"
-                boxSizing="border-box"
-                display="flex"
-                flexDirection="column"
-            >
-                <NameWrapper>
-                    <NameTitle>Filtros</NameTitle>
-                </NameWrapper>
-                <SelectWrapper>
-                    <SelectTitle>Gêneros</SelectTitle>
-                    <Select
-                        value={filterTerm}
-                        onChange={e => setFilterTerm(e.target.value)}
-                    >
-                        {genres?.genres?.map(genre => (
-                            <MenuItem key={genre.id} value={genre.id}>
-                                {genre.name}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </SelectWrapper>
-            </FilterWrapper>
+				border={1}
+				borderRadius="borderRadius"
+				borderColor="grey.300"
+				boxSizing="border-box"
+				display="flex"
+				flexDirection="column"
+			>
+				<NameWrapper>
+					<NameTitle>Filtros</NameTitle>
+				</NameWrapper>
+				<SelectWrapper>
+					<SelectTitle>Gêneros</SelectTitle>
+					<Select
+						value={filterTerm}
+						onChange={e => setFilterTerm(e.target.value)}
+					>
+						{genres?.genres?.map(genre => (
+							<MenuItem key={genre.id} value={genre.id}>
+								{genre.name}
+							</MenuItem>
+						))}
+					</Select>
+				</SelectWrapper>
+			</FilterWrapper>
 		</>
 	);
 }
