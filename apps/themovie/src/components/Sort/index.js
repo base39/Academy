@@ -9,8 +9,7 @@ import {
 import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 
-function Sort({onChange, value}) {
-
+function Sort({ onChange, value }) {
 	return (
 		<>
 			<SortWrapper
