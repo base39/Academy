@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {} from './style';
 import Sort from '../Sort/index';
 import Filter from '../Filter/index';
 import Button from '@material-ui/core/Button';
