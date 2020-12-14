@@ -50,16 +50,15 @@ const Section = () => {
 							<ColumnHeader>
 								<H2Styled>Os Mais Populares</H2Styled>
 								<div>
-								<Switch
-									onChange={handleChange}
-									color={"primary"}
-								/> 
+									<Switch onChange={handleChange} color={'primary'} />
 								</div>
 								<H2Styled>Lançamentos</H2Styled>
 							</ColumnHeader>
 							<ScrollerWrap>
 								<ScrollContent>
-									{state ? upcoming.map(renderMoviesCardHome) : topRated.map(renderMoviesCardHome)}
+									{state
+										? upcoming.map(renderMoviesCardHome)
+										: topRated.map(renderMoviesCardHome)}
 								</ScrollContent>
 							</ScrollerWrap>
 						</Column>
@@ -67,7 +66,7 @@ const Section = () => {
 				</SectionWrapper>
 			</SectionStyled>
 		</>
-	)
-}
+	);
+};
 
 export default Section;

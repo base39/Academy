@@ -59,9 +59,12 @@ module.exports = () => {
 
 		try {
 			await axios
-				.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`, {
-					params
-				})
+				.get(
+					`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`,
+					{
+						params
+					}
+				)
 				.then(response => res.send(response.data));
 		} catch (error) {
 			// console.log(error.message);

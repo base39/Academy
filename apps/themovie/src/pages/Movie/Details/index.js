@@ -10,18 +10,18 @@ const Details = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			await fetch(`http://localhost:8080/movies/credits/${id}?language=pt-BR`)
-			.then(res => res.json())
-			.then(result => {
-				setMovieCast(result.cast)
-			});
-		}
+				.then(res => res.json())
+				.then(result => {
+					setMovieCast(result.cast);
+				});
+		};
 		fetchData();
-	}, [id])
+	}, [id]);
 
 	return (
 		<>
 			<MovieHeader />
-			<MovieCast cast={movieCast}/>
+			<MovieCast cast={movieCast} />
 		</>
 	);
 };

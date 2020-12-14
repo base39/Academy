@@ -13,7 +13,7 @@ export const ContentIndex = styled(Box)`
 			rgba(7.06%, 20.39%, 50.59%, 0.84) 100%
 		),
 		url(//image.tmdb.org/t/p/w1920_and_h800_multi_faces${props =>
-		props.backgroundimage});
+			props.backgroundimage});
 	display: flex;
 	justify-content: center;
 	align-items: center;
