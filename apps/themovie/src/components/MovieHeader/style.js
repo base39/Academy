@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Box, Typography } from '@material-ui/core';
 
 export const ContentIndex = styled(Box)`
-	height: 550px;
+	height: 520px;
 	border-bottom: 1px solid rgba(5.1%, 17.45%, 45.49%, 1);
 	background-position: right 0px top;
 	background-size: cover;
@@ -13,7 +13,7 @@ export const ContentIndex = styled(Box)`
 			rgba(7.06%, 20.39%, 50.59%, 0.84) 100%
 		),
 		url(//image.tmdb.org/t/p/w1920_and_h800_multi_faces${props =>
-			props.backgroundimage});
+		props.backgroundimage});
 	display: flex;
 	justify-content: center;
 	align-items: center;
