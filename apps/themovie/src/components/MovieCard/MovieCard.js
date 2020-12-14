@@ -30,13 +30,13 @@ const MovieCard = ({
 				<PopoverButton></PopoverButton>
 				<SimplePopover />
 				<Case>
-					<NoStyleLink to={`${id}`}>
+					<NoStyleLink to={`/movie/${id}`}>
 						<Poster src={IMG_API + poster_path} alt={`Poster ${title}`} />
 					</NoStyleLink>
 				</Case>
 			</ImageContent>
 			<ContentCard>
-				<NoStyleLink to={`${id}`}>
+				<NoStyleLink to={`/movie/${id}`}>
 					<Name>{title}</Name>
 				</NoStyleLink>
 				<VoteAverage>{vote_average}</VoteAverage>
