@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SidebarFilter from '../../components/SidebarFilter/index';
 
 import {
 	InnerContent,

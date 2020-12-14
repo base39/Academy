@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
 	SortWrapper,
 	OrderWrapper,
@@ -9,9 +9,7 @@ import {
 import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 
-function Sort() {
-	const [sortTerm, setSortTerm] = useState('');
-
+function Sort({ onChange, value }) {
 	return (
 		<>
 			<SortWrapper
@@ -27,7 +25,7 @@ function Sort() {
 				</FilterNameWrapper>
 				<OrderWrapper>
 					<OrderTitle>Ordenar Resultados Por</OrderTitle>
-					<Select value={sortTerm} onChange={e => setSortTerm(e.target.value)}>
+					<Select value={value} onChange={onChange}>
 						<MenuItem value="popularity.desc">Popularidade (maior)</MenuItem>
 						<MenuItem value="popularity.asc">Popularidade (menor)</MenuItem>
 						<MenuItem value="vote_average.desc">Avaliação (melhor)</MenuItem>

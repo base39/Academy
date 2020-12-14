@@ -9,9 +9,8 @@ import {
 import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 
-function Filter() {
+function Filter({ onChange, value }) {
 	const [genres, setGenres] = useState([]);
-	const [filterTerm, setFilterTerm] = useState('');
 
 	// Buscar os ID dos generos de filmes
 	useEffect(() => {
@@ -37,10 +36,7 @@ function Filter() {
 				</NameWrapper>
 				<SelectWrapper>
 					<SelectTitle>Gêneros</SelectTitle>
-					<Select
-						value={filterTerm}
-						onChange={e => setFilterTerm(e.target.value)}
-					>
+					<Select value={value} onChange={onChange}>
 						{genres?.genres?.map(genre => (
 							<MenuItem key={genre.id} value={genre.id}>
 								{genre.name}
