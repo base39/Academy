@@ -9,7 +9,7 @@ import {
 import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 
-function Sort({ addSort }) {
+function Sort() {
 	const [sortTerm, setSortTerm] = useState('');
 
 	return (
