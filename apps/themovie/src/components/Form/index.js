@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {} from './style';
 import Sort from '../Sort/index';
 import Filter from '../Filter/index';
