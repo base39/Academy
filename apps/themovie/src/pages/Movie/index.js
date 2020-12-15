@@ -15,7 +15,6 @@ import {
 } from './style';
 
 import renderMoviesCard from '../../components/MovieCard/renderMoviesCard';
-import Form from '../../components/Form/index'
 
 export default class Movie extends Component {
 	constructor(props) {
@@ -23,9 +22,13 @@ export default class Movie extends Component {
 		this.state = {
 			movies: [],
 			totalPages: 0,
-			page: 1
+			page: 1,
+			sort: '',
+			filter: ''
 		};
 		this.loadMore = this.loadMore.bind(this);
+		this.onFilter = this.onFilter.bind(this);
+		console.log(this.state.sort);
 	}
 
 	componentDidMount() {
@@ -34,8 +37,10 @@ export default class Movie extends Component {
 
 	async getContent() {
 		try {
-			const { page, movies, totalPages } = this.state;
-			const response = await fetch(`http://localhost:8080/movies?page=${page}`);
+			const { page, movies, totalPages, sort, filter } = this.state;
+			const response = await fetch(
+				`http://localhost:8080/movies?&page=${page}?&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&with_genres=${filter}`
+			);
 			const data = await response.json();
 			const dataResults = data.results;
 			const totalPage = data.total_pages;
@@ -53,6 +58,19 @@ export default class Movie extends Component {
 		this.setState({ page: this.state.page + 1 }, this.getContent);
 	}
 
+	onFilter(state) {
+		const { sort, filter } = state;
+		this.setState(
+			{
+				...this.state,
+				sort,
+				filter
+			},
+			this.getContent
+		);
+		console.log('sort', sort, 'filter', filter);
+	}
+
 	render() {
 		const { page, totalPages } = this.state;
 		const hasMore = page < totalPages;
@@ -66,7 +84,7 @@ export default class Movie extends Component {
 						</TitleMovieDiv>
 						<Content>
 							<div>
-								<Form />
+								<SidebarFilter onFilter={this.onFilter} />
 							</div>
 							<div>
 								<ColumnDiv>
