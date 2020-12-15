@@ -51,7 +51,7 @@ const Details = () => {
 		<>
 			<MovieHeader movie={movie} crew={movieCrew} />
 			<MovieCast cast={movieCast} />
-			<MovieRecomendation recommendation={recommendation} />
+			<MovieRecomendation movie={movie} recommendation={recommendation} />
 		</>
 	);
 };

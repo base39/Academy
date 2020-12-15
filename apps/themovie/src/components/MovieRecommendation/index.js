@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 import { ContainerRecommendation } from './style';
 import Scroller from './Scroller';
 
-const MovieRecommendation = ({ recommendation }) => {
+const MovieRecommendation = ({ recommendation, movie }) => {
 	const hasRecommendation = recommendation.length;
 
 	const renderScroller = recommendation => (
@@ -13,8 +13,7 @@ const MovieRecommendation = ({ recommendation }) => {
 	const renderNoRecommendation = () => {
 		return (
 			<Typography variant="subtitle1">
-				Ainda não temos dados o suficiente para sugerir filmes com base em
-				nome_filme.
+				{`Ainda não temos dados o suficiente para sugerir filmes com base em ${movie.title}.`}
 			</Typography>
 		);
 	};
