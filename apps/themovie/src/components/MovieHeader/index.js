@@ -43,9 +43,9 @@ const MovieHeader = ({ movie, crew }) => {
 		return last;
 	}, []);
 
-	const hasPosterPath = movie?.poster_path
-	const hasMovieOverview = movie?.overview
-	const hasReleaseDate = movie?.release_date
+	const hasPosterPath = movie?.poster_path;
+	const hasMovieOverview = movie?.overview;
+	const hasReleaseDate = movie?.release_date;
 
 	return (
 		<section>
@@ -54,7 +54,11 @@ const MovieHeader = ({ movie, crew }) => {
 					<HeaderDetails>
 						<ImageWrapper item md={4} noWrap>
 							<Image
-								src={hasPosterPath ? `//image.tmdb.org/t/p/w300_and_h450_bestv2/${movie?.poster_path}` : "https://i.ibb.co/LPR2G8X/image.png"}
+								src={
+									hasPosterPath
+										? `//image.tmdb.org/t/p/w300_and_h450_bestv2/${movie?.poster_path}`
+										: 'https://i.ibb.co/LPR2G8X/image.png'
+								}
 								alt={movie?.poster_path}
 							/>
 						</ImageWrapper>
@@ -62,22 +66,22 @@ const MovieHeader = ({ movie, crew }) => {
 							<div>
 								<MovieTitle variant="h4">
 									{movie?.title}{' '}
-									{hasReleaseDate ? 
-										<MovieYear>({moment(movie?.release_date).year()})</MovieYear> :
+									{hasReleaseDate ? (
+										<MovieYear>
+											({moment(movie?.release_date).year()})
+										</MovieYear>
+									) : (
 										<MovieYear>(Data não informada)</MovieYear>
-									}
-									
+									)}
 								</MovieTitle>
-								{hasReleaseDate ? 
+								{hasReleaseDate ? (
 									<MovieRelease>
 										{moment(movie?.release_date).format('DD/MM/YYYY')}
-									</MovieRelease> :
-
-									<MovieRelease>
-										(Data não informada)
 									</MovieRelease>
-								}
-								
+								) : (
+									<MovieRelease>(Data não informada)</MovieRelease>
+								)}
+
 								<MovieGenres>{genres.join(', ')}</MovieGenres>
 								<MovieRuntime>
 									{`${moment
@@ -87,17 +91,19 @@ const MovieHeader = ({ movie, crew }) => {
 										.get('minutes')}m`}
 								</MovieRuntime>
 								{movie?.tagline && <TagLine>{movie?.tagline}</TagLine>}
-								{hasMovieOverview ? movie?.overview && (
-									<>
-										<MovieSynopsis>Sinopse</MovieSynopsis>
-										<MovieOverview>{movie?.overview}</MovieOverview>
-									</>
-								): 
+								{hasMovieOverview ? (
+									movie?.overview && (
+										<>
+											<MovieSynopsis>Sinopse</MovieSynopsis>
+											<MovieOverview>{movie?.overview}</MovieOverview>
+										</>
+									)
+								) : (
 									<>
 										<MovieSynopsis>Sinopse</MovieSynopsis>
 										<MovieOverview>Sinopse não disponível</MovieOverview>
 									</>
-								}
+								)}
 								<ContainerDirector container>
 									{directors.map(renderDirector)}
 								</ContainerDirector>
