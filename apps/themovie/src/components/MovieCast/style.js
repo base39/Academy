@@ -9,7 +9,7 @@ import {
 	CardActionArea
 } from '@material-ui/core';
 
-export const CastCard = styled(Card)`
+export const CardCast = styled(Card)`
 	min-width: 150px;
 	max-width: 150px;
 	margin: 15px 20px 10px 0;
@@ -61,5 +61,3 @@ export const ContainerCast = styled(Container)`
 export const CastName = styled(Typography)`
 	font-weight: 700;
 `;
-
-export const CardContentArea = styled(CardActionArea)``;
