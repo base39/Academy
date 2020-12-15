@@ -1,31 +1,33 @@
-import React from 'react'
-import {
-  CardRecommendation,
-  RecommendationImage,
-	BoxImage
-} from './style'
+import React from 'react';
+import { CardRecommendation, RecommendationImage, BoxImage } from './style';
 import { NoStyleLink } from '../../components/Link';
 import noBackdrop from '../../../src/assets/svg/no_movie_holder.svg';
 import { Typography, CardContent, CardActionArea } from '@material-ui/core';
 
 const RecommendationCard = ({ id, backdrop_path, title }) => {
-  const hasBackdrop = backdrop_path;
+	const hasBackdrop = backdrop_path;
 
-  const renderBackdrop = (backdrop_path) => <RecommendationImage image={`//image.tmdb.org/t/p/w250_and_h141_face/${backdrop_path}`}/>
-	const renderBackdropHolder = (holder) => <BoxImage image={holder}/>
+	const renderBackdrop = backdrop_path => (
+		<RecommendationImage
+			image={`//image.tmdb.org/t/p/w250_and_h141_face/${backdrop_path}`}
+		/>
+	);
+	const renderBackdropHolder = holder => <BoxImage image={holder} />;
 
-  return (
-    <CardRecommendation>
-      <NoStyleLink to={`/movie/${id}`}>
-        <CardActionArea>
-          {hasBackdrop ? renderBackdrop(backdrop_path) : renderBackdropHolder(noBackdrop)}
-          <CardContent>
-            <Typography variant="subtitle2">{title}</Typography>
-          </CardContent>
-        </CardActionArea>
-      </NoStyleLink>
-    </CardRecommendation>
-  );
-}
+	return (
+		<CardRecommendation>
+			<NoStyleLink to={`/movie/${id}`}>
+				<CardActionArea>
+					{hasBackdrop
+						? renderBackdrop(backdrop_path)
+						: renderBackdropHolder(noBackdrop)}
+					<CardContent>
+						<Typography variant="subtitle2">{title}</Typography>
+					</CardContent>
+				</CardActionArea>
+			</NoStyleLink>
+		</CardRecommendation>
+	);
+};
 
-export default RecommendationCard
+export default RecommendationCard;

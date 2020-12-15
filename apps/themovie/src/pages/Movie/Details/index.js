@@ -25,7 +25,6 @@ const Details = () => {
 
 	useEffect(() => {
 		const fetchMovie = async () => {
- 
 			await fetch(`http://localhost:8080/movies/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
@@ -34,20 +33,19 @@ const Details = () => {
 		};
 		fetchMovie();
 	}, [id]);
-  
-  useEffect(() => {
+
+	useEffect(() => {
 		const fetchRecommendation = async () => {
-  
-    await fetch(
-          `http://localhost:8080/movies/recommendation/${id}?language=pt-BR`
-        )
-          .then(res => res.json())
-          .then(result => {
-            setRecommendation(result);
-          });
-      };
+			await fetch(
+				`http://localhost:8080/movies/recommendation/${id}?language=pt-BR`
+			)
+				.then(res => res.json())
+				.then(result => {
+					setRecommendation(result);
+				});
+		};
 		fetchRecommendation();
-	}, [id]); 
+	}, [id]);
 
 	return (
 		<>
