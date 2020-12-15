@@ -28,7 +28,7 @@ export const ContainerRecommendation = styled(Container)`
 	margin-bottom: 25px;
 `;
 
-export const RecommendationCard = styled(Card)`
+export const CardRecommendation = styled(Card)`
 	min-width: 250px;
 	margin: 15px 20px 10px 0;
 `;
