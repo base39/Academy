@@ -7,7 +7,14 @@ import {
 	ContentCard,
 	Name,
 	PopoverButton,
-	VoteAverage
+	DateStyled,
+	Consensus,
+	Circle,
+	Score,
+	Percent,
+	IconStyled,
+	CanvasStyled,
+	PercentStyled
 } from './style';
 import SimplePopover from './PopoverCard';
 import { NoStyleLink } from '../../components/Link';
@@ -36,10 +43,23 @@ const MovieCard = ({
 				</Case>
 			</ImageContent>
 			<ContentCard>
+				<Consensus>
+					<Circle>
+						<Score>
+							<Percent>
+								<IconStyled>
+									{vote_average}
+									<PercentStyled>%</PercentStyled>
+								</IconStyled>
+								<CanvasStyled></CanvasStyled>
+							</Percent>
+						</Score>
+					</Circle>
+				</Consensus>
 				<NoStyleLink to={`/movie/${id}`}>
 					<Name>{title}</Name>
 				</NoStyleLink>
-				<VoteAverage>{vote_average}</VoteAverage>
+				<DateStyled>{release_date}</DateStyled>
 			</ContentCard>
 		</CardStyle>
 	);
