@@ -9,6 +9,7 @@ import {
 	LinkRouterStyled,
 	SpanAlert
 } from '../styled-components-example/styles';
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default class Register extends Component {
 	constructor(props) {
@@ -65,7 +66,7 @@ export default class Register extends Component {
 
 	handleSubmit(event) {
 		if (this.handleValidation()) {
-			fetch('http://localhost:8080/user/register', {
+			fetch(`${API_URL}/user/register`, {
 				headers: {
 					'Content-Type': 'application/json'
 				},

@@ -10,10 +10,11 @@ const Details = () => {
 	const [movieCrew, setMovieCrew] = useState([{}]);
 	const [recommendation, setRecommendation] = useState([]);
 	const [movie, setMovie] = useState([]);
+	const API_URL = process.env.REACT_APP_API_URL;
 
 	useEffect(() => {
 		const fetchData = async () => {
-			await fetch(`http://localhost:8080/movies/credits/${id}?language=pt-BR`)
+			await fetch(`${API_URL}/movies/credits/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setMovieCast(result.cast);
@@ -21,31 +22,29 @@ const Details = () => {
 				});
 		};
 		fetchData();
-	}, [id]);
+	}, [id, API_URL]);
 
 	useEffect(() => {
 		const fetchMovie = async () => {
-			await fetch(`http://localhost:8080/movies/${id}?language=pt-BR`)
+			await fetch(`${API_URL}/movies/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setMovie(result);
 				});
 		};
 		fetchMovie();
-	}, [id]);
+	}, [id, API_URL]);
 
 	useEffect(() => {
 		const fetchRecommendation = async () => {
-			await fetch(
-				`http://localhost:8080/movies/recommendation/${id}?language=pt-BR`
-			)
+			await fetch(`${API_URL}/movies/recommendation/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setRecommendation(result);
 				});
 		};
 		fetchRecommendation();
-	}, [id]);
+	}, [id, API_URL]);
 
 	return (
 		<>

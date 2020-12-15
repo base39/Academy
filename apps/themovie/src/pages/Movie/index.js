@@ -15,6 +15,7 @@ import {
 
 import renderMoviesCard from '../../components/MovieCard/renderMoviesCard';
 import SidebarFilter from '../../components/SidebarFilter/index';
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default class Movie extends Component {
 	constructor(props) {
@@ -38,7 +39,7 @@ export default class Movie extends Component {
 		try {
 			const { page, movies, totalPages, sort, filter } = this.state;
 			const response = await fetch(
-				`http://localhost:8080/movies?&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&with_genres=${filter}`
+				`${API_URL}/movies?&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&with_genres=${filter}`
 			);
 			const data = await response.json();
 			const dataResults = data.results;

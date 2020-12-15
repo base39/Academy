@@ -10,6 +10,8 @@ import {
 	LinkRouterStyled
 } from '../styled-components-example/styles';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 export default class Section extends Component {
 	constructor(props) {
 		super(props);
@@ -24,7 +26,7 @@ export default class Section extends Component {
 	};
 
 	handleSubmit = event => {
-		fetch('http://localhost:8080/auth/login', {
+		fetch(`${API_URL}/auth/login`, {
 			headers: {
 				'Content-Type': 'application/json'
 			},
