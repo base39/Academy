@@ -21,9 +21,12 @@ export default class Movie extends Component {
 		this.state = {
 			movies: [],
 			totalPages: 0,
-			page: 1
+			page: 1,
+			sort: 'popularity.desc',
+			filter: ''
 		};
 		this.loadMore = this.loadMore.bind(this);
+		this.onFilter = this.onFilter.bind(this);
 	}
 
 	componentDidMount() {
@@ -32,8 +35,10 @@ export default class Movie extends Component {
 
 	async getContent() {
 		try {
-			const { page, movies, totalPages } = this.state;
-			const response = await fetch(`http://localhost:8080/movies?page=${page}`);
+			const { page, movies, totalPages, sort, filter } = this.state;
+			const response = await fetch(
+				`http://localhost:8080/movies?&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&with_genres=${filter}`
+			);
 			const data = await response.json();
 			const dataResults = data.results;
 			const totalPage = data.total_pages;
@@ -51,6 +56,20 @@ export default class Movie extends Component {
 		this.setState({ page: this.state.page + 1 }, this.getContent);
 	}
 
+	onFilter(state) {
+		const { sort, filter } = state;
+		this.setState(
+			{
+				...this.state,
+				movies: [],
+				page: 1,
+				sort,
+				filter
+			},
+			this.getContent
+		);
+	}
+
 	render() {
 		const { page, totalPages } = this.state;
 		const hasMore = page < totalPages;
@@ -63,6 +82,9 @@ export default class Movie extends Component {
 							<TitleH2>Filmes Populares</TitleH2>
 						</TitleMovieDiv>
 						<Content>
+							<div>
+								<SidebarFilter onFilter={this.onFilter} />
+							</div>
 							<div>
 								<ColumnDiv>
 									<Panel>

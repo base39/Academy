@@ -26,6 +26,7 @@ export const SortWrapper = styled(Box)`
 	width: 260px;
 	box-shadow: 3px 3px 4px 0px rgba(181, 179, 181, 0.4);
 	padding: 14px 16px;
+	margin-top: 30px;
 `;
 
 export const OrderWrapper = styled.div`

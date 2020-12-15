@@ -3,12 +3,10 @@ import Sort from '../Sort/index';
 import Filter from '../Filter/index';
 import Button from '@material-ui/core/Button';
 
-function SidebarFilter() {
+function SidebarFilter({ onFilter }) {
 	const [state, setState] = useState({
 		sort: 'popularity.desc',
-		page: '1',
-		filter: '',
-		movies: []
+		filter: ''
 	});
 
 	const handleChange = (event, name) => {
@@ -20,16 +18,8 @@ function SidebarFilter() {
 		});
 	};
 
-	const handleSubmit = e => {
-		e.preventDefault();
-
-		fetch(
-			`http://localhost:8080/movies?&language=pt-BR&sort_by=${state.sort}&include_adult=false&include_video=false&page=${state.page}&with_genres=${state.filter}`
-		)
-			.then(res => res.json())
-			.then(data => {
-				state.movies(data.results);
-			});
+	const handleSubmit = () => {
+		onFilter(state);
 	};
 
 	return (
