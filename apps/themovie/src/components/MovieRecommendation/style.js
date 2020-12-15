@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import { Container, Card, CardMedia, Box, CardContent } from '@material-ui/core';
+import {
+	Container,
+	Card,
+	CardMedia,
+	Box,
+	CardContent
+} from '@material-ui/core';
 
 export const ScrollerWrap = styled.div`
 	width: auto;
@@ -50,6 +56,6 @@ export const BoxImage = styled(Box)`
 export const RecommendatioCardContent = styled(CardContent)`
 	padding: 8px;
 	&:last-child {
-		padding-bottom: 8px
+		padding-bottom: 8px;
 	}
-`
+`;

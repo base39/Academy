@@ -30,7 +30,7 @@ export const BoxImage = styled(Box)`
 export const CastCardContent = styled(CardContent)`
 	padding: 8px;
 	&:last-child {
-		padding-bottom: 8px
+		padding-bottom: 8px;
 	}
 `;
 
