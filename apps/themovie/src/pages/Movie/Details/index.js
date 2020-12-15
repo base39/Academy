@@ -34,7 +34,7 @@ const Details = () => {
 
 	return (
 		<>
-			<MovieHeader movie={movie} crew={movieCrew}/>
+			<MovieHeader movie={movie} crew={movieCrew} />
 			<MovieCast cast={movieCast} />
 		</>
 	);

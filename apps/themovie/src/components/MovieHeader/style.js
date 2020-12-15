@@ -94,11 +94,10 @@ export const MovieRuntime = styled.span`
 
 export const DirectorName = styled(Typography)`
 	font-weight: 700;
-`
+`;
 
 export const ContainerDirector = styled(Grid)`
 	margin-top: 20px;
-`
+`;
 
-export const GridDirector = styled(Grid)`
-`
+export const GridDirector = styled(Grid)``;

@@ -24,30 +24,24 @@ const MovieHeader = ({ movie, crew }) => {
 	const genres = [];
 	movie?.genres?.map(genre => genres.push(genre.name));
 
-	const renderDirector = ({name, job}, index) => {
+	const renderDirector = ({ name, job }, index) => {
 		return (
 			<GridDirector item key={`director-${index}`} md={4} sm={6}>
-				<DirectorName variant="body1">
-					{name}
-				</DirectorName>
-				<Typography variant="body2">
-					{job}
-				</Typography>
+				<DirectorName variant="body1">{name}</DirectorName>
+				<Typography variant="body2">{job}</Typography>
 			</GridDirector>
-		)
-	}
+		);
+	};
 
-	const directors = crew.reduce( (last, person) => {
-
+	const directors = crew.reduce((last, person) => {
 		let found = last.find(value => {
-			return value.name === person.name
-		})
+			return value.name === person.name;
+		});
 
-		if(!found && person.job === 'Director')
-			last.push(person);
+		if (!found && person.job === 'Director') last.push(person);
 
 		return last;
-	}, [])
+	}, []);
 
 	return (
 		<section>
@@ -71,11 +65,13 @@ const MovieHeader = ({ movie, crew }) => {
 								</MovieRelease>
 								<MovieGenres>{genres.join(', ')}</MovieGenres>
 								<MovieRuntime>
-									{`${moment.duration(movie?.runtime, 'minutes').get('hours')}h ${moment.duration(movie?.runtime, 'minutes').get('minutes')}m`}
+									{`${moment
+										.duration(movie?.runtime, 'minutes')
+										.get('hours')}h ${moment
+										.duration(movie?.runtime, 'minutes')
+										.get('minutes')}m`}
 								</MovieRuntime>
-								{movie?.tagline && (
-									<TagLine>{movie?.tagline}</TagLine>
-								)}
+								{movie?.tagline && <TagLine>{movie?.tagline}</TagLine>}
 								{movie?.overview && (
 									<>
 										<MovieSynopsis>Sinopse</MovieSynopsis>
