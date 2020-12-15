@@ -14,7 +14,7 @@ import {
 } from './style';
 
 import renderMoviesCard from '../../components/MovieCard/renderMoviesCard';
-import SidebarFilter from '../../components/SidebarFilter/index'
+import SidebarFilter from '../../components/SidebarFilter/index';
 
 export default class Movie extends Component {
 	constructor(props) {
