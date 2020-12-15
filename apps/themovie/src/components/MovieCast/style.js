@@ -5,8 +5,7 @@ import {
 	CardContent,
 	Container,
 	Box,
-	Typography,
-	CardActionArea
+	Typography
 } from '@material-ui/core';
 
 export const CardCast = styled(Card)`
