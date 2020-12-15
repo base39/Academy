@@ -11,7 +11,7 @@ import {
 } from './style';
 
 const CastCard = ({ name, character, gender, profile_path }) => {
-  const hasProfileImage = profile_path;
+	const hasProfileImage = profile_path;
 
 	const renderCastImage = (profile_path, name) => (
 		<CastImage
