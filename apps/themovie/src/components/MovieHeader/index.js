@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import {
 	ContentIndex,
 	MovieTitle,
@@ -13,36 +12,36 @@ import {
 	MovieYear,
 	MovieRelease,
 	MovieGenres,
-	MovieRuntime
+	MovieRuntime,
+	DirectorName,
+	ContainerDirector,
+	GridDirector
 } from './style';
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import moment from 'moment';
 
-const MovieHeader = () => {
-	const { id } = useParams();
-	const [movie, setMovie] = useState([]);
-	const [movieHours, setMovieHours] = useState([]);
-	const [movieMinutes, setMovieMinutes] = useState([]);
+const MovieHeader = ({ movie, crew }) => {
 	const genres = [];
-
-	useEffect(() => {
-		const fetchMovie = async () => {
-			await fetch(`http://localhost:8080/movies/${id}?language=pt-BR`)
-				.then(res => res.json())
-				.then(result => {
-					setMovie(result);
-					setMovieHours(
-						moment.duration(result?.runtime, 'minutes').get('hours')
-					);
-					setMovieMinutes(
-						moment.duration(result?.runtime, 'minutes').get('minutes')
-					);
-				});
-		};
-		fetchMovie();
-	}, [id]);
-
 	movie?.genres?.map(genre => genres.push(genre.name));
+
+	const renderDirector = ({ name, job }, index) => {
+		return (
+			<GridDirector item key={`director-${index}`} md={4} sm={6}>
+				<DirectorName variant="body1">{name}</DirectorName>
+				<Typography variant="body2">{job}</Typography>
+			</GridDirector>
+		);
+	};
+
+	const directors = crew.reduce((last, person) => {
+		let found = last.find(value => {
+			return value.name === person.name;
+		});
+
+		if (!found && person.job === 'Director') last.push(person);
+
+		return last;
+	}, []);
 
 	return (
 		<section>
@@ -65,10 +64,23 @@ const MovieHeader = () => {
 									{moment(movie?.release_date).format('DD/MM/YYYY')}
 								</MovieRelease>
 								<MovieGenres>{genres.join(', ')}</MovieGenres>
-								<MovieRuntime>{`${movieHours}h ${movieMinutes}m`}</MovieRuntime>
-								<TagLine>{movie?.tagline}</TagLine>
-								<MovieSynopsis>Sinopse</MovieSynopsis>
-								<MovieOverview>{movie?.overview}</MovieOverview>
+								<MovieRuntime>
+									{`${moment
+										.duration(movie?.runtime, 'minutes')
+										.get('hours')}h ${moment
+										.duration(movie?.runtime, 'minutes')
+										.get('minutes')}m`}
+								</MovieRuntime>
+								{movie?.tagline && <TagLine>{movie?.tagline}</TagLine>}
+								{movie?.overview && (
+									<>
+										<MovieSynopsis>Sinopse</MovieSynopsis>
+										<MovieOverview>{movie?.overview}</MovieOverview>
+									</>
+								)}
+								<ContainerDirector container>
+									{directors.map(renderDirector)}
+								</ContainerDirector>
 							</div>
 						</DetailsWrapper>
 					</HeaderDetails>
