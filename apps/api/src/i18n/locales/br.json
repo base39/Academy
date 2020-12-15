@@ -8,5 +8,7 @@
 	"movieNotFound": "Filme não encontrado",
 	"listMoviesNotFound": "Não foi possível encontrar nenhum filme",
 	"genreNotFound": "Gênero não encontrado",
-	"invalidSort": "Parâmetro de ordenação inválido"
+	"invalidSort": "Parâmetro de ordenação inválido",
+	"creditNotFound": "Não foi possível encontrar os créditos para esse filme",
+	"recommendationNotFound": "Não foi possível encontrar recomendações para esse filme"
 }
