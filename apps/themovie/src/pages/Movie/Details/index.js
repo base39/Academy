@@ -8,6 +8,7 @@ const Details = () => {
 	const { id } = useParams();
 	const [movieCast, setMovieCast] = useState([{}]);
 	const [movieCrew, setMovieCrew] = useState([{}]);
+	const [recommendation, setRecommendation] = useState([]);
 	const [movie, setMovie] = useState([]);
 
 	useEffect(() => {
