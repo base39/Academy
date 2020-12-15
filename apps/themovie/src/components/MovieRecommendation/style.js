@@ -1,10 +1,5 @@
-import styled from 'styled-components'
-import {
-	Container,
-	Card,
-	CardMedia,
-	Box
-} from '@material-ui/core'
+import styled from 'styled-components';
+import { Container, Card, CardMedia, Box } from '@material-ui/core';
 
 export const ScrollerWrap = styled.div`
 	width: auto;
@@ -31,7 +26,7 @@ export const ScrollContent = styled.div`
 export const ContainerRecommendation = styled(Container)`
 	margin-top: 25px;
 	margin-bottom: 25px;
-`
+`;
 
 export const RecommendationCard = styled(Card)`
 	min-width: 250px;
@@ -49,4 +44,4 @@ export const BoxImage = styled(Box)`
 	background-size: 80px;
 	background-color: rgb(219, 219, 219);
 	background-image: url(${props => props.image});
-` 
+`;
