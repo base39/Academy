@@ -23,12 +23,11 @@ export default class Movie extends Component {
 			movies: [],
 			totalPages: 0,
 			page: 1,
-			sort: '',
+			sort: 'popularity.desc',
 			filter: ''
 		};
 		this.loadMore = this.loadMore.bind(this);
 		this.onFilter = this.onFilter.bind(this);
-		console.log(this.state.sort);
 	}
 
 	componentDidMount() {
@@ -39,7 +38,7 @@ export default class Movie extends Component {
 		try {
 			const { page, movies, totalPages, sort, filter } = this.state;
 			const response = await fetch(
-				`http://localhost:8080/movies?&page=${page}?&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&with_genres=${filter}`
+				`http://localhost:8080/movies?&language=pt-BR&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&with_genres=${filter}`
 			);
 			const data = await response.json();
 			const dataResults = data.results;
@@ -63,12 +62,13 @@ export default class Movie extends Component {
 		this.setState(
 			{
 				...this.state,
+				movies: [],
+				page: 1,
 				sort,
 				filter
 			},
 			this.getContent
 		);
-		console.log('sort', sort, 'filter', filter);
 	}
 
 	render() {
