@@ -37,7 +37,14 @@ const MovieCard = ({
 				<SimplePopover />
 				<Case>
 					<NoStyleLink to={`/movie/${id}`}>
-						<Poster src={IMG_API + poster_path} alt={`Poster ${title}`} />
+						<Poster
+							src={
+								poster_path
+									? IMG_API + poster_path
+									: 'https://i.ibb.co/LPR2G8X/image.png'
+							}
+							alt={`Poster ${title}`}
+						/>
 					</NoStyleLink>
 				</Case>
 			</ImageContent>
