@@ -11,6 +11,7 @@ import {
 
 export const CastCard = styled(Card)`
 	min-width: 150px;
+	max-width: 150px;
 	margin: 15px 20px 10px 0;
 `;
 

@@ -7,7 +7,8 @@ import MovieRecomendation from '../../../components/MovieRecommendation';
 const Details = () => {
 	const { id } = useParams();
 	const [movieCast, setMovieCast] = useState([{}]);
-	const [recommendation, setRecommendation] = useState([]);
+	const [movieCrew, setMovieCrew] = useState([{}]);
+	const [movie, setMovie] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -15,6 +16,7 @@ const Details = () => {
 				.then(res => res.json())
 				.then(result => {
 					setMovieCast(result.cast);
+					setMovieCrew(result.crew);
 				});
 		};
 		fetchData();
@@ -22,20 +24,33 @@ const Details = () => {
 
 	useEffect(() => {
 		const fetchMovie = async () => {
-			await fetch(
-				`http://localhost:8080/movies/recommendation/${id}?language=pt-BR`
-			)
+ 
+			await fetch(`http://localhost:8080/movies/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
-					setRecommendation(result);
+					setMovie(result);
 				});
 		};
 		fetchMovie();
 	}, [id]);
+  
+  useEffect(() => {
+		const fetchRecommendation = async () => {
+  
+    await fetch(
+          `http://localhost:8080/movies/recommendation/${id}?language=pt-BR`
+        )
+          .then(res => res.json())
+          .then(result => {
+            setRecommendation(result);
+          });
+      };
+		fetchRecommendation();
+	}, [id]); 
 
 	return (
 		<>
-			<MovieHeader />
+			<MovieHeader movie={movie} crew={movieCrew} />
 			<MovieCast cast={movieCast} />
 			<MovieRecomendation recommendation={recommendation} />
 		</>

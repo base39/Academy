@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography, Grid } from '@material-ui/core';
 
 export const ContentIndex = styled(Box)`
 	height: 520px;
@@ -91,3 +91,13 @@ export const MovieRuntime = styled.span`
 		font-size: 1.3em;
 	}
 `;
+
+export const DirectorName = styled(Typography)`
+	font-weight: 700;
+`;
+
+export const ContainerDirector = styled(Grid)`
+	margin-top: 20px;
+`;
+
+export const GridDirector = styled(Grid)``;
