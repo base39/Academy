@@ -177,80 +177,69 @@ export const PopoverStyled = styled(Popover)`
 
 export const DateStyled = styled.span`
 	font-size: 1em;
-    margin: 0;
-    padding: 0;
-    color: rgba(0,0,0,0.6);
+	margin: 0;
+	padding: 0;
+	color: rgba(0, 0, 0, 0.6);
 `;
 
 export const Consensus = styled.div`
 	position: absolute;
-    top: -19px;
-    left: 10px;
+	top: -19px;
+	left: 10px;
 	width: 38px;
-    height: 38px;
-    box-sizing: border-box;
-`
+	height: 38px;
+	box-sizing: border-box;
+`;
 
 export const Circle = styled.div`
 	margin-right: 0;
 	width: 38px;
-    height: 38px;
-    padding: 2px;
+	height: 38px;
+	padding: 2px;
 	display: inline-block;
 	border-radius: 50%;
 	background-color: #081c22;
-`
+`;
 
 export const Score = styled.div`
 	position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-`
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+`;
 
 export const Percent = styled.div`
 	width: 100%;
-    height: 100%;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
+	height: 100%;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
 
 export const IconStyled = styled.span`
 	display: flex;
 	padding-top: 1px;
-    padding-left: 1px;
-    font-size: 1em;
+	padding-left: 1px;
+	font-size: 1em;
 	color: #fff;
-    font-style: normal;
-    font-weight: 600;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-`
-
-export const CanvasStyled = styled.canvas`
-	height: 34px;
-    width: 34px;
-	background-color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-	display: inline-block;
-    vertical-align: baseline;
-`
+	font-style: normal;
+	font-weight: 600;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+`;
 
 export const PercentStyled = styled.div`
 	margin-top: 2px;
 	padding-top: 1px;
-    padding-left: 1px;
-    font-size: 0.3em;
+	padding-left: 1px;
+	font-size: 0.3em;
 	color: #fff;
-    font-style: normal;
-    font-weight: 600;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-`
+	font-style: normal;
+	font-weight: 600;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+`;

@@ -51,7 +51,6 @@ const MovieCard = ({
 									{vote_average}
 									<PercentStyled>%</PercentStyled>
 								</IconStyled>
-								<CanvasStyled></CanvasStyled>
 							</Percent>
 						</Score>
 					</Circle>
