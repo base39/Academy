@@ -37,9 +37,7 @@ const Details = () => {
 
 	useEffect(() => {
 		const fetchRecommendation = async () => {
-			await fetch(
-				`${API_URL}/movies/recommendation/${id}?language=pt-BR`
-			)
+			await fetch(`${API_URL}/movies/recommendation/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setRecommendation(result);
