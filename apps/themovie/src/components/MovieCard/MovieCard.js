@@ -13,7 +13,6 @@ import {
 	Score,
 	Percent,
 	IconStyled,
-	CanvasStyled,
 	PercentStyled
 } from './style';
 import SimplePopover from './PopoverCard';

@@ -11,15 +11,16 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 function Filter({ onChange, value }) {
 	const [genres, setGenres] = useState([]);
+	const API_URL = process.env.REACT_APP_API_URL;
 
 	// Buscar os ID dos generos de filmes
 	useEffect(() => {
-		fetch('http://localhost:8080/genres')
+		fetch(`${API_URL}/genres`)
 			.then(res => res.json())
 			.then(result => {
 				setGenres(result);
 			});
-	}, []);
+	}, [API_URL]);
 
 	return (
 		<>
