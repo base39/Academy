@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardRecommendation, RecommendationImage, BoxImage } from './style';
+import { CardRecommendation, RecommendationImage, BoxImage, RecommendatioCardContent } from './style';
 import { NoStyleLink } from '../../components/Link';
 import noBackdrop from '../../../src/assets/svg/no_movie_holder.svg';
 import { Typography, CardContent, CardActionArea } from '@material-ui/core';
@@ -21,9 +21,9 @@ const RecommendationCard = ({ id, backdrop_path, title }) => {
 					{hasBackdrop
 						? renderBackdrop(backdrop_path)
 						: renderBackdropHolder(noBackdrop)}
-					<CardContent>
+					<RecommendatioCardContent>
 						<Typography variant="subtitle2">{title}</Typography>
-					</CardContent>
+					</RecommendatioCardContent>
 				</CardActionArea>
 			</NoStyleLink>
 		</CardRecommendation>
