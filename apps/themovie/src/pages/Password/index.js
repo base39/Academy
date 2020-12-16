@@ -7,7 +7,7 @@ import {
 	ButtonStyled,
 	ContainerStyled,
 	LinkRouterStyled
-} from '../styled-components-example/styles';
+} from './style';
 
 export default class ResetPassword extends Component {
 	render() {

@@ -3,10 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
-export const SpanAlert = styled.span`
-	color: red;
-`;
-
 export const TitleStyled = styled.h1`
 	color: #000;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
@@ -61,17 +57,6 @@ export const ContainerStyled = styled.div`
 	padding: 20px;
 `;
 
-export const LinkStyled = styled.a`
-	color: rgb(1, 180, 228);
-	cursor: pointer;
-	font-size: 1em;
-	font-family: 'Source Sans Pro', Arial, sans-serif;
-	vertical-align: middle;
-	&:hover {
-		text-decoration: underline;
-	}
-`;
-
 export const LinkRouterStyled = styled(Link)`
 	color: rgb(1, 180, 228);
 	cursor: pointer;
@@ -83,4 +68,8 @@ export const LinkRouterStyled = styled(Link)`
 	&:hover {
 		text-decoration: underline;
 	}
+`;
+
+export const SpanAlert = styled.span`
+	color: red;
 `;

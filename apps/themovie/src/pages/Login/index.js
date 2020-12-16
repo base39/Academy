@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Container from '@material-ui/core/Container'
+
 import {
 	TitleStyled,
 	ParagraphStyled,
@@ -8,7 +10,8 @@ import {
 	ContainerStyled,
 	LinkStyled,
 	LinkRouterStyled
-} from '../styled-components-example/styles';
+} from './style';
+import Button from '../../components/Button/index'
 
 export default class Section extends Component {
 	constructor(props) {
@@ -36,17 +39,17 @@ export default class Section extends Component {
 		});
 		event.preventDefault();
 	};
-
+	
 	render() {
 		return (
-			<div>
+			<Container disableGutters={true}>
 				<div>
 					<TitleStyled> Entre com a sua conta </TitleStyled>
 					<ParagraphStyled>
 						Para usar os recursos de edição e classificação do TMDb, além de
 						obter recomendações pessoais, você precisará entrar com a sua conta.
 						Caso você ainda não possua uma conta, registrar-se é grátis e
-						simples.{' '}
+						simples.
 						<LinkRouterStyled to="/register">Clique aqui</LinkRouterStyled> para
 						começar.
 					</ParagraphStyled>
@@ -80,19 +83,15 @@ export default class Section extends Component {
 						</div>
 					</div>
 					<ContainerStyled>
-						<ButtonStyled
-							variant="contained"
-							color="primary"
-							onClick={this.handleSubmit}
-						>
-							Entrar
-						</ButtonStyled>
+						<Button onClick={this.handleSubmit} name={"Entrar"} />
 						<LinkRouterStyled to="/reset-password">
 							Resetar a Senha
 						</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
-			</div>
+
+
+			</Container>
 		);
 	}
 }

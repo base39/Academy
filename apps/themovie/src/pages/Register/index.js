@@ -8,7 +8,7 @@ import {
 	ContainerStyled,
 	LinkRouterStyled,
 	SpanAlert
-} from '../styled-components-example/styles';
+} from './style';
 
 export default class Register extends Component {
 	constructor(props) {
