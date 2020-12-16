@@ -7,8 +7,8 @@ import {
 	ContainerStyled,
 	LinkRouterStyled
 } from './style';
-import TextInput from '../../components/TextInput/index'
-import Button from '../../components/Button/index'
+import TextInput from '../../components/TextInput/index';
+import Button from '../../components/Button/index';
 
 export default class ResetPassword extends Component {
 	render() {
@@ -24,11 +24,11 @@ export default class ResetPassword extends Component {
 				<div>
 					<AcessStyled>E-mail</AcessStyled>
 					<div>
-						<TextInput placeholder={"Qual é o seu e-mail?"} />
+						<TextInput placeholder={'Qual é o seu e-mail?'} />
 					</div>
 				</div>
 				<ContainerStyled>
-					<Button name={"Continuar"} />
+					<Button name={'Continuar'} />
 					<LinkRouterStyled to="/login">Cancelar</LinkRouterStyled>
 				</ContainerStyled>
 			</Container>
