@@ -1,6 +1,6 @@
 import { FieldStyled } from './style';
 
-function TextInput({ onChange, name, type, value }) {
+function TextInput({ onChange, name, type, value, placeholder }) {
 	return (
 		<>
 			<FieldStyled
@@ -9,6 +9,7 @@ function TextInput({ onChange, name, type, value }) {
 				name={name}
 				type={type}
 				value={value}
+				placeholder={placeholder}
 			/>
 		</>
 	);
