@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import Container from '@material-ui/core/Container';
 import {
 	TitleStyled,
 	ParagraphStyled,
 	AcessStyled,
-	FieldStyled,
-	ButtonStyled,
 	ContainerStyled,
 	LinkRouterStyled
 } from './style';
+import TextInput from '../../components/TextInput/index'
+import Button from '../../components/Button/index'
 
 export default class ResetPassword extends Component {
 	render() {
 		return (
-			<div>
+			<Container disableGutters={true}>
 				<div>
 					<TitleStyled> Resetar a senha </TitleStyled>
 					<ParagraphStyled>
@@ -23,20 +24,14 @@ export default class ResetPassword extends Component {
 				<div>
 					<AcessStyled>E-mail</AcessStyled>
 					<div>
-						<FieldStyled
-							id="outlined-basic"
-							placeholder="Qual é o seu e-mail?"
-							variant="outlined"
-						/>
+						<TextInput placeholder={"Qual é o seu e-mail?"} />
 					</div>
 				</div>
 				<ContainerStyled>
-					<ButtonStyled variant="contained" color="primary">
-						Continuar
-					</ButtonStyled>
+					<Button name={"Continuar"} />
 					<LinkRouterStyled to="/login">Cancelar</LinkRouterStyled>
 				</ContainerStyled>
-			</div>
+			</Container>
 		);
 	}
 }
