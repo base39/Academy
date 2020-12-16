@@ -8,11 +8,9 @@ import {
 	ContainerStyled,
 	LinkRouterStyled,
 	SpanAlert
-
 } from './style';
 import { Container } from '@material-ui/core';
 const API_URL = process.env.REACT_APP_API_URL;
-
 
 export default class Register extends Component {
 	constructor(props) {
