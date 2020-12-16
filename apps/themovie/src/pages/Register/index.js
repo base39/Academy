@@ -3,22 +3,26 @@ import {
 	TitleStyled,
 	ParagraphStyled,
 	AcessStyled,
-	FieldStyled,
-	ButtonStyled,
 	ContainerStyled,
 	LinkRouterStyled,
 	SpanAlert
-
 } from './style';
+import ButtonStyled from '../../components/Button'
+import TextInput from '../../components/TextInput'
 import { Container } from '@material-ui/core';
 const API_URL = process.env.REACT_APP_API_URL;
-
 
 export default class Register extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { errors: {} };
+		this.state = {
+			errors: {},
+			name: '',
+			password: '',
+			confirmPassword: '',
+			email: ''
+		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -69,6 +73,7 @@ export default class Register extends Component {
 
 	handleSubmit(event) {
 		if (this.handleValidation()) {
+
 			fetch(`${API_URL}/user/register`, {
 				headers: {
 					'Content-Type': 'application/json'
@@ -77,7 +82,18 @@ export default class Register extends Component {
 				body: JSON.stringify(this.state)
 			}).then(function (response) {
 				console.log(response);
-				return response.json();
+				if (response.status === 200) {
+					alert('Usuário cadastrado com sucesso!')
+				} else {
+					alert('Houve um erro ao cadastrar o usuário!')
+				}
+			});
+
+			this.setState({
+				name: '',
+				password: '',
+				confirmPassword: '',
+				email: ''
 			});
 		}
 
@@ -100,11 +116,11 @@ export default class Register extends Component {
 							Nome de Usuário <SpanAlert>{this.state.errors['name']}</SpanAlert>
 						</AcessStyled>
 						<div>
-							<FieldStyled
+							<TextInput
 								name="name"
 								id="outlined-basic"
-								variant="outlined"
 								onChange={this.handleChange}
+								value={this.state.name}
 							/>
 						</div>
 					</div>
@@ -114,12 +130,11 @@ export default class Register extends Component {
 							<SpanAlert>{this.state.errors['password']}</SpanAlert>
 						</AcessStyled>
 						<div>
-							<FieldStyled
+							<TextInput
 								type="password"
 								name="password"
-								id="outlined-basic"
-								variant="outlined"
 								onChange={this.handleChange}
+								value={this.state.password}
 							/>
 						</div>
 					</div>
@@ -129,12 +144,11 @@ export default class Register extends Component {
 							<SpanAlert>{this.state.errors['confirmPassword']}</SpanAlert>
 						</AcessStyled>
 						<div>
-							<FieldStyled
+							<TextInput
 								type="password"
 								name="confirmPassword"
-								id="outlined-basic"
-								variant="outlined"
 								onChange={this.handleChange}
+								value={this.state.confirmPassword}
 							/>
 						</div>
 					</div>
@@ -143,11 +157,10 @@ export default class Register extends Component {
 							E-mail <SpanAlert>{this.state.errors['email']}</SpanAlert>
 						</AcessStyled>
 						<div>
-							<FieldStyled
+							<TextInput
 								name="email"
-								id="outlined-basic"
-								variant="outlined"
 								onChange={this.handleChange}
+								value={this.state.email}
 							/>
 						</div>
 					</div>
@@ -161,11 +174,8 @@ export default class Register extends Component {
 					<ContainerStyled>
 						<ButtonStyled
 							onClick={this.handleSubmit}
-							variant="contained"
-							color="primary"
-						>
-							Registrar
-						</ButtonStyled>
+							name="Registrar"
+						/>
 						<LinkRouterStyled to="/">Cancelar</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
