@@ -9,6 +9,7 @@ import {
 	LinkRouterStyled,
 	SpanAlert
 } from '../styled-components-example/styles';
+import { Container } from '@material-ui/core';
 const API_URL = process.env.REACT_APP_API_URL;
 
 export default class Register extends Component {
@@ -83,7 +84,7 @@ export default class Register extends Component {
 
 	render() {
 		return (
-			<>
+			<Container disableGutters={true}>
 				<form>
 					<div>
 						<TitleStyled> Crie uma conta </TitleStyled>
@@ -166,7 +167,7 @@ export default class Register extends Component {
 						<LinkRouterStyled to="/">Cancelar</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
-			</>
+			</Container>
 		);
 	}
 }
