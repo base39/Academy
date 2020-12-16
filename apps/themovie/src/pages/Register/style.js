@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
 export const TitleStyled = styled.h1`
@@ -24,31 +22,6 @@ export const AcessStyled = styled.label`
 	margin-left: 20px;
 	margin-right: 20px;
 	line-height: 1.5;
-`;
-
-export const FieldStyled = styled(TextField)`
-	&& {
-		width: 95%;
-		margin-left: 20px;
-	}
-`;
-
-export const ButtonStyled = styled(Button)`
-	&& {
-		background-color: #01b4e4;
-		padding-left: 14px;
-		padding-right: 14px;
-		font-family: 'Source Sans Pro', Arial, sans-serif;
-		font-weight: 700;
-		text-transform: none;
-		border-radius: 8px;
-		line-height: 1.5;
-		box-shadow: none;
-		&:hover {
-			background-color: #018cb1;
-			box-shadow: none;
-		}
-	}
 `;
 
 export const ContainerStyled = styled.div`
