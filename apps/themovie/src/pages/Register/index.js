@@ -7,8 +7,8 @@ import {
 	LinkRouterStyled,
 	SpanAlert
 } from './style';
-import ButtonStyled from '../../components/Button'
-import TextInput from '../../components/TextInput'
+import ButtonStyled from '../../components/Button';
+import TextInput from '../../components/TextInput';
 import { Container } from '@material-ui/core';
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -73,7 +73,6 @@ export default class Register extends Component {
 
 	handleSubmit(event) {
 		if (this.handleValidation()) {
-
 			fetch(`${API_URL}/user/register`, {
 				headers: {
 					'Content-Type': 'application/json'
@@ -83,9 +82,9 @@ export default class Register extends Component {
 			}).then(function (response) {
 				console.log(response);
 				if (response.status === 200) {
-					alert('Usuário cadastrado com sucesso!')
+					alert('Usuário cadastrado com sucesso!');
 				} else {
-					alert('Houve um erro ao cadastrar o usuário!')
+					alert('Houve um erro ao cadastrar o usuário!');
 				}
 			});
 
@@ -172,10 +171,7 @@ export default class Register extends Component {
 					</div>
 
 					<ContainerStyled>
-						<ButtonStyled
-							onClick={this.handleSubmit}
-							name="Registrar"
-						/>
+						<ButtonStyled onClick={this.handleSubmit} name="Registrar" />
 						<LinkRouterStyled to="/">Cancelar</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
