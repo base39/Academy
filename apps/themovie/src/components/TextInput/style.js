@@ -6,4 +6,4 @@ export const FieldStyled = styled(TextField)`
 		width: 95%;
 		margin-left: 20px;
 	}
-`
+`;

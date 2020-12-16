@@ -10,7 +10,7 @@ import {
 	LinkRouterStyled
 } from './style';
 import Button from '../../components/Button/index';
-import TextInput from '../../components/TextInput/index'
+import TextInput from '../../components/TextInput/index';
 
 export default class Section extends Component {
 	constructor(props) {
@@ -19,7 +19,6 @@ export default class Section extends Component {
 			email: '',
 			password: ''
 		};
-
 	}
 
 	handleChange = event => {
@@ -63,13 +62,13 @@ export default class Section extends Component {
 					<div>
 						<AcessStyled>Nome de Usuário</AcessStyled>
 						<div>
-						<TextInput onChange={this.handleChange} name={"email"} />
+							<TextInput onChange={this.handleChange} name={'email'} />
 						</div>
 					</div>
 					<div>
 						<AcessStyled>Senha</AcessStyled>
 						<div>
-						<TextInput onChange={this.handleChange} name={"password"} />
+							<TextInput onChange={this.handleChange} name={'password'} />
 						</div>
 					</div>
 					<ContainerStyled>
@@ -79,8 +78,6 @@ export default class Section extends Component {
 						</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
-
-
 			</Container>
 		);
 	}
