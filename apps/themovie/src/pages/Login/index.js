@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Container from '@material-ui/core/Container'
+import Container from '@material-ui/core/Container';
 
 import {
 	TitleStyled,
@@ -11,7 +11,7 @@ import {
 	LinkStyled,
 	LinkRouterStyled
 } from './style';
-import Button from '../../components/Button/index'
+import Button from '../../components/Button/index';
 
 export default class Section extends Component {
 	constructor(props) {
@@ -39,7 +39,7 @@ export default class Section extends Component {
 		});
 		event.preventDefault();
 	};
-	
+
 	render() {
 		return (
 			<Container disableGutters={true}>
@@ -83,14 +83,12 @@ export default class Section extends Component {
 						</div>
 					</div>
 					<ContainerStyled>
-						<Button onClick={this.handleSubmit} name={"Entrar"} />
+						<Button onClick={this.handleSubmit} name={'Entrar'} />
 						<LinkRouterStyled to="/reset-password">
 							Resetar a Senha
 						</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
-
-
 			</Container>
 		);
 	}
