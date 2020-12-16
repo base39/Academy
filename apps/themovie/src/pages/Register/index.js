@@ -8,7 +8,11 @@ import {
 	ContainerStyled,
 	LinkRouterStyled,
 	SpanAlert
+
 } from './style';
+import { Container } from '@material-ui/core';
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 export default class Register extends Component {
 	constructor(props) {
@@ -65,7 +69,7 @@ export default class Register extends Component {
 
 	handleSubmit(event) {
 		if (this.handleValidation()) {
-			fetch('http://localhost:8080/user/register', {
+			fetch(`${API_URL}/user/register`, {
 				headers: {
 					'Content-Type': 'application/json'
 				},
@@ -82,7 +86,7 @@ export default class Register extends Component {
 
 	render() {
 		return (
-			<>
+			<Container disableGutters={true}>
 				<form>
 					<div>
 						<TitleStyled> Crie uma conta </TitleStyled>
@@ -165,7 +169,7 @@ export default class Register extends Component {
 						<LinkRouterStyled to="/">Cancelar</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
-			</>
+			</Container>
 		);
 	}
 }

@@ -68,7 +68,7 @@ module.exports = () => {
 				.then(response => res.send(response.data));
 		} catch (error) {
 			// console.log(error.message);
-			return res.send({ 'error': i18n.__('movieNotFound') });
+			return res.send({ 'error': i18n.__('creditNotFound') });
 		}
 	};
 
@@ -87,7 +87,7 @@ module.exports = () => {
 				.then(response => res.send(response.data.results));
 		} catch (error) {
 			// console.log(error.message);
-			return res.send({ 'error': i18n.__('movieNotFound') });
+			return res.send({ 'error': i18n.__('recommendationNotFound') });
 		}
 	};
 

@@ -28,7 +28,10 @@ export const BoxImage = styled(Box)`
 `;
 
 export const CastCardContent = styled(CardContent)`
-	padding: 10px;
+	padding: 8px;
+	&:last-child {
+		padding-bottom: 8px;
+	}
 `;
 
 export const ScrollerWrap = styled.div`
@@ -51,6 +54,7 @@ export const ScrollContent = styled.div`
 	overflow-x: scroll;
 	overflow-y: hidden;
 	transition: height 0.5s linear;
+	align-items: stretch;
 `;
 
 export const ContainerCast = styled(Container)`

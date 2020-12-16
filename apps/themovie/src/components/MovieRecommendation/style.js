@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import { Container, Card, CardMedia, Box } from '@material-ui/core';
+import {
+	Container,
+	Card,
+	CardMedia,
+	Box,
+	CardContent
+} from '@material-ui/core';
 
 export const ScrollerWrap = styled.div`
 	width: auto;
@@ -21,6 +27,7 @@ export const ScrollContent = styled.div`
 	overflow-x: scroll;
 	overflow-y: hidden;
 	transition: height 0.5s linear;
+	align-items: stretch;
 `;
 
 export const ContainerRecommendation = styled(Container)`
@@ -44,4 +51,11 @@ export const BoxImage = styled(Box)`
 	background-size: 80px;
 	background-color: rgb(219, 219, 219);
 	background-image: url(${props => props.image});
+`;
+
+export const RecommendatioCardContent = styled(CardContent)`
+	padding: 8px;
+	&:last-child {
+		padding-bottom: 8px;
+	}
 `;

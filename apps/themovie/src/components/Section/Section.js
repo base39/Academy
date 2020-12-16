@@ -13,6 +13,8 @@ import {
 } from './style';
 import { renderMoviesCardHome } from './renderMovieCardHome';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const Section = () => {
 	const [topRated, setTopRated] = useState([]);
 	const [upcoming, setUpcoming] = useState([]);
@@ -24,14 +26,14 @@ const Section = () => {
 	}, []);
 
 	const getContentMovie = async () => {
-		const response = await fetch(`http://localhost:8080/movies/top_rated`);
+		const response = await fetch(`${API_URL}/movies/top_rated`);
 		const data = await response.json();
 
 		setTopRated(data.results);
 	};
 
 	const getContentUpcoming = async () => {
-		const response = await fetch(`http://localhost:8080/movies/upcoming`);
+		const response = await fetch(`${API_URL}/movies/upcoming`);
 		const data = await response.json();
 
 		setUpcoming(data.results);
