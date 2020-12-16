@@ -5,13 +5,12 @@ import {
 	TitleStyled,
 	ParagraphStyled,
 	AcessStyled,
-	FieldStyled,
-	ButtonStyled,
 	ContainerStyled,
 	LinkStyled,
 	LinkRouterStyled
 } from './style';
 import Button from '../../components/Button/index';
+import TextInput from '../../components/TextInput/index';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -65,23 +64,13 @@ export default class Section extends Component {
 					<div>
 						<AcessStyled>Nome de Usuário</AcessStyled>
 						<div>
-							<FieldStyled
-								id="userInput"
-								onChange={this.handleChange}
-								variant="outlined"
-								name="email"
-							/>
+							<TextInput onChange={this.handleChange} name={'email'} />
 						</div>
 					</div>
 					<div>
 						<AcessStyled>Senha</AcessStyled>
 						<div>
-							<FieldStyled
-								id="passInput"
-								onChange={this.handleChange}
-								variant="outlined"
-								name="password"
-							/>
+							<TextInput onChange={this.handleChange} name={'password'} />
 						</div>
 					</div>
 					<ContainerStyled>
