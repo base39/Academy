@@ -1,4 +1,4 @@
-<h1 align="center"> 🎞🎥🎬 themovie 🎬🎥🎞 </h1>
+<h1 align="center"> 🎬 themovie 🎬 </h1>
 
 <br>
 
@@ -7,9 +7,10 @@
 <br>
 
 - [Sobre o projeto](#-sobre-o-projeto)
-- [Tecnologias utilizadas](#-tecnologias-utilizadas)
+- [Principais tecnologias utilizadas](#-principais-tecnologias-utilizadas)
 - [Instalando o projeto](#-instalando-o-projeto)
-- [Recursos da API backend](#-recursos-da-api-backend)
+- [Backend](#-backend)
+- [Frontend](#-frontend)
 
 <br>
 
@@ -21,12 +22,12 @@
 
 <br>
 
-<h3> O projeto consiste em uma aplicação a qual o usuário poderá se cadastrar e fazer o login, para que possa buscar por informações de filmes e séries. Também é possível salvar listas de favoritos.</h3>
+<h3> O projeto consiste em uma aplicação a qual o usuário poderá se cadastrar e fazer o login, para que possa buscar por informações e recomendações de filmes.</h3>
 
 <br>
 
 <h3>
-    <a href="#">Acessar demonstração</a>
+    <a href="https://academy.paketa.vercel.app/" target="_blank">Acessar demonstração</a>
 </h3>
 
 <br>
@@ -35,7 +36,7 @@
 
 <br>
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Principais tecnologias utilizadas
 
 <br>
 
@@ -63,13 +64,22 @@
 
 ### Clonando o repositório
 
+<br>
+
 ```bash
 
 $ git clone https://github.com/paketacredito/Academy.git
 
 ```
 
-### Backend
+## 💻 Backend
+
+<br>
+
+<h3>Esta API apresenta duas responsabilidades, a primeira é responsável por realizar cadastro de usuários, assim como possibilitar login, e resetar a senha do usuário,</h3>
+<h3>A segunda é responsável por trazer a listagem de todos os filmes a partir da API externa TMDB, também é possível através da API, fazer buscas personalizadas de filmes.</h3>
+
+<br>
 
 ```bash
 
@@ -80,39 +90,20 @@ $ cd apps/api
 $ npm install
 
 # Iniciar o projeto
-$ npm start
-
-```
-
-### Frontend
-
-```bash
-
-# Acessar o repositório backend
-$ cd apps/themovie
-
-# Instalar as dependências
-$ npm install
-
-# Iniciar o projeto
-$ npm start
-
-# Gerar build para produção
-$ npm build
+$ nodemon server.js
 
 ```
 
 <br>
 
-<hr>
-
-<br>
-
-## ⚙ Recursos da API backend
+<h3>Através do Postman ou de outra aplicação de sua preferência, acessar o localhost na porta 3000, para visualização dos recursos: </h3>
 
 <br>
 
 ```bash
+###################
+### API USUÁRIO ###
+###################
 
 # Cadastro de usuário
 /user/register
@@ -146,5 +137,44 @@ $ npm build
     "token": "",
     "password": ""
 }
+
+##################
+### API FILMES ###
+##################
+
+# Responsável pela listagem dos filmes
+/movies
+
+# Responsável por listar os filmes a partir do ID especificado
+/movies/:id
+
+# Responsável por trazer os créditos dos filmes a partir do ID especificado
+/movies/credits/:id
+
+# Responsável por trazer a lista de recomendações de filmes a partir do ID especificado
+/movies/recommendation/:id
+
+# Responsável por listar todos os gêneros disponíveis de filmes
+/genres
+
+```
+
+## 📹 Frontend
+
+<br>
+
+```bash
+
+# Acessar o repositório backend
+$ cd apps/themovie
+
+# Instalar as dependências
+$ npm install
+
+# Iniciar o projeto
+$ npm start
+
+# Gerar build para produção
+$ npm build
 
 ```
