@@ -3,10 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
-export const SpanAlert = styled.span`
-	color: red;
-`;
-
 export const TitleStyled = styled.h1`
 	color: #000;
 	font-family: 'Source Sans Pro', Arial, sans-serif;

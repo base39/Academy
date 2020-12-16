@@ -75,6 +75,9 @@ export default function AppBar(props) {
 							<NoStyleLink to="/login">
 								<ButtonBar color="inherit">Entrar</ButtonBar>
 							</NoStyleLink>
+							<NoStyleLink to="/register">
+								<ButtonBar color="inherit">Junte-se ao TMDB</ButtonBar>
+							</NoStyleLink>
 						</Toolbar>
 					</Container>
 				</CustomAppBar>
