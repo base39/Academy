@@ -45,7 +45,6 @@ const Details = () => {
 	return (
 		<>
 			<MovieHeader movie={movie} crew={movieCrew} />
-
 			<MovieCast cast={movieCast} loading={loading} />
 			<MovieRecomendation
 				movie={movie}

@@ -14,8 +14,13 @@ import {
 } from './style';
 
 import renderMoviesCard from '../../components/MovieCard/renderMoviesCard';
+import SkeletonCard from '../../components/MovieCard/SkeletonCard';
 import SidebarFilter from '../../components/SidebarFilter/index';
 const API_URL = process.env.REACT_APP_API_URL;
+
+const renderSkeletonCard = (value, index) => (
+	<SkeletonCard key={`movie-skeleton-${index}`} />
+);
 
 export default class Movie extends Component {
 	constructor(props) {
@@ -25,7 +30,8 @@ export default class Movie extends Component {
 			totalPages: 0,
 			page: 1,
 			sort: 'popularity.desc',
-			filter: ''
+			filter: '',
+			loading: true
 		};
 		this.loadMore = this.loadMore.bind(this);
 		this.onFilter = this.onFilter.bind(this);
@@ -47,7 +53,8 @@ export default class Movie extends Component {
 
 			this.setState({
 				movies: [...movies, ...dataResults],
-				totalPages: totalPages + totalPage
+				totalPages: totalPages + totalPage,
+				loading: false
 			});
 		} catch (error) {
 			console.error(error);
@@ -66,7 +73,8 @@ export default class Movie extends Component {
 				movies: [],
 				page: 1,
 				sort,
-				filter
+				filter,
+				loading: true
 			},
 			this.getContent
 		);
@@ -76,6 +84,7 @@ export default class Movie extends Component {
 		const { page, totalPages } = this.state;
 		const hasMore = page < totalPages;
 		const { movies } = this.state;
+		const { loading } = this.state;
 		return (
 			<>
 				<InnerContent>
@@ -92,9 +101,11 @@ export default class Movie extends Component {
 									<Panel>
 										<Results>
 											<PageContainer>
-												{movies.map(renderMoviesCard)}
+												{loading
+													? Array(12).fill().map(renderSkeletonCard)
+													: movies.map(renderMoviesCard)}
 											</PageContainer>
-											{hasMore && (
+											{hasMore && !loading && (
 												<LoadMoreStyled onClick={this.loadMore}>
 													Carregar Mais
 												</LoadMoreStyled>
