@@ -1,5 +1,5 @@
 import React from 'react';
-import { CustomAppBar, ButtonBar } from './style';
+import { CustomAppBar, ButtonBar, ImgLogo } from './style';
 import {
 	Slide,
 	Container,
@@ -38,6 +38,14 @@ export default function AppBar(props) {
 					<Container disableGutters={true}>
 						<Toolbar>
 							<Box display="flex" flexGrow={1}>
+								<NoStyleLink to="/">
+									<ButtonBar>
+										<ImgLogo
+											src="https://i.ibb.co/m47mMrc/themovie.png"
+											alt="logo"
+										></ImgLogo>
+									</ButtonBar>
+								</NoStyleLink>
 								<ButtonBar
 									color="inherit"
 									aria-controls="filmes"
