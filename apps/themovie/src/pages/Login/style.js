@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Alert from '@material-ui/lab/Alert';
 
 export const TitleStyled = styled.h1`
 	color: #000;

@@ -7,9 +7,11 @@ import {
 	LinkRouterStyled,
 	SpanAlert
 } from './style';
-import ButtonStyled from '../../components/Button';
+import Button from '../../components/Button/index';
 import TextInput from '../../components/TextInput';
 import { Container } from '@material-ui/core';
+import ToastAlert from '../../components/Toast/index';
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 export default class Register extends Component {
@@ -21,7 +23,10 @@ export default class Register extends Component {
 			name: '',
 			password: '',
 			confirmPassword: '',
-			email: ''
+			email: '',
+			loading: false,
+			alertOk: '',
+			alertError: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -71,7 +76,14 @@ export default class Register extends Component {
 		return formIsValid;
 	}
 
-	handleSubmit(event) {
+	handleSubmit = event => {
+		const currentComponent = this;
+
+		currentComponent.setState({
+			...currentComponent.state,
+			loading: true
+		});
+
 		if (this.handleValidation()) {
 			fetch(`${API_URL}/user/register`, {
 				headers: {
@@ -82,24 +94,52 @@ export default class Register extends Component {
 			}).then(function (response) {
 				console.log(response);
 				if (response.status === 200) {
-					alert('Usuário cadastrado com sucesso!');
+					currentComponent.setState({
+						...currentComponent.state,
+						alertOk: true
+					});
 				} else {
-					alert('Houve um erro ao cadastrar o usuário!');
+					currentComponent.setState({
+						...currentComponent.state,
+						alertError: true
+					});
 				}
 			});
-
 			this.setState({
+				...this.state,
 				name: '',
 				password: '',
 				confirmPassword: '',
-				email: ''
+				email: '',
+				loading: false
 			});
 		}
 
 		event.preventDefault();
-	}
+	};
 
 	render() {
+		const { alertError, alertOk, loading } = this.state;
+
+		const msgAlertOk = alertOk ? (
+			<ToastAlert
+				variant={'filled'}
+				severity={'success'}
+				msg={'Usuário cadastrado com sucesso!'}
+			/>
+		) : (
+			''
+		);
+		const msgAlertError = alertError ? (
+			<ToastAlert
+				variant={'filled'}
+				severity={'error'}
+				msg={'Houve um erro ao cadastrar o usuário!'}
+			/>
+		) : (
+			''
+		);
+
 		return (
 			<Container disableGutters={true}>
 				<form>
@@ -170,8 +210,14 @@ export default class Register extends Component {
 						</ParagraphStyled>
 					</div>
 
+					{msgAlertOk}
+					{msgAlertError}
 					<ContainerStyled>
-						<ButtonStyled onClick={this.handleSubmit} name="Registrar" />
+						<Button
+							onClick={this.handleSubmit}
+							name={'Registrar'}
+							disabled={loading}
+						/>
 						<LinkRouterStyled to="/">Cancelar</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
