@@ -251,7 +251,7 @@ export const CardSkeleton = styled(Card)`
 export const CardMediaSearch = styled(CardMedia)`
 	width: 95px;
 	height: 140px;
-`
+`;
 
 export const CardSearch = styled(Card)`
 	height: 140px;
@@ -259,12 +259,11 @@ export const CardSearch = styled(Card)`
 	margin-top: 35px;
 	text-overflow: ellipsis;
 	overflow: hidden;
-`
+`;
 
 export const BoxOverview = styled(Box)`
 	margin-top: 8px;
 	height: auto;
-`
+`;
 
-export const Overview = styled(Typography)`
-`
+export const Overview = styled(Typography)``;
