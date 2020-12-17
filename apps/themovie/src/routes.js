@@ -7,6 +7,7 @@ import Details from './pages/Movie/Details';
 import ResetPassword from './pages/Password/index';
 import Register from './pages/Register/index';
 import Section from './pages/Login/index';
+import Search from './pages/Search/index';
 import AppBar from './components/AppBar';
 
 const MainRoutes = () => {
@@ -15,6 +16,7 @@ const MainRoutes = () => {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Section />} />
+				<Route path="/search" element={<Search />} />
 				<Route path="/reset-password" element={<ResetPassword />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/movie" element={<Movie />} />
