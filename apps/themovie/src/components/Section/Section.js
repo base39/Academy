@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Switch from '@material-ui/core/Switch';
-import Typography from '@material-ui/core/Typography'
-import Skeleton from '@material-ui/lab/Skeleton'
+import Typography from '@material-ui/core/Typography';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import {
 	SectionStyled,
@@ -24,7 +24,7 @@ const Section = () => {
 	const [topRated, setTopRated] = useState([]);
 	const [upcoming, setUpcoming] = useState([]);
 	const [state, setState] = useState(false);
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		getContentMovie();
@@ -32,23 +32,21 @@ const Section = () => {
 	}, []);
 
 	const getContentMovie = async () => {
-
-		setLoading(true)
+		setLoading(true);
 		const response = await fetch(`${API_URL}/movies/top_rated`);
 		const data = await response.json();
 
 		setTopRated(data.results);
-		setLoading(false)
+		setLoading(false);
 	};
 
 	const getContentUpcoming = async () => {
-
-		setLoading(true)
+		setLoading(true);
 		const response = await fetch(`${API_URL}/movies/upcoming`);
 		const data = await response.json();
 
-		setUpcoming(data.results)
-		setLoading(false)
+		setUpcoming(data.results);
+		setLoading(false);
 	};
 
 	const handleChange = () => {
@@ -72,11 +70,13 @@ const Section = () => {
 					</ContentCard>
 				</CardStyle>
 			</>
-		)
-	}
+		);
+	};
 
-	const renderSection = state ? upcoming.map(renderMoviesCardHome) : topRated.map(renderMoviesCardHome)
-	
+	const renderSection = state
+		? upcoming.map(renderMoviesCardHome)
+		: topRated.map(renderMoviesCardHome);
+
 	return (
 		<>
 			<SectionStyled>
@@ -92,7 +92,7 @@ const Section = () => {
 							</ColumnHeader>
 							<ScrollerWrap>
 								<ScrollContent>
-									{ loading ? Array(8).fill().map(SkeletonCard) : renderSection }
+									{loading ? Array(8).fill().map(SkeletonCard) : renderSection}
 								</ScrollContent>
 							</ScrollerWrap>
 						</Column>
