@@ -8,7 +8,7 @@ const Details = () => {
 	const { id } = useParams();
 	const [movieCast, setMovieCast] = useState([{}]);
 	const [movieCrew, setMovieCrew] = useState([{}]);
-	const [recommendation, setRecommendation] = useState([]);
+	const [recommendation, setRecommendation] = useState([{}]);
 	const [movie, setMovie] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const API_URL = process.env.REACT_APP_API_URL;
@@ -36,7 +36,7 @@ const Details = () => {
 					setRecommendation(result);
 				});
 
-			setLoading(false);
+			await setLoading(false);
 		};
 
 		fetchData();
