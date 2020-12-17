@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Popover, Card } from '@material-ui/core';
+import { Popover, Card, CardMedia, Box, Typography } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 export const Name = styled.div`
@@ -247,3 +247,23 @@ export const PercentStyled = styled.div`
 export const CardSkeleton = styled(Card)`
 	margin: 30px 0 0 40px;
 `;
+
+export const CardMediaSearch = styled(CardMedia)`
+	width: 95px;
+	height: 140px;
+`;
+
+export const CardSearch = styled(Card)`
+	height: 140px;
+	display: flex;
+	margin-top: 35px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+`;
+
+export const BoxOverview = styled(Box)`
+	margin-top: 8px;
+	height: auto;
+`;
+
+export const Overview = styled(Typography)``;
