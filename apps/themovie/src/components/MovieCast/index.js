@@ -3,10 +3,10 @@ import { ContainerCast } from './style';
 import { Typography } from '@material-ui/core';
 import Scroller from './Scroller';
 
-const MovieCast = ({ cast }) => {
+const MovieCast = ({ cast, loading }) => {
 	const hasCast = cast.length;
 
-	const renderScroller = cast => <Scroller cast={cast} />;
+	const renderScroller = (cast, loading) => <Scroller cast={cast} loading={loading}/>;
 
 	const renderNoCast = () => {
 		return (
@@ -19,7 +19,7 @@ const MovieCast = ({ cast }) => {
 	return (
 		<ContainerCast>
 			<Typography variant="h6">Elenco Principal</Typography>
-			{hasCast ? renderScroller(cast) : renderNoCast()}
+			{hasCast ? renderScroller(cast, loading) : renderNoCast()}
 		</ContainerCast>
 	);
 };

@@ -10,46 +10,45 @@ const Details = () => {
 	const [movieCrew, setMovieCrew] = useState([{}]);
 	const [recommendation, setRecommendation] = useState([]);
 	const [movie, setMovie] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const API_URL = process.env.REACT_APP_API_URL;
 
 	useEffect(() => {
+		setLoading(true);
+
 		const fetchData = async () => {
+
 			await fetch(`${API_URL}/movies/credits/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setMovieCast(result.cast);
 					setMovieCrew(result.crew);
-				});
-		};
-		fetchData();
-	}, [id, API_URL]);
+				})
 
-	useEffect(() => {
-		const fetchMovie = async () => {
 			await fetch(`${API_URL}/movies/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setMovie(result);
-				});
-		};
-		fetchMovie();
-	}, [id, API_URL]);
+				})
 
-	useEffect(() => {
-		const fetchRecommendation = async () => {
 			await fetch(`${API_URL}/movies/recommendation/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setRecommendation(result);
-				});
-		};
-		fetchRecommendation();
+				})
+
+			setLoading(false)
+
+		}
+
+		fetchData();
+
 	}, [id, API_URL]);
 
 	return (
 		<>
 			<MovieHeader movie={movie} crew={movieCrew} />
-			<MovieCast cast={movieCast} />
+			<MovieCast cast={movieCast} loading={loading} />
 			<MovieRecomendation movie={movie} recommendation={recommendation} />
 		</>
 	);
