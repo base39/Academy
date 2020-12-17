@@ -53,7 +53,7 @@ const Details = () => {
 			<MovieRecomendation
 				movie={movie}
 				recommendation={recommendation}
-				loading={loading}
+				/* loading={loading} */
 			/>
 		</>
 	);
