@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,19 +14,19 @@ import Button from '../../components/Button/index';
 import TextInput from '../../components/TextInput/index';
 
 function Section() {
-    const API_URL = process.env.REACT_APP_API_URL;
-	const navigate = useNavigate()
+	const API_URL = process.env.REACT_APP_API_URL;
+	const navigate = useNavigate();
 
-	const [state, setState] = useState({})
+	const [state, setState] = useState({});
 
-    const handleChange = (event) => {
-		const { value, name } = event.target
+	const handleChange = event => {
+		const { value, name } = event.target;
 
-		setState({ ...state, [name]: value })
-    }
+		setState({ ...state, [name]: value });
+	};
 
-    const handleSubmit = (event) => {
-        fetch(`${API_URL}/auth/login`, {
+	const handleSubmit = event => {
+		fetch(`${API_URL}/auth/login`, {
 			headers: {
 				'Content-Type': 'application/json'
 			},
@@ -35,18 +35,18 @@ function Section() {
 		}).then(function (response) {
 			console.log(response);
 			if (response.status === 200) {
-				navigate("/movie")
+				navigate('/movie');
 			} else {
 				alert('Usuário ou senhas inválidos!');
 			}
 		});
 		event.preventDefault();
 		console.log(state);
-    }
+	};
 
-    return (
-        <>
-            <Container disableGutters={true}>
+	return (
+		<>
+			<Container disableGutters={true}>
 				<div>
 					<TitleStyled> Entre com a sua conta </TitleStyled>
 					<ParagraphStyled>
@@ -67,19 +67,16 @@ function Section() {
 					<div>
 						<AcessStyled>Nome de Usuário</AcessStyled>
 						<div>
-							<TextInput
-								onChange={handleChange} 
-								name={'email'} 
-							/>
+							<TextInput onChange={handleChange} name={'email'} />
 						</div>
 					</div>
 					<div>
 						<AcessStyled>Senha</AcessStyled>
 						<div>
-							<TextInput 
-								onChange={handleChange} 
-								name={"password"} 
-								type={"password"}
+							<TextInput
+								onChange={handleChange}
+								name={'password'}
+								type={'password'}
 							/>
 						</div>
 					</div>
@@ -91,8 +88,8 @@ function Section() {
 					</ContainerStyled>
 				</form>
 			</Container>
-        </>
-    )
+		</>
+	);
 }
 
-export default Section
+export default Section;
