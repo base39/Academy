@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Popover, Card, CardContent } from '@material-ui/core';
+import { Popover, Card } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 export const Name = styled.div`
