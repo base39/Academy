@@ -19,8 +19,9 @@ import {
 } from './style';
 import { Container, Typography } from '@material-ui/core';
 import moment from 'moment';
+import { Skeleton } from '@material-ui/lab';
 
-const MovieHeader = ({ movie, crew }) => {
+const MovieHeader = ({ movie, crew, loading }) => {
 	const genres = [];
 	movie?.genres?.map(genre => genres.push(genre.name));
 
@@ -46,6 +47,13 @@ const MovieHeader = ({ movie, crew }) => {
 	const hasPosterPath = movie?.poster_path;
 	const hasMovieOverview = movie?.overview;
 	const hasReleaseDate = movie?.release_date;
+	const verifyExistsData = hasReleaseDate ? (
+														<MovieRelease>
+															{moment(movie?.release_date).format('DD/MM/YYYY')}
+														</MovieRelease>
+													) : (
+														<MovieRelease>(Data não informada)</MovieRelease>
+													)
 
 	return (
 		<section>
@@ -53,6 +61,7 @@ const MovieHeader = ({ movie, crew }) => {
 				<Container>
 					<HeaderDetails>
 						<ImageWrapper item md={4} noWrap>
+							{loading ? <Skeleton variant="rect" width={300} height={450} /> : 
 							<Image
 								src={
 									hasPosterPath
@@ -60,11 +69,12 @@ const MovieHeader = ({ movie, crew }) => {
 										: 'https://i.ibb.co/LPR2G8X/image.png'
 								}
 								alt={movie?.poster_path}
-							/>
+							/>}
 						</ImageWrapper>
 						<DetailsWrapper item md={8} noWrap>
 							<div>
-								<MovieTitle variant="h4">
+								{loading ? <Typography><Skeleton variant="text" width={200} height={50} /></Typography> :
+									<MovieTitle variant="h4">
 									{movie?.title}{' '}
 									{hasReleaseDate ? (
 										<MovieYear>
@@ -73,40 +83,42 @@ const MovieHeader = ({ movie, crew }) => {
 									) : (
 										<MovieYear>(Data não informada)</MovieYear>
 									)}
-								</MovieTitle>
-								{hasReleaseDate ? (
-									<MovieRelease>
-										{moment(movie?.release_date).format('DD/MM/YYYY')}
-									</MovieRelease>
-								) : (
-									<MovieRelease>(Data não informada)</MovieRelease>
-								)}
+								</MovieTitle>}
+								
+								{loading ? <Typography><Skeleton variant="text" width={100} height={25}  /></Typography> : verifyExistsData}
 
-								<MovieGenres>{genres.join(', ')}</MovieGenres>
+								{loading ? <Typography><Skeleton variant="text" width={150} height={25} /></Typography> :
+								<MovieGenres>{genres.join(', ')}</MovieGenres>}
+								{loading ? <Typography><Skeleton variant="text" width={75} height={25}  /></Typography> :
 								<MovieRuntime>
 									{`${moment
 										.duration(movie?.runtime, 'minutes')
 										.get('hours')}h ${moment
 										.duration(movie?.runtime, 'minutes')
 										.get('minutes')}m`}
-								</MovieRuntime>
+								</MovieRuntime>}
 								{movie?.tagline && <TagLine>{movie?.tagline}</TagLine>}
 								{hasMovieOverview ? (
 									movie?.overview && (
 										<>
-											<MovieSynopsis>Sinopse</MovieSynopsis>
-											<MovieOverview>{movie?.overview}</MovieOverview>
+											{loading ? <Typography><Skeleton variant="text" width={75} height={25}  /></Typography> :
+											<MovieSynopsis>Sinopse</MovieSynopsis>}
+											{loading ? <Typography><Skeleton variant="text" width={300} height={50}  /></Typography> :
+											<MovieOverview>{movie?.overview}</MovieOverview>}
 										</>
 									)
 								) : (
 									<>
-										<MovieSynopsis>Sinopse</MovieSynopsis>
-										<MovieOverview>Sinopse não disponível</MovieOverview>
+										{loading ? <Typography><Skeleton variant="text" width={75} height={25}  /></Typography> :
+										<MovieSynopsis>Sinopse</MovieSynopsis>}
+										{loading ? <Typography><Skeleton variant="text" width={300} height={50}  /></Typography> :
+										<MovieOverview>Sinopse não disponível</MovieOverview>}
 									</>
 								)}
+								{loading ? <Typography><Skeleton variant="text" width={100} height={25} /></Typography> :
 								<ContainerDirector container>
 									{directors.map(renderDirector)}
-								</ContainerDirector>
+								</ContainerDirector>}
 							</div>
 						</DetailsWrapper>
 					</HeaderDetails>
