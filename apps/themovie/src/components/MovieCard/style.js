@@ -246,4 +246,4 @@ export const PercentStyled = styled.div`
 
 export const CardSkeleton = styled(Card)`
 	margin: 30px 0 0 40px;
-`
+`;

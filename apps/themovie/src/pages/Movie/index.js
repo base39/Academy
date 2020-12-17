@@ -18,7 +18,9 @@ import SkeletonCard from '../../components/MovieCard/SkeletonCard';
 import SidebarFilter from '../../components/SidebarFilter/index';
 const API_URL = process.env.REACT_APP_API_URL;
 
-const renderSkeletonCard = (value, index) => <SkeletonCard key={`movie-skeleton-${index}`}/>
+const renderSkeletonCard = (value, index) => (
+	<SkeletonCard key={`movie-skeleton-${index}`} />
+);
 
 export default class Movie extends Component {
 	constructor(props) {
@@ -99,7 +101,9 @@ export default class Movie extends Component {
 									<Panel>
 										<Results>
 											<PageContainer>
-												{loading ? Array(12).fill().map(renderSkeletonCard) : movies.map(renderMoviesCard)}
+												{loading
+													? Array(12).fill().map(renderSkeletonCard)
+													: movies.map(renderMoviesCard)}
 											</PageContainer>
 											{hasMore && !loading && (
 												<LoadMoreStyled onClick={this.loadMore}>
