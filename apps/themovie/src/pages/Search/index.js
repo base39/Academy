@@ -50,6 +50,7 @@ const Search = () => {
 
 	return (
 		<>
+      {console.log(loading)}
 			{search?.results?.map(renderSearch)}
 			<Pagination count={search?.total_pages} onChange={changePage} />
 		</>
