@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Popover } from '@material-ui/core';
+import { Popover, Card, CardContent } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 export const Name = styled.div`
@@ -243,3 +243,7 @@ export const PercentStyled = styled.div`
 	text-transform: none;
 	line-height: 1;
 `;
+
+export const CardSkeleton = styled(Card)`
+	margin: 30px 0 0 40px;
+`
