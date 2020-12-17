@@ -1,8 +1,15 @@
 import React from 'react';
-import { ScrollContent, ScrollerWrap } from './style';
+import {
+	CardRecommendation,
+	RecommendatioCardContent,
+	ScrollContent,
+	ScrollerWrap
+} from './style';
+import { Typography, CardActionArea } from '@material-ui/core';
 import RecommendationCard from './RecommendationCard';
+import { Skeleton } from '@material-ui/lab';
 
-const Scroller = ({ recommendation }) => {
+const Scroller = ({ recommendation, loading }) => {
 	const renderRecommendation = ({ id, backdrop_path, title }, index) => (
 		<RecommendationCard
 			key={`recommendation-${index}`}
@@ -12,9 +19,28 @@ const Scroller = ({ recommendation }) => {
 		/>
 	);
 
+	const skeletonRecommendationMovies = () => {
+		return (
+			<CardRecommendation>
+				<CardActionArea>
+					<Skeleton animation="wave" variant="rect" width={250} height={141} />
+					<RecommendatioCardContent>
+						<Typography>
+							<Skeleton />
+						</Typography>
+					</RecommendatioCardContent>
+				</CardActionArea>
+			</CardRecommendation>
+		);
+	};
+
 	return (
 		<ScrollerWrap>
-			<ScrollContent>{recommendation.map(renderRecommendation)}</ScrollContent>
+			<ScrollContent>
+				{loading
+					? Array(5).fill().map(skeletonRecommendationMovies)
+					: recommendation.map(renderRecommendation)}
+			</ScrollContent>
 		</ScrollerWrap>
 	);
 };

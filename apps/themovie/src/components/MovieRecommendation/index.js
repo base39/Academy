@@ -3,11 +3,11 @@ import { Typography } from '@material-ui/core';
 import { ContainerRecommendation } from './style';
 import Scroller from './Scroller';
 
-const MovieRecommendation = ({ recommendation, movie }) => {
+const MovieRecommendation = ({ recommendation, movie, loading }) => {
 	const hasRecommendation = recommendation.length;
 
-	const renderScroller = recommendation => (
-		<Scroller recommendation={recommendation} />
+	const renderScroller = (recommendation, loading) => (
+		<Scroller recommendation={recommendation} loading={loading} />
 	);
 
 	const renderNoRecommendation = () => {
