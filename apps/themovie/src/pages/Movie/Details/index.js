@@ -36,7 +36,7 @@ const Details = () => {
 					setRecommendation(result);
 				});
 
-			await setLoading(false);
+			setLoading(false);
 		};
 
 		fetchData();
