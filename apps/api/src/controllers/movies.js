@@ -91,5 +91,23 @@ module.exports = () => {
 		}
 	};
 
+	controller.searchMovie = async (req, res) => {
+		const params = req.query;
+
+		try {
+			await axios
+				.get(
+					`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`,
+					{
+						params
+					}
+				)
+				.then(response => res.send(response.data));
+		} catch (error) {
+			// console.log(error.message);
+			return res.send({ 'error': i18n.__('searchNotFound') });
+		}
+	}
+
 	return controller;
 };
