@@ -17,32 +17,29 @@ const Details = () => {
 		setLoading(true);
 
 		const fetchData = async () => {
-
 			await fetch(`${API_URL}/movies/credits/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setMovieCast(result.cast);
 					setMovieCrew(result.crew);
-				})
+				});
 
 			await fetch(`${API_URL}/movies/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setMovie(result);
-				})
+				});
 
 			await fetch(`${API_URL}/movies/recommendation/${id}?language=pt-BR`)
 				.then(res => res.json())
 				.then(result => {
 					setRecommendation(result);
-				})
+				});
 
-			setLoading(false)
-
-		}
+			setLoading(false);
+		};
 
 		fetchData();
-
 	}, [id, API_URL]);
 
 	return (

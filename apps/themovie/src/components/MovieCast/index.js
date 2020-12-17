@@ -6,7 +6,9 @@ import Scroller from './Scroller';
 const MovieCast = ({ cast, loading }) => {
 	const hasCast = cast.length;
 
-	const renderScroller = (cast, loading) => <Scroller cast={cast} loading={loading}/>;
+	const renderScroller = (cast, loading) => (
+		<Scroller cast={cast} loading={loading} />
+	);
 
 	const renderNoCast = () => {
 		return (

@@ -1,16 +1,11 @@
 import React from 'react';
 import { ScrollerWrap, ScrollContent } from './style';
 import CastCard from './CastCard';
-import {
-	CastName,
-	CardCast,
-	CastCardContent
-} from './style';
-import { Typography } from '@material-ui/core'
-import { Skeleton } from '@material-ui/lab'
+import { CastName, CardCast, CastCardContent } from './style';
+import { Typography } from '@material-ui/core';
+import { Skeleton } from '@material-ui/lab';
 
 const Scroller = ({ cast, loading }) => {
-
 	const renderCastCard = ({ name, character, gender, profile_path }, index) => {
 		return (
 			<CastCard
@@ -37,13 +32,15 @@ const Scroller = ({ cast, loading }) => {
 					</Typography>
 				</CastCardContent>
 			</CardCast>
-		)
-	}
+		);
+	};
 
 	return (
 		<ScrollerWrap>
 			<ScrollContent>
-				{loading ? Array(8).fill().map(renderSkeletonCard) : cast.map(renderCastCard)}
+				{loading
+					? Array(8).fill().map(renderSkeletonCard)
+					: cast.map(renderCastCard)}
 			</ScrollContent>
 		</ScrollerWrap>
 	);
