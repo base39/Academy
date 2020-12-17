@@ -12,4 +12,4 @@ export const ButtonBar = styled(Button)`
 
 export const ImgLogo = styled.img`
 	margin-right: 10px;
-`
+`;

@@ -40,7 +40,10 @@ export default function AppBar(props) {
 							<Box display="flex" flexGrow={1}>
 								<NoStyleLink to="/">
 									<ButtonBar>
-										<ImgLogo src="https://i.ibb.co/m47mMrc/themovie.png" alt="logo"></ImgLogo>
+										<ImgLogo
+											src="https://i.ibb.co/m47mMrc/themovie.png"
+											alt="logo"
+										></ImgLogo>
 									</ButtonBar>
 								</NoStyleLink>
 								<ButtonBar

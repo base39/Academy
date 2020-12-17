@@ -53,7 +53,8 @@ function Section() {
 						Para usar os recursos de edição e classificação do TMDb, além de
 						obter recomendações pessoais, você precisará entrar com a sua conta.
 						Caso você ainda não possua uma conta, registrar-se é grátis e
-						simples. <LinkRouterStyled to="/register">Clique aqui</LinkRouterStyled> para
+						simples.{' '}
+						<LinkRouterStyled to="/register">Clique aqui</LinkRouterStyled> para
 						começar.
 					</ParagraphStyled>
 					<ParagraphStyled>
