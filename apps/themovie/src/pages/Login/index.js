@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react'
 import Container from '@material-ui/core/Container';
+import { useNavigate } from 'react-router-dom';
 
 import {
 	TitleStyled,
@@ -12,38 +13,40 @@ import {
 import Button from '../../components/Button/index';
 import TextInput from '../../components/TextInput/index';
 
-const API_URL = process.env.REACT_APP_API_URL;
+function Section() {
+    const API_URL = process.env.REACT_APP_API_URL;
+	const navigate = useNavigate()
 
-export default class Section extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			email: '',
-			password: ''
-		};
-	}
+	const [state, setState] = useState({})
 
-	handleChange = event => {
-		this.setState({ [event.target.name]: event.target.value });
-	};
+    const handleChange = (event) => {
+		const { value, name } = event.target
 
-	handleSubmit = event => {
-		fetch(`${API_URL}/auth/login`, {
+		setState({ ...state, [name]: value })
+    }
+
+    const handleSubmit = (event) => {
+        fetch(`${API_URL}/auth/login`, {
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			method: 'POST',
-			body: JSON.stringify(this.state)
+			body: JSON.stringify(state)
 		}).then(function (response) {
 			console.log(response);
-			return response.json();
+			if (response.status === 200) {
+				navigate("/movie")
+			} else {
+				alert('Usuário ou senhas inválidos!');
+			}
 		});
 		event.preventDefault();
-	};
+		console.log(state);
+    }
 
-	render() {
-		return (
-			<Container disableGutters={true}>
+    return (
+        <>
+            <Container disableGutters={true}>
 				<div>
 					<TitleStyled> Entre com a sua conta </TitleStyled>
 					<ParagraphStyled>
@@ -64,23 +67,32 @@ export default class Section extends Component {
 					<div>
 						<AcessStyled>Nome de Usuário</AcessStyled>
 						<div>
-							<TextInput onChange={this.handleChange} name={'email'} />
+							<TextInput
+								onChange={handleChange} 
+								name={'email'} 
+							/>
 						</div>
 					</div>
 					<div>
 						<AcessStyled>Senha</AcessStyled>
 						<div>
-							<TextInput onChange={this.handleChange} name={'password'} />
+							<TextInput 
+								onChange={handleChange} 
+								name={"password"} 
+								type={"password"}
+							/>
 						</div>
 					</div>
 					<ContainerStyled>
-						<Button onClick={this.handleSubmit} name={'Entrar'} />
+						<Button onClick={handleSubmit} name={'Entrar'} />
 						<LinkRouterStyled to="/reset-password">
 							Resetar a Senha
 						</LinkRouterStyled>
 					</ContainerStyled>
 				</form>
 			</Container>
-		);
-	}
+        </>
+    )
 }
+
+export default Section
