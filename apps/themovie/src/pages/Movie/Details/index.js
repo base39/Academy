@@ -50,7 +50,11 @@ const Details = () => {
 		<>
 			<MovieHeader movie={movie} crew={movieCrew} />
 			<MovieCast cast={movieCast} />
-			<MovieRecomendation movie={movie} recommendation={recommendation} loading={loading}/>
+			<MovieRecomendation
+				movie={movie}
+				recommendation={recommendation}
+				loading={loading}
+			/>
 		</>
 	);
 };
