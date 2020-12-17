@@ -3,6 +3,8 @@ module.exports = app => {
 
 	app.route('/movies').get(controller.listMovies);
 
+	app.route('/movies/search').get(controller.searchMovie);
+
 	app.route('/movies/:id').get(controller.getMovie);
 
 	app.route('/movies/credits/:id').get(controller.getCredits);
