@@ -22,7 +22,7 @@ const MovieRecommendation = ({ recommendation, movie, loading }) => {
 		<ContainerRecommendation>
 			<Typography variant="h6">Recomendações</Typography>
 			{hasRecommendation
-				? renderScroller(recommendation)
+				? renderScroller(recommendation, loading)
 				: renderNoRecommendation()}
 		</ContainerRecommendation>
 	);

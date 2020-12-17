@@ -19,9 +19,9 @@ const Scroller = ({ recommendation, loading }) => {
 		/>
 	);
 
-	const skeletonRecommendationMovies = () => {
+	const skeletonRecommendationMovies = (value, index) => {
 		return (
-			<CardRecommendation>
+			<CardRecommendation key={`card-recommendation-${index}`}>
 				<CardActionArea>
 					<Skeleton animation="wave" variant="rect" width={250} height={141} />
 					<RecommendatioCardContent>
