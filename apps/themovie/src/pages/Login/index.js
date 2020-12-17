@@ -8,19 +8,19 @@ import {
 	AcessStyled,
 	ContainerStyled,
 	LinkStyled,
-	LinkRouterStyled,
+	LinkRouterStyled
 } from './style';
 import Button from '../../components/Button/index';
 import TextInput from '../../components/TextInput/index';
-import ToastAlert from '../../components/Toast/index'
+import ToastAlert from '../../components/Toast/index';
 
 function Section() {
 	const API_URL = process.env.REACT_APP_API_URL;
 	const navigate = useNavigate();
 
 	const [state, setState] = useState({});
-	const [loading, setLoading] = useState()
-	const [alert, setAlert] = useState()
+	const [loading, setLoading] = useState();
+	const [alert, setAlert] = useState();
 
 	const handleChange = event => {
 		const { value, name } = event.target;
@@ -29,7 +29,7 @@ function Section() {
 	};
 
 	const handleSubmit = event => {
-		setLoading(true)
+		setLoading(true);
 		fetch(`${API_URL}/auth/login`, {
 			headers: {
 				'Content-Type': 'application/json'
@@ -41,17 +41,22 @@ function Section() {
 			if (response.status === 200) {
 				navigate('/movie');
 			} else {
-				setAlert(true)
-				setLoading(false)
+				setAlert(true);
+				setLoading(false);
 			}
-				
 		});
 		event.preventDefault();
 	};
 
-	const msgAlert = alert ? 
-		<ToastAlert variant={"filled"} severity={"error"} msg={"Usuário ou senhas inválidos!"} />	:
+	const msgAlert = alert ? (
+		<ToastAlert
+			variant={'filled'}
+			severity={'error'}
+			msg={'Usuário ou senhas inválidos!'}
+		/>
+	) : (
 		' '
+	);
 
 	return (
 		<>
@@ -89,7 +94,7 @@ function Section() {
 							/>
 						</div>
 					</div>
-						{msgAlert}
+					{msgAlert}
 					<ContainerStyled>
 						<Button onClick={handleSubmit} name={'Entrar'} disabled={loading} />
 						<LinkRouterStyled to="/reset-password">
