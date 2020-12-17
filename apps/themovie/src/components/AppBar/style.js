@@ -9,3 +9,7 @@ export const ButtonBar = styled(Button)`
 	text-transform: none;
 	font-size: 0.925rem;
 `;
+
+export const ImgLogo = styled.img`
+	margin-right: 10px;
+`

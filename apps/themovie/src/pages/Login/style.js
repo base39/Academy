@@ -35,7 +35,6 @@ export const LinkStyled = styled.a`
 	cursor: pointer;
 	font-size: 1em;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
-	vertical-align: middle;
 	&:hover {
 		text-decoration: underline;
 	}
@@ -46,10 +45,11 @@ export const LinkRouterStyled = styled(Link)`
 	cursor: pointer;
 	font-size: 1em;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
-	vertical-align: middle;
 	text-decoration: none;
-	margin-left: 10px;
 	&:hover {
 		text-decoration: underline;
+	}
+	&:nth-child(2) {
+		margin-left: 10px;
 	}
 `;
