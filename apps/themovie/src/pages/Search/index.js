@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchCard from '../../components/MovieCard/SearchCard';
-import { PaginationStyled } from './style'
+import { PaginationStyled } from './style';
 
 const Search = () => {
 	const API_URL = process.env.REACT_APP_API_URL;
@@ -51,11 +51,13 @@ const Search = () => {
 
 	return (
 		<>
-      {console.log(loading)}
+			{console.log(loading)}
 			{search?.results?.map(renderSearch)}
-			<PaginationStyled count={search?.total_pages} onChange={changePage} classes={{ ul: "alignclass" }}>
-			</PaginationStyled>
-
+			<PaginationStyled
+				count={search?.total_pages}
+				onChange={changePage}
+				classes={{ ul: 'alignclass' }}
+			></PaginationStyled>
 		</>
 	);
 };

@@ -268,8 +268,8 @@ export const BoxOverview = styled(Box)`
 
 export const Overview = styled(Typography)`
 	overflow: hidden;
-    text-overflow: ellipsis;
+	text-overflow: ellipsis;
 	-webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
 `;
