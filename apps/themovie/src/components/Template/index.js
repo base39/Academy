@@ -1,26 +1,21 @@
-import React from 'react'
-import AppBar from '../AppBar/index'
-import Footer from '../Footer/index'
+import React from 'react';
+import AppBar from '../AppBar/index';
+import Footer from '../Footer/index';
 
-import {
-    PageContent,
-    PageFooter,
-    PageContainer
-} from './style'
+import { PageContent, PageFooter, PageContainer } from './style';
 
 function Template(props) {
-
-    return(
-            <PageContainer>
-                <PageContent>
-                    <AppBar />
-                        {props.children}
-                </PageContent>    
-                <PageFooter>
-                    <Footer />
-                </PageFooter>          
-            </PageContainer>
-    )
+	return (
+		<PageContainer>
+			<PageContent>
+				<AppBar />
+				{props.children}
+			</PageContent>
+			<PageFooter>
+				<Footer />
+			</PageFooter>
+		</PageContainer>
+	);
 }
 
-export default Template
+export default Template;

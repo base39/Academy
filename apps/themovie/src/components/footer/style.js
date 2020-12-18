@@ -33,15 +33,14 @@ export const BannerContent = styled.div`
 	margin-right: 40px;
 	top: -36px;
 	right: 0;
-    flex-direction: row-reverse; 
+	flex-direction: row-reverse;
 `;
 
 export const ImgStyled = styled.img`
-
 	width: 130px;
 	height: 94px;
 	position: absolute;
-    left: 110px;
+	left: 110px;
 `;
 
 export const LinkBanner = styled(Link)`

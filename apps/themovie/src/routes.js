@@ -8,7 +8,7 @@ import ResetPassword from './pages/Password/index';
 import Register from './pages/Register/index';
 import Section from './pages/Login/index';
 import Search from './pages/Search/index';
-import Template from './components/Template/index'
+import Template from './components/Template/index';
 
 const MainRoutes = () => {
 	return (

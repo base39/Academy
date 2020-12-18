@@ -96,4 +96,4 @@ export const LoadMoreStyled = styled(Button)`
 
 export const FilterContent = styled.div`
 	margin-right: 30px;
-`
+`;
