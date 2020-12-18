@@ -25,7 +25,8 @@ module.exports = () => {
 
 			return res.json({
 				'auth': true,
-				token
+				token,
+				'success': true
 			});
 		});
 	};

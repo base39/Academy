@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchCard from '../../components/MovieCard/SearchCard';
-import { Pagination } from '@material-ui/lab';
 import SkeletonSearch from '../../components/MovieCard/SkeletonSearch';
 import { PaginationStyled } from './style';
 
