@@ -10,7 +10,8 @@ import {
 	Panel,
 	Results,
 	PageContainer,
-	LoadMoreStyled
+	LoadMoreStyled,
+	FilterContent
 } from './style';
 
 import renderMoviesCard from '../../components/MovieCard/renderMoviesCard';
@@ -93,9 +94,9 @@ export default class Movie extends Component {
 							<TitleH2>Filmes Populares</TitleH2>
 						</TitleMovieDiv>
 						<Content>
-							<div>
+							<FilterContent>
 								<SidebarFilter onFilter={this.onFilter} />
-							</div>
+							</FilterContent>
 							<div>
 								<ColumnDiv>
 									<Panel>

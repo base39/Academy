@@ -11,6 +11,7 @@ export const SectionStyled = styled.section`
 	box-sizing: border-box;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
 	font-size: 1em;
+	margin-bottom: 40px;
 `;
 
 export const SectionWrapper = styled.div`

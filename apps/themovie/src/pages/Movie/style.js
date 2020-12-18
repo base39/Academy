@@ -76,7 +76,6 @@ export const PageContainer = styled.div`
 
 export const LoadMoreStyled = styled(Button)`
 	margin-top: 30px;
-	margin-left: 30px;
 	background-color: #01b4e4;
 	border: none;
 	width: 97%;
@@ -92,4 +91,8 @@ export const LoadMoreStyled = styled(Button)`
 		color: #0a1526;
 		background-color: #01b4e4;
 	}
+`;
+
+export const FilterContent = styled.div`
+	margin-right: 30px;
 `;

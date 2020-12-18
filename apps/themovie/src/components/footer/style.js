@@ -27,18 +27,20 @@ export const NavStyled = styled.nav`
 `;
 
 export const BannerContent = styled.div`
+	display: block;
 	text-align: right;
 	position: relative;
 	margin-right: 40px;
 	top: -36px;
 	right: 0;
+	flex-direction: row-reverse;
 `;
 
 export const ImgStyled = styled.img`
 	width: 130px;
 	height: 94px;
-	display: block;
 	position: absolute;
+	left: 110px;
 `;
 
 export const LinkBanner = styled(Link)`
