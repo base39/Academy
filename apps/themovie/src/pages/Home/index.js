@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Section from '../../components/Section/Section';
 import { useNavigate } from 'react-router-dom';
 
+import { Container } from '@material-ui/core';
 import {
 	SearchInput,
 	SearchButton,
@@ -11,7 +11,7 @@ import {
 	BoxSearch,
 	BannerContent
 } from './style';
-import { Container } from '@material-ui/core';
+import Section from '../../components/Section/Section';
 
 const Home = () => {
 	const [search, setSearch] = useState('');
