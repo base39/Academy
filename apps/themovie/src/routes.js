@@ -13,16 +13,16 @@ import AppBar from './components/AppBar';
 const MainRoutes = () => {
 	return (
 		<AppBar>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/login" element={<Section />} />
-					<Route path="/search" element={<Search />} />
-					<Route path="/reset-password" element={<ResetPassword />} />
-					<Route path="/register" element={<Register />} />
-					<Route path="/movie" element={<Movie />} />
-					<Route path="/movie/:id" element={<Details />} />
-					<Route path="*" element={<h1>Not Found!</h1>} />
-				</Routes>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/login" element={<Section />} />
+				<Route path="/search" element={<Search />} />
+				<Route path="/reset-password" element={<ResetPassword />} />
+				<Route path="/register" element={<Register />} />
+				<Route path="/movie" element={<Movie />} />
+				<Route path="/movie/:id" element={<Details />} />
+				<Route path="*" element={<h1>Not Found!</h1>} />
+			</Routes>
 		</AppBar>
 	);
 };

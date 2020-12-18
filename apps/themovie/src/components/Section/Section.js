@@ -56,7 +56,7 @@ const Section = () => {
 	const SkeletonCard = (value, index) => {
 		return (
 			<>
-				<CardStyle  key={`skeleton-${index}`}>
+				<CardStyle key={`skeleton-${index}`}>
 					<ImageContent>
 						<Skeleton width={150} height={380} style={{ marginTop: -95 }} />
 					</ImageContent>
