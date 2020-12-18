@@ -21,6 +21,7 @@ function Section() {
 	const [state, setState] = useState({});
 	const [loading, setLoading] = useState();
 	const [alert, setAlert] = useState();
+	const [errorMessage, setErrorMessage] = useState('');
 
 	const handleChange = event => {
 		const { value, name } = event.target;
@@ -36,24 +37,23 @@ function Section() {
 			},
 			method: 'POST',
 			body: JSON.stringify(state)
-		}).then(function (response) {
-			console.log(response);
-			if (response.status === 200) {
-				navigate('/movie');
-			} else {
-				setAlert(true);
-				setLoading(false);
-			}
-		});
+		})
+			.then(res => res.json())
+			.then(function (response) {
+				console.log(response);
+				if (response.success) {
+					navigate('/movie');
+				} else {
+					setAlert(true);
+					setLoading(false);
+					setErrorMessage(response.error);
+				}
+			});
 		event.preventDefault();
 	};
 
 	const msgAlert = alert ? (
-		<ToastAlert
-			variant={'filled'}
-			severity={'error'}
-			msg={'Usuário ou senhas inválidos!'}
-		/>
+		<ToastAlert variant={'filled'} severity={'error'} msg={errorMessage} />
 	) : (
 		' '
 	);

@@ -26,7 +26,8 @@ export default class Register extends Component {
 			email: '',
 			loading: false,
 			alertOk: '',
-			alertError: ''
+			alertError: '',
+			errorMessage: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -90,21 +91,26 @@ export default class Register extends Component {
 					'Content-Type': 'application/json'
 				},
 				method: 'POST',
+				dataType: 'json',
 				body: JSON.stringify(this.state)
-			}).then(function (response) {
-				console.log(response);
-				if (response.status === 200) {
-					currentComponent.setState({
-						...currentComponent.state,
-						alertOk: true
-					});
-				} else {
-					currentComponent.setState({
-						...currentComponent.state,
-						alertError: true
-					});
-				}
-			});
+			})
+				.then(res => res.json())
+				.then(function (response) {
+					if (response.success) {
+						currentComponent.setState({
+							...currentComponent.state,
+							alertOk: true,
+							alertError: false
+						});
+					} else {
+						currentComponent.setState({
+							...currentComponent.state,
+							alertError: true,
+							alertOk: false,
+							errorMessage: response.error
+						});
+					}
+				});
 			this.setState({
 				...this.state,
 				name: '',
@@ -134,7 +140,7 @@ export default class Register extends Component {
 			<ToastAlert
 				variant={'filled'}
 				severity={'error'}
-				msg={'Houve um erro ao cadastrar o usuário!'}
+				msg={this.state.errorMessage}
 			/>
 		) : (
 			''
