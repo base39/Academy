@@ -58,10 +58,10 @@ const Search = () => {
 			<>
 				{search?.results?.map(renderSearchCard)}
 				<PaginationStyled
-				count={search?.total_pages}
-				onChange={changePage}
-				classes={{ ul: 'alignclass' }}
-			  ></PaginationStyled>
+					count={search?.total_pages}
+					onChange={changePage}
+					classes={{ ul: 'alignclass' }}
+				></PaginationStyled>
 			</>
 		);
 	};
