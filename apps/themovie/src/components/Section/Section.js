@@ -53,10 +53,10 @@ const Section = () => {
 		state ? setState(false) : setState(true);
 	};
 
-	const SkeletonCard = () => {
+	const SkeletonCard = (value, index) => {
 		return (
 			<>
-				<CardStyle>
+				<CardStyle key={`skeleton-${index}`}>
 					<ImageContent>
 						<Skeleton width={150} height={380} style={{ marginTop: -95 }} />
 					</ImageContent>

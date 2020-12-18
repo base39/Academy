@@ -14,7 +14,7 @@ export const CardStyle = styled.div`
 	height: ${props => props.height};
 	max-width: 208px;
 	min-width: 150px;
-	margin-left: 30px;
+	margin-right: 30px;
 	margin-top: 30px;
 	position: relative;
 	left: 0;

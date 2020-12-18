@@ -11,6 +11,7 @@ import {
 	MenuItem
 } from '@material-ui/core';
 import { NoStyleLink } from '../Link';
+import Footer from '../footer/index';
 
 function HideOnScroll(props) {
 	const { children } = props;
@@ -92,6 +93,7 @@ export default function AppBar(props) {
 			</HideOnScroll>
 			<Toolbar />
 			{props.children}
+			<Footer />
 		</>
 	);
 }
