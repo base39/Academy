@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from '../../components/Section/Section';
+import { useNavigate } from 'react-router-dom';
 
 import {
 	SearchInput,
@@ -13,6 +14,20 @@ import {
 import { Container } from '@material-ui/core';
 
 const Home = () => {
+	const [search, setSearch] = useState('');
+	const navigate = useNavigate();
+
+	const handleSearch = (e) => {
+		e.preventDefault();
+		if(search.length)
+			navigate(`/search?query=${search}`)
+	}
+	
+	const handleChange = (event) => {
+		const { value } = event.target;
+		setSearch(value);
+	}
+
 	return (
 		<>
 			<Container disableGutters={true}>
@@ -22,17 +37,20 @@ const Home = () => {
 							<CustomTitle>
 								<span className="title">Bem-Vindo(a).</span> <br />
 								<span className="subtitle">
-									Milhões de Filmes, Séries e Pessoas para Descobrir. Explore
+									Milhões de Filmes para Descobrir. Explore
 									já.
 								</span>
 							</CustomTitle>
 						</BoxTitle>
 						<BoxSearch>
-							<SearchInput
-								id="search-input"
-								placeholder="Buscar por um Filme, Série ou Pessoa..."
-								endAdornment={<SearchButton>Search</SearchButton>}
-							/>
+							<form onSubmit={handleSearch}>
+								<SearchInput
+									id="search-input"
+									placeholder="Buscar por um Filme..."
+									onChange={handleChange}
+									endAdornment={<SearchButton onClick={handleSearch}>Search</SearchButton>}
+								/>
+							</form>
 						</BoxSearch>
 					</BannerContent>
 				</SectionBanner>
