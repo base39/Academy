@@ -91,6 +91,6 @@ export default function AppBar(props) {
 				</CustomAppBar>
 			</HideOnScroll>
 			<Toolbar />
-		</>		
-	)
+		</>
+	);
 }
