@@ -93,3 +93,7 @@ export const LoadMoreStyled = styled(Button)`
 		background-color: #01b4e4;
 	}
 `;
+
+export const FilterContent = styled.div`
+	margin-right: 30px;
+`

@@ -8,11 +8,11 @@ import ResetPassword from './pages/Password/index';
 import Register from './pages/Register/index';
 import Section from './pages/Login/index';
 import Search from './pages/Search/index';
-import AppBar from './components/AppBar';
+import Template from './components/Template/index'
 
 const MainRoutes = () => {
 	return (
-		<AppBar>
+		<Template>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Section />} />
@@ -23,7 +23,7 @@ const MainRoutes = () => {
 				<Route path="/movie/:id" element={<Details />} />
 				<Route path="*" element={<h1>Not Found!</h1>} />
 			</Routes>
-		</AppBar>
+		</Template>
 	);
 };
 
