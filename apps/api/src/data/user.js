@@ -12,7 +12,8 @@ const mongoose = require('mongoose'),
 		},
 		'password': {
 			'type': String,
-			'required': true
+			'required': true,
+			'minlength': 4
 		},
 		'passwordResetToken': {
 			'type': String
