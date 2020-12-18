@@ -91,26 +91,26 @@ export default class Register extends Component {
 					'Content-Type': 'application/json'
 				},
 				method: 'POST',
-				dataType: "json",
+				dataType: 'json',
 				body: JSON.stringify(this.state)
 			})
-			.then(res => res.json())
-			.then(function (response) {
-				if (response.success) {
-					currentComponent.setState({
-						...currentComponent.state,
-						alertOk: true,
-						alertError: false
-					});
-				} else {
-					currentComponent.setState({
-						...currentComponent.state,
-						alertError: true,
-						alertOk: false,
-						errorMessage: response.error
-					});
-				}
-			});
+				.then(res => res.json())
+				.then(function (response) {
+					if (response.success) {
+						currentComponent.setState({
+							...currentComponent.state,
+							alertOk: true,
+							alertError: false
+						});
+					} else {
+						currentComponent.setState({
+							...currentComponent.state,
+							alertError: true,
+							alertOk: false,
+							errorMessage: response.error
+						});
+					}
+				});
 			this.setState({
 				...this.state,
 				name: '',

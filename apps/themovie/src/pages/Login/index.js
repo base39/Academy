@@ -38,26 +38,22 @@ function Section() {
 			method: 'POST',
 			body: JSON.stringify(state)
 		})
-		.then(res => res.json())
-		.then(function (response) {
-			console.log(response);
-			if (response.success) {
-				navigate('/movie');
-			} else {
-				setAlert(true);
-				setLoading(false);
-				setErrorMessage(response.error);
-			}
-		});
+			.then(res => res.json())
+			.then(function (response) {
+				console.log(response);
+				if (response.success) {
+					navigate('/movie');
+				} else {
+					setAlert(true);
+					setLoading(false);
+					setErrorMessage(response.error);
+				}
+			});
 		event.preventDefault();
 	};
 
 	const msgAlert = alert ? (
-		<ToastAlert
-			variant={'filled'}
-			severity={'error'}
-			msg={errorMessage}
-		/>
+		<ToastAlert variant={'filled'} severity={'error'} msg={errorMessage} />
 	) : (
 		' '
 	);
