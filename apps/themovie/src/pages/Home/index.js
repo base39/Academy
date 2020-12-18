@@ -17,16 +17,15 @@ const Home = () => {
 	const [search, setSearch] = useState('');
 	const navigate = useNavigate();
 
-	const handleSearch = (e) => {
+	const handleSearch = e => {
 		e.preventDefault();
-		if(search.length)
-			navigate(`/search?query=${search}`)
-	}
-	
-	const handleChange = (event) => {
+		if (search.length) navigate(`/search?query=${search}`);
+	};
+
+	const handleChange = event => {
 		const { value } = event.target;
 		setSearch(value);
-	}
+	};
 
 	return (
 		<>
@@ -37,8 +36,7 @@ const Home = () => {
 							<CustomTitle>
 								<span className="title">Bem-Vindo(a).</span> <br />
 								<span className="subtitle">
-									Milhões de Filmes para Descobrir. Explore
-									já.
+									Milhões de Filmes para Descobrir. Explore já.
 								</span>
 							</CustomTitle>
 						</BoxTitle>
@@ -48,7 +46,9 @@ const Home = () => {
 									id="search-input"
 									placeholder="Buscar por um Filme..."
 									onChange={handleChange}
-									endAdornment={<SearchButton onClick={handleSearch}>Search</SearchButton>}
+									endAdornment={
+										<SearchButton onClick={handleSearch}>Search</SearchButton>
+									}
 								/>
 							</form>
 						</BoxSearch>

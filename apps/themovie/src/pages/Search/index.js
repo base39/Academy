@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import SearchCard from '../../components/MovieCard/SearchCard';
 import { Pagination } from '@material-ui/lab';
-import SkeletonSearch from '../../components/MovieCard/SkeletonSearch'
+import SkeletonSearch from '../../components/MovieCard/SkeletonSearch';
 
 const Search = () => {
 	const API_URL = process.env.REACT_APP_API_URL;
 	const [loading, setLoading] = useState(true);
 	const [page, setPage] = useState(1);
 	const [search, setSearch] = useState([{}]);
-	
+
 	const renderSearchCard = (
 		{ poster_path, title, release_date, overview, id },
 		index
@@ -56,17 +56,21 @@ const Search = () => {
 		return (
 			<>
 				{search?.results?.map(renderSearchCard)}
-				<Pagination count={search?.total_pages} onChange={changePage} page={page} />
+				<Pagination
+					count={search?.total_pages}
+					onChange={changePage}
+					page={page}
+				/>
 			</>
-		)
-	}
-	
-	const renderSkeletonCard = (value, index) => <SkeletonSearch key={`skeleton-${index}`} />
-	
+		);
+	};
+
+	const renderSkeletonCard = (value, index) => (
+		<SkeletonSearch key={`skeleton-${index}`} />
+	);
+
 	return (
-		<>
-      {loading ? Array(8).fill().map(renderSkeletonCard) : renderSearch()}
-		</>
+		<>{loading ? Array(8).fill().map(renderSkeletonCard) : renderSearch()}</>
 	);
 };
 
