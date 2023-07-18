@@ -14,7 +14,7 @@
 		"i18n": "^0.13.2",
 		"jsonwebtoken": "^8.5.1",
 		"mongodb": "^3.6.3",
-		"mongoose": "^5.10.15",
+		"mongoose": "^5.13.20",
 		"nodemailer": "^6.4.16",
 		"nodemailer-express-handlebars": "^4.0.0"
 	},
